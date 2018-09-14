@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15, 21" name="Paradise">
+  <DataContextMoniker Name="/ParadiseDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b328d2a1-b10d-4ae9-b027-def7ddc84451" absoluteBounds="0.75, 0.75, 2, 6.3861311848958326">
+      <DataClassMoniker Name="/ParadiseDataContext/HABITACION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ef854dd-ccc2-4589-a233-c098e9c1a2a6" absoluteBounds="0.76499999999999968, 1.21, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c14177a-d481-46d0-a5ec-dffd69ccd9ba" absoluteBounds="3.75, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ParadiseDataContext/CATHAB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7793af95-fde1-463a-8dab-433d9ddd975a" absoluteBounds="3.7649999999999997, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="32c7613a-a904-41b4-bbdc-15f8a8998333" absoluteBounds="3.75, 3.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/ParadiseDataContext/ALMANA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="af43c078-6e8a-4293-af6b-5037e720bf4a" absoluteBounds="3.7649999999999997, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d07d46e1-883a-4cec-b936-41850e281175" absoluteBounds="6.75, 0.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/ParadiseDataContext/LIMPIEZAHABITACION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ea953c2-5f79-4a0e-b031-b76ed05e4ecf" absoluteBounds="6.765, 1.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="56f0a6d1-e901-4947-862f-f02228c3611f" absoluteBounds="3.75, 6.75, 2, 13.693585611979167">
+      <DataClassMoniker Name="/ParadiseDataContext/PASAJEROS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6fe28ae7-c769-49ce-bf16-c4b3f99393b5" absoluteBounds="3.7649999999999997, 7.21, 1.9700000000000002, 13.133585611979166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="addc5dc7-cdd3-4502-b1b6-0541d65bbadc" absoluteBounds="6.75, 4.75, 2, 16.001202799479167">
+      <DataClassMoniker Name="/ParadiseDataContext/RESERVA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9eada87-66de-486b-b466-10f9f8b6d7fd" absoluteBounds="6.765, 5.21, 1.9700000000000002, 15.441202799479166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e45a954a-cacf-4a4a-8a17-ec4a7279602f" absoluteBounds="9.75, 0.75, 2, 4.2708154296874987">
+      <DataClassMoniker Name="/ParadiseDataContext/RESERVAHISTORIA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="190530a9-8e97-4d68-8a7f-9e79454d049d" absoluteBounds="9.765, 1.21, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="65192419-b5c9-4b84-81a9-db4d23642d49" absoluteBounds="9.75, 6.75, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/ParadiseDataContext/RESERVAMUCAMA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0af9ce52-7982-4c21-9093-65a248be86e0" absoluteBounds="9.765, 7.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6eaf338-e56f-478a-b2e3-00ebadaefb0d" absoluteBounds="9.75, 11.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/ParadiseDataContext/RESOBSERVA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a9310e26-7224-43be-abe4-6b91139d438a" absoluteBounds="9.765, 12.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="745d42a8-4c2d-42a6-acbe-ad3af67b2a14" absoluteBounds="12.75, 0.75, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/ParadiseDataContext/RESSENIA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84c9e8a8-53aa-46fb-9bc8-e62a179ef4f4" absoluteBounds="12.765, 1.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e707d5ad-72b0-44ec-ba7d-c85ef8f4d432" absoluteBounds="12.75, 5.75, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/ParadiseDataContext/RESOCUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f9ac9d88-53bb-42ed-8373-504c60f07de1" absoluteBounds="12.765, 6.2100000000000009, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0074ffc6-4a95-426b-8b66-153b91363469" absoluteBounds="12.75, 9.75, 2, 2.9247054036458344">
+      <DataClassMoniker Name="/ParadiseDataContext/ROOMING" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d6f18a39-7355-4ca6-b7de-5823a816766d" absoluteBounds="12.765, 10.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7335e718-76e2-43d6-86d9-da534ebf1779" absoluteBounds="12.75, 13.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ParadiseDataContext/TIPHAB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c1c96ee7-b1eb-48ac-aba1-bb3a6207a231" absoluteBounds="12.765, 14.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
