@@ -232,7 +232,7 @@ function SetViewPort(store){
                 IsSmall: false,
                 IsMedium: false,
                 IsLarge: false,
-                IsXlarge: false,
+                IsXlarge: true,
                 Xsmall: false,
                 Small: false,
                 Medium: false,

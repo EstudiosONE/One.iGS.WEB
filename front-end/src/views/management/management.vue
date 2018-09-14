@@ -35,83 +35,84 @@
   </md-app>
 </template>
 
-<script>
-  export default {
-    name: 'Flexible',
-    data: () => ({
-      menuVisible: false,
-      params: "",
-      winWidth: window.innerWidth,
-      menu: {
-        modules: [
-          {
-              icon: 'home',
-              label: 'Home',
-              to: '/management/home'
-          },
-          {
-              icon: 'hotel',
-              label: 'Hotel',
-              to: '/management/hotel'
-          },
-          {
-              icon: 'restaurant_menu',
-              label: 'Restaurant',
-              to: '/management/restaurant'
-          },
-          {
-              icon: 'local_mall',
-              label: 'Market',
-              to: '/management/market'
-          },
+<script lang="ts">
+    export default {
+        name: 'Flexible',
+        data: () => ({
+            menuVisible: false,
+            params: '',
+            winWidth: window.innerWidth,
+            menu: {
+                modules: [{
+                        icon: 'home',
+                        label: 'Home',
+                        to: '/management/home',
+                    },
                     {
-              icon: 'cloud_queue',
-              label: 'Web',
-              to: '/management/web'
-          },
-          {
-              icon: 'settings',
-              label: 'Panel de control',
-              to: '/management/control-panel'
-          },
-        ],
-      }
-    }),
-    mounted() {
-      this.params = this.$route.params;
-      window.addEventListener('resize', () => {
-        this.winWidth = window.innerWidth
-      });
-    },
-    updated() {
-      this.params = this.$route.params
-    },
-    computed: {
-      isPortal: function(){
-        if(this.params.view){
-          if(this.params.view === 'portal'){
-            return true;
-          }
-          else return false;
-        }
-        else return false;
-      },
-      isManagement: function(){
-        if(this.params.view){
-          if(this.params.view === 'management'){
-            return true;
-          }
-          else return false;
-        }
-        else return false;
-      },
-      breakPoint: function(){
-          if( this.winWidth < 600) return 'xsmsall'
-          else if( this.winWidth <= 960) return 'small'
-          else if( this.winWidth <= 1280) return 'medium'
-          else if( this.winWidth <= 1920) return 'xlarge'
-          else return 'xlarge'
-      }
-    },
-  };
+                        icon: 'hotel',
+                        label: 'Hotel',
+                        to: '/management/hotel',
+                    },
+                    {
+                        icon: 'restaurant_menu',
+                        label: 'Restaurant',
+                        to: '/management/restaurant',
+                    },
+                    {
+                        icon: 'local_mall',
+                        label: 'Market',
+                        to: '/management/market',
+                    },
+                    {
+                        icon: 'cloud_queue',
+                        label: 'Web',
+                        to: '/management/web',
+                    },
+                    {
+                        icon: 'settings',
+                        label: 'Panel de control',
+                        to: '/management/control-panel',
+                    },
+                ],
+            },
+        }),
+        mounted() {
+            this.params = this.$route.params
+            window.addEventListener('resize', () => {
+                this.winWidth = window.innerWidth
+            })
+        },
+        updated() {
+            this.params = this.$route.params
+        },
+        computed: {
+            isPortal() {
+                if (this.params.view) {
+                    if (this.params.view === 'portal') {
+                        return true
+                    } else { return false }
+                } else { return false }
+            },
+            isManagement() {
+                if (this.params.view) {
+                    if (this.params.view === 'management') {
+                        return true
+                    } else { return false }
+                } else { return false }
+            },
+            breakPoint() {
+                if (this.winWidth < 600) {
+                    return 'xsmsall'
+                } else if (this.winWidth <= 960) {
+                    return 'small'
+                } else if (this.winWidth <= 1280) {
+                    return 'medium'
+                } else if (this.winWidth <= 1920) {
+                    return 'xlarge'
+                } else {
+                    return 'xlarge'
+                }
+            },
+        },
+    }
 </script>

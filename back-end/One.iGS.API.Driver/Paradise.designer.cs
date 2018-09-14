@@ -30,49 +30,19 @@ namespace One.iGS.API.Driver
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
-    partial void InsertHABITACION(HABITACION instance);
-    partial void UpdateHABITACION(HABITACION instance);
-    partial void DeleteHABITACION(HABITACION instance);
-    partial void InsertCATHAB(CATHAB instance);
-    partial void UpdateCATHAB(CATHAB instance);
-    partial void DeleteCATHAB(CATHAB instance);
-    partial void InsertALMANA(ALMANA instance);
-    partial void UpdateALMANA(ALMANA instance);
-    partial void DeleteALMANA(ALMANA instance);
-    partial void InsertLIMPIEZAHABITACION(LIMPIEZAHABITACION instance);
-    partial void UpdateLIMPIEZAHABITACION(LIMPIEZAHABITACION instance);
-    partial void DeleteLIMPIEZAHABITACION(LIMPIEZAHABITACION instance);
-    partial void InsertPASAJEROS(PASAJEROS instance);
-    partial void UpdatePASAJEROS(PASAJEROS instance);
-    partial void DeletePASAJEROS(PASAJEROS instance);
     partial void InsertRESERVA(RESERVA instance);
     partial void UpdateRESERVA(RESERVA instance);
     partial void DeleteRESERVA(RESERVA instance);
-    partial void InsertRESERVAHISTORIA(RESERVAHISTORIA instance);
-    partial void UpdateRESERVAHISTORIA(RESERVAHISTORIA instance);
-    partial void DeleteRESERVAHISTORIA(RESERVAHISTORIA instance);
-    partial void InsertRESERVAMUCAMA(RESERVAMUCAMA instance);
-    partial void UpdateRESERVAMUCAMA(RESERVAMUCAMA instance);
-    partial void DeleteRESERVAMUCAMA(RESERVAMUCAMA instance);
-    partial void InsertRESOBSERVA(RESOBSERVA instance);
-    partial void UpdateRESOBSERVA(RESOBSERVA instance);
-    partial void DeleteRESOBSERVA(RESOBSERVA instance);
-    partial void InsertRESSENIA(RESSENIA instance);
-    partial void UpdateRESSENIA(RESSENIA instance);
-    partial void DeleteRESSENIA(RESSENIA instance);
-    partial void InsertRESOCUP(RESOCUP instance);
-    partial void UpdateRESOCUP(RESOCUP instance);
-    partial void DeleteRESOCUP(RESOCUP instance);
-    partial void InsertROOMING(ROOMING instance);
-    partial void UpdateROOMING(ROOMING instance);
-    partial void DeleteROOMING(ROOMING instance);
-    partial void InsertTIPHAB(TIPHAB instance);
-    partial void UpdateTIPHAB(TIPHAB instance);
-    partial void DeleteTIPHAB(TIPHAB instance);
+    partial void InsertPASAJEROS(PASAJEROS instance);
+    partial void UpdatePASAJEROS(PASAJEROS instance);
+    partial void DeletePASAJEROS(PASAJEROS instance);
+    partial void InsertHABITACION(HABITACION instance);
+    partial void UpdateHABITACION(HABITACION instance);
+    partial void DeleteHABITACION(HABITACION instance);
     #endregion
 		
 		public ParadiseDataContext() : 
-				base(global::One.iGS.API.Driver.Properties.Settings.Default.ParadiseConnectionString, mappingSource)
+				base(global::One.iGS.API.Driver.Properties.Settings.Default.ParadiseConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -101,35 +71,11 @@ namespace One.iGS.API.Driver
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<HABITACION> HABITACION
+		public System.Data.Linq.Table<RESERVA> RESERVA
 		{
 			get
 			{
-				return this.GetTable<HABITACION>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CATHAB> CATHAB
-		{
-			get
-			{
-				return this.GetTable<CATHAB>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ALMANA> ALMANA
-		{
-			get
-			{
-				return this.GetTable<ALMANA>();
-			}
-		}
-		
-		public System.Data.Linq.Table<LIMPIEZAHABITACION> LIMPIEZAHABITACION
-		{
-			get
-			{
-				return this.GetTable<LIMPIEZAHABITACION>();
+				return this.GetTable<RESERVA>();
 			}
 		}
 		
@@ -141,3041 +87,11 @@ namespace One.iGS.API.Driver
 			}
 		}
 		
-		public System.Data.Linq.Table<RESERVA> RESERVA
+		public System.Data.Linq.Table<HABITACION> HABITACION
 		{
 			get
 			{
-				return this.GetTable<RESERVA>();
-			}
-		}
-		
-		public System.Data.Linq.Table<RESERVAHISTORIA> RESERVAHISTORIA
-		{
-			get
-			{
-				return this.GetTable<RESERVAHISTORIA>();
-			}
-		}
-		
-		public System.Data.Linq.Table<RESERVAMUCAMA> RESERVAMUCAMA
-		{
-			get
-			{
-				return this.GetTable<RESERVAMUCAMA>();
-			}
-		}
-		
-		public System.Data.Linq.Table<RESOBSERVA> RESOBSERVA
-		{
-			get
-			{
-				return this.GetTable<RESOBSERVA>();
-			}
-		}
-		
-		public System.Data.Linq.Table<RESSENIA> RESSENIA
-		{
-			get
-			{
-				return this.GetTable<RESSENIA>();
-			}
-		}
-		
-		public System.Data.Linq.Table<RESOCUP> RESOCUP
-		{
-			get
-			{
-				return this.GetTable<RESOCUP>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ROOMING> ROOMING
-		{
-			get
-			{
-				return this.GetTable<ROOMING>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TIPHAB> TIPHAB
-		{
-			get
-			{
-				return this.GetTable<TIPHAB>();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HABITACION")]
-	public partial class HABITACION : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private short _HabNum;
-		
-		private string _HabNom;
-		
-		private string _HabTipo;
-		
-		private string _HabObs;
-		
-		private System.Nullable<short> _HabPiso;
-		
-		private System.Nullable<short> _HabCamMat;
-		
-		private System.Nullable<short> _HabCamSin;
-		
-		private string _HabCat;
-		
-		private System.Nullable<int> _HabIntTel;
-		
-		private string _HabTarifa;
-		
-		private System.Nullable<short> _HabNoDisp;
-		
-		private string _HabNoDpNombre;
-		
-		private System.Nullable<char> _HabEstado;
-		
-		private System.Nullable<short> _HabLinea;
-		
-		private System.Nullable<short> _HabSector;
-		
-		private string _HabEnLimpiezaUsuId;
-		
-		private System.Nullable<System.DateTime> _HabEnLimpiezaFecha;
-		
-		private string _HabUltimaLimpiezaHora;
-		
-		private string _HabEnLimpiezaHora;
-		
-		private System.Nullable<System.DateTime> _HabUltimaLimpiezaFecha;
-		
-		private System.Nullable<char> _HabEnLimpezaCtrlFrigobar;
-		
-		private System.Nullable<System.DateTime> _HabBloqueadaDesde;
-		
-		private System.Nullable<System.DateTime> _HabBloqueadaHasta;
-		
-		private string _HabBloqueadaObs;
-		
-		private System.Nullable<System.DateTime> _HabProximaEntrada;
-		
-		private System.Nullable<System.DateTime> _HabProximaSalida;
-		
-		private System.Nullable<int> _HabProximaReserva;
-		
-		private string _HabProximaEntradaHora;
-		
-		private System.Nullable<char> _HabOcupada;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnHabNumChanging(short value);
-    partial void OnHabNumChanged();
-    partial void OnHabNomChanging(string value);
-    partial void OnHabNomChanged();
-    partial void OnHabTipoChanging(string value);
-    partial void OnHabTipoChanged();
-    partial void OnHabObsChanging(string value);
-    partial void OnHabObsChanged();
-    partial void OnHabPisoChanging(System.Nullable<short> value);
-    partial void OnHabPisoChanged();
-    partial void OnHabCamMatChanging(System.Nullable<short> value);
-    partial void OnHabCamMatChanged();
-    partial void OnHabCamSinChanging(System.Nullable<short> value);
-    partial void OnHabCamSinChanged();
-    partial void OnHabCatChanging(string value);
-    partial void OnHabCatChanged();
-    partial void OnHabIntTelChanging(System.Nullable<int> value);
-    partial void OnHabIntTelChanged();
-    partial void OnHabTarifaChanging(string value);
-    partial void OnHabTarifaChanged();
-    partial void OnHabNoDispChanging(System.Nullable<short> value);
-    partial void OnHabNoDispChanged();
-    partial void OnHabNoDpNombreChanging(string value);
-    partial void OnHabNoDpNombreChanged();
-    partial void OnHabEstadoChanging(System.Nullable<char> value);
-    partial void OnHabEstadoChanged();
-    partial void OnHabLineaChanging(System.Nullable<short> value);
-    partial void OnHabLineaChanged();
-    partial void OnHabSectorChanging(System.Nullable<short> value);
-    partial void OnHabSectorChanged();
-    partial void OnHabEnLimpiezaUsuIdChanging(string value);
-    partial void OnHabEnLimpiezaUsuIdChanged();
-    partial void OnHabEnLimpiezaFechaChanging(System.Nullable<System.DateTime> value);
-    partial void OnHabEnLimpiezaFechaChanged();
-    partial void OnHabUltimaLimpiezaHoraChanging(string value);
-    partial void OnHabUltimaLimpiezaHoraChanged();
-    partial void OnHabEnLimpiezaHoraChanging(string value);
-    partial void OnHabEnLimpiezaHoraChanged();
-    partial void OnHabUltimaLimpiezaFechaChanging(System.Nullable<System.DateTime> value);
-    partial void OnHabUltimaLimpiezaFechaChanged();
-    partial void OnHabEnLimpezaCtrlFrigobarChanging(System.Nullable<char> value);
-    partial void OnHabEnLimpezaCtrlFrigobarChanged();
-    partial void OnHabBloqueadaDesdeChanging(System.Nullable<System.DateTime> value);
-    partial void OnHabBloqueadaDesdeChanged();
-    partial void OnHabBloqueadaHastaChanging(System.Nullable<System.DateTime> value);
-    partial void OnHabBloqueadaHastaChanged();
-    partial void OnHabBloqueadaObsChanging(string value);
-    partial void OnHabBloqueadaObsChanged();
-    partial void OnHabProximaEntradaChanging(System.Nullable<System.DateTime> value);
-    partial void OnHabProximaEntradaChanged();
-    partial void OnHabProximaSalidaChanging(System.Nullable<System.DateTime> value);
-    partial void OnHabProximaSalidaChanged();
-    partial void OnHabProximaReservaChanging(System.Nullable<int> value);
-    partial void OnHabProximaReservaChanged();
-    partial void OnHabProximaEntradaHoraChanging(string value);
-    partial void OnHabProximaEntradaHoraChanged();
-    partial void OnHabOcupadaChanging(System.Nullable<char> value);
-    partial void OnHabOcupadaChanged();
-    #endregion
-		
-		public HABITACION()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNum", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short HabNum
-		{
-			get
-			{
-				return this._HabNum;
-			}
-			set
-			{
-				if ((this._HabNum != value))
-				{
-					this.OnHabNumChanging(value);
-					this.SendPropertyChanging();
-					this._HabNum = value;
-					this.SendPropertyChanged("HabNum");
-					this.OnHabNumChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNom", DbType="Char(30)")]
-		public string HabNom
-		{
-			get
-			{
-				return this._HabNom;
-			}
-			set
-			{
-				if ((this._HabNom != value))
-				{
-					this.OnHabNomChanging(value);
-					this.SendPropertyChanging();
-					this._HabNom = value;
-					this.SendPropertyChanged("HabNom");
-					this.OnHabNomChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabTipo", DbType="Char(4)")]
-		public string HabTipo
-		{
-			get
-			{
-				return this._HabTipo;
-			}
-			set
-			{
-				if ((this._HabTipo != value))
-				{
-					this.OnHabTipoChanging(value);
-					this.SendPropertyChanging();
-					this._HabTipo = value;
-					this.SendPropertyChanged("HabTipo");
-					this.OnHabTipoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabObs", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string HabObs
-		{
-			get
-			{
-				return this._HabObs;
-			}
-			set
-			{
-				if ((this._HabObs != value))
-				{
-					this.OnHabObsChanging(value);
-					this.SendPropertyChanging();
-					this._HabObs = value;
-					this.SendPropertyChanged("HabObs");
-					this.OnHabObsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabPiso", DbType="SmallInt")]
-		public System.Nullable<short> HabPiso
-		{
-			get
-			{
-				return this._HabPiso;
-			}
-			set
-			{
-				if ((this._HabPiso != value))
-				{
-					this.OnHabPisoChanging(value);
-					this.SendPropertyChanging();
-					this._HabPiso = value;
-					this.SendPropertyChanged("HabPiso");
-					this.OnHabPisoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabCamMat", DbType="SmallInt")]
-		public System.Nullable<short> HabCamMat
-		{
-			get
-			{
-				return this._HabCamMat;
-			}
-			set
-			{
-				if ((this._HabCamMat != value))
-				{
-					this.OnHabCamMatChanging(value);
-					this.SendPropertyChanging();
-					this._HabCamMat = value;
-					this.SendPropertyChanged("HabCamMat");
-					this.OnHabCamMatChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabCamSin", DbType="SmallInt")]
-		public System.Nullable<short> HabCamSin
-		{
-			get
-			{
-				return this._HabCamSin;
-			}
-			set
-			{
-				if ((this._HabCamSin != value))
-				{
-					this.OnHabCamSinChanging(value);
-					this.SendPropertyChanging();
-					this._HabCamSin = value;
-					this.SendPropertyChanged("HabCamSin");
-					this.OnHabCamSinChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabCat", DbType="Char(5)")]
-		public string HabCat
-		{
-			get
-			{
-				return this._HabCat;
-			}
-			set
-			{
-				if ((this._HabCat != value))
-				{
-					this.OnHabCatChanging(value);
-					this.SendPropertyChanging();
-					this._HabCat = value;
-					this.SendPropertyChanged("HabCat");
-					this.OnHabCatChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabIntTel", DbType="Int")]
-		public System.Nullable<int> HabIntTel
-		{
-			get
-			{
-				return this._HabIntTel;
-			}
-			set
-			{
-				if ((this._HabIntTel != value))
-				{
-					this.OnHabIntTelChanging(value);
-					this.SendPropertyChanging();
-					this._HabIntTel = value;
-					this.SendPropertyChanged("HabIntTel");
-					this.OnHabIntTelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabTarifa", DbType="Char(5)")]
-		public string HabTarifa
-		{
-			get
-			{
-				return this._HabTarifa;
-			}
-			set
-			{
-				if ((this._HabTarifa != value))
-				{
-					this.OnHabTarifaChanging(value);
-					this.SendPropertyChanging();
-					this._HabTarifa = value;
-					this.SendPropertyChanged("HabTarifa");
-					this.OnHabTarifaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNoDisp", DbType="SmallInt")]
-		public System.Nullable<short> HabNoDisp
-		{
-			get
-			{
-				return this._HabNoDisp;
-			}
-			set
-			{
-				if ((this._HabNoDisp != value))
-				{
-					this.OnHabNoDispChanging(value);
-					this.SendPropertyChanging();
-					this._HabNoDisp = value;
-					this.SendPropertyChanged("HabNoDisp");
-					this.OnHabNoDispChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNoDpNombre", DbType="Char(30)")]
-		public string HabNoDpNombre
-		{
-			get
-			{
-				return this._HabNoDpNombre;
-			}
-			set
-			{
-				if ((this._HabNoDpNombre != value))
-				{
-					this.OnHabNoDpNombreChanging(value);
-					this.SendPropertyChanging();
-					this._HabNoDpNombre = value;
-					this.SendPropertyChanged("HabNoDpNombre");
-					this.OnHabNoDpNombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabEstado", DbType="Char(1)")]
-		public System.Nullable<char> HabEstado
-		{
-			get
-			{
-				return this._HabEstado;
-			}
-			set
-			{
-				if ((this._HabEstado != value))
-				{
-					this.OnHabEstadoChanging(value);
-					this.SendPropertyChanging();
-					this._HabEstado = value;
-					this.SendPropertyChanged("HabEstado");
-					this.OnHabEstadoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabLinea", DbType="SmallInt")]
-		public System.Nullable<short> HabLinea
-		{
-			get
-			{
-				return this._HabLinea;
-			}
-			set
-			{
-				if ((this._HabLinea != value))
-				{
-					this.OnHabLineaChanging(value);
-					this.SendPropertyChanging();
-					this._HabLinea = value;
-					this.SendPropertyChanged("HabLinea");
-					this.OnHabLineaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabSector", DbType="SmallInt")]
-		public System.Nullable<short> HabSector
-		{
-			get
-			{
-				return this._HabSector;
-			}
-			set
-			{
-				if ((this._HabSector != value))
-				{
-					this.OnHabSectorChanging(value);
-					this.SendPropertyChanging();
-					this._HabSector = value;
-					this.SendPropertyChanged("HabSector");
-					this.OnHabSectorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabEnLimpiezaUsuId", DbType="Char(10)")]
-		public string HabEnLimpiezaUsuId
-		{
-			get
-			{
-				return this._HabEnLimpiezaUsuId;
-			}
-			set
-			{
-				if ((this._HabEnLimpiezaUsuId != value))
-				{
-					this.OnHabEnLimpiezaUsuIdChanging(value);
-					this.SendPropertyChanging();
-					this._HabEnLimpiezaUsuId = value;
-					this.SendPropertyChanged("HabEnLimpiezaUsuId");
-					this.OnHabEnLimpiezaUsuIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabEnLimpiezaFecha", DbType="DateTime")]
-		public System.Nullable<System.DateTime> HabEnLimpiezaFecha
-		{
-			get
-			{
-				return this._HabEnLimpiezaFecha;
-			}
-			set
-			{
-				if ((this._HabEnLimpiezaFecha != value))
-				{
-					this.OnHabEnLimpiezaFechaChanging(value);
-					this.SendPropertyChanging();
-					this._HabEnLimpiezaFecha = value;
-					this.SendPropertyChanged("HabEnLimpiezaFecha");
-					this.OnHabEnLimpiezaFechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabUltimaLimpiezaHora", DbType="Char(8)")]
-		public string HabUltimaLimpiezaHora
-		{
-			get
-			{
-				return this._HabUltimaLimpiezaHora;
-			}
-			set
-			{
-				if ((this._HabUltimaLimpiezaHora != value))
-				{
-					this.OnHabUltimaLimpiezaHoraChanging(value);
-					this.SendPropertyChanging();
-					this._HabUltimaLimpiezaHora = value;
-					this.SendPropertyChanged("HabUltimaLimpiezaHora");
-					this.OnHabUltimaLimpiezaHoraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabEnLimpiezaHora", DbType="Char(8)")]
-		public string HabEnLimpiezaHora
-		{
-			get
-			{
-				return this._HabEnLimpiezaHora;
-			}
-			set
-			{
-				if ((this._HabEnLimpiezaHora != value))
-				{
-					this.OnHabEnLimpiezaHoraChanging(value);
-					this.SendPropertyChanging();
-					this._HabEnLimpiezaHora = value;
-					this.SendPropertyChanged("HabEnLimpiezaHora");
-					this.OnHabEnLimpiezaHoraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabUltimaLimpiezaFecha", DbType="DateTime")]
-		public System.Nullable<System.DateTime> HabUltimaLimpiezaFecha
-		{
-			get
-			{
-				return this._HabUltimaLimpiezaFecha;
-			}
-			set
-			{
-				if ((this._HabUltimaLimpiezaFecha != value))
-				{
-					this.OnHabUltimaLimpiezaFechaChanging(value);
-					this.SendPropertyChanging();
-					this._HabUltimaLimpiezaFecha = value;
-					this.SendPropertyChanged("HabUltimaLimpiezaFecha");
-					this.OnHabUltimaLimpiezaFechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabEnLimpezaCtrlFrigobar", DbType="Char(1)")]
-		public System.Nullable<char> HabEnLimpezaCtrlFrigobar
-		{
-			get
-			{
-				return this._HabEnLimpezaCtrlFrigobar;
-			}
-			set
-			{
-				if ((this._HabEnLimpezaCtrlFrigobar != value))
-				{
-					this.OnHabEnLimpezaCtrlFrigobarChanging(value);
-					this.SendPropertyChanging();
-					this._HabEnLimpezaCtrlFrigobar = value;
-					this.SendPropertyChanged("HabEnLimpezaCtrlFrigobar");
-					this.OnHabEnLimpezaCtrlFrigobarChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabBloqueadaDesde", DbType="DateTime")]
-		public System.Nullable<System.DateTime> HabBloqueadaDesde
-		{
-			get
-			{
-				return this._HabBloqueadaDesde;
-			}
-			set
-			{
-				if ((this._HabBloqueadaDesde != value))
-				{
-					this.OnHabBloqueadaDesdeChanging(value);
-					this.SendPropertyChanging();
-					this._HabBloqueadaDesde = value;
-					this.SendPropertyChanged("HabBloqueadaDesde");
-					this.OnHabBloqueadaDesdeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabBloqueadaHasta", DbType="DateTime")]
-		public System.Nullable<System.DateTime> HabBloqueadaHasta
-		{
-			get
-			{
-				return this._HabBloqueadaHasta;
-			}
-			set
-			{
-				if ((this._HabBloqueadaHasta != value))
-				{
-					this.OnHabBloqueadaHastaChanging(value);
-					this.SendPropertyChanging();
-					this._HabBloqueadaHasta = value;
-					this.SendPropertyChanged("HabBloqueadaHasta");
-					this.OnHabBloqueadaHastaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabBloqueadaObs", DbType="Char(80)")]
-		public string HabBloqueadaObs
-		{
-			get
-			{
-				return this._HabBloqueadaObs;
-			}
-			set
-			{
-				if ((this._HabBloqueadaObs != value))
-				{
-					this.OnHabBloqueadaObsChanging(value);
-					this.SendPropertyChanging();
-					this._HabBloqueadaObs = value;
-					this.SendPropertyChanged("HabBloqueadaObs");
-					this.OnHabBloqueadaObsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabProximaEntrada", DbType="DateTime")]
-		public System.Nullable<System.DateTime> HabProximaEntrada
-		{
-			get
-			{
-				return this._HabProximaEntrada;
-			}
-			set
-			{
-				if ((this._HabProximaEntrada != value))
-				{
-					this.OnHabProximaEntradaChanging(value);
-					this.SendPropertyChanging();
-					this._HabProximaEntrada = value;
-					this.SendPropertyChanged("HabProximaEntrada");
-					this.OnHabProximaEntradaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabProximaSalida", DbType="DateTime")]
-		public System.Nullable<System.DateTime> HabProximaSalida
-		{
-			get
-			{
-				return this._HabProximaSalida;
-			}
-			set
-			{
-				if ((this._HabProximaSalida != value))
-				{
-					this.OnHabProximaSalidaChanging(value);
-					this.SendPropertyChanging();
-					this._HabProximaSalida = value;
-					this.SendPropertyChanged("HabProximaSalida");
-					this.OnHabProximaSalidaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabProximaReserva", DbType="Int")]
-		public System.Nullable<int> HabProximaReserva
-		{
-			get
-			{
-				return this._HabProximaReserva;
-			}
-			set
-			{
-				if ((this._HabProximaReserva != value))
-				{
-					this.OnHabProximaReservaChanging(value);
-					this.SendPropertyChanging();
-					this._HabProximaReserva = value;
-					this.SendPropertyChanged("HabProximaReserva");
-					this.OnHabProximaReservaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabProximaEntradaHora", DbType="Char(8)")]
-		public string HabProximaEntradaHora
-		{
-			get
-			{
-				return this._HabProximaEntradaHora;
-			}
-			set
-			{
-				if ((this._HabProximaEntradaHora != value))
-				{
-					this.OnHabProximaEntradaHoraChanging(value);
-					this.SendPropertyChanging();
-					this._HabProximaEntradaHora = value;
-					this.SendPropertyChanged("HabProximaEntradaHora");
-					this.OnHabProximaEntradaHoraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabOcupada", DbType="Char(1)")]
-		public System.Nullable<char> HabOcupada
-		{
-			get
-			{
-				return this._HabOcupada;
-			}
-			set
-			{
-				if ((this._HabOcupada != value))
-				{
-					this.OnHabOcupadaChanging(value);
-					this.SendPropertyChanging();
-					this._HabOcupada = value;
-					this.SendPropertyChanged("HabOcupada");
-					this.OnHabOcupadaChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CATHAB")]
-	public partial class CATHAB : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _CatHCod;
-		
-		private string _CatHDes;
-		
-		private System.Nullable<decimal> _CatImportes;
-		
-		private System.Nullable<decimal> _CatPrecioPromedio;
-		
-		private System.Nullable<int> _CatCantidad;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCatHCodChanging(string value);
-    partial void OnCatHCodChanged();
-    partial void OnCatHDesChanging(string value);
-    partial void OnCatHDesChanged();
-    partial void OnCatImportesChanging(System.Nullable<decimal> value);
-    partial void OnCatImportesChanged();
-    partial void OnCatPrecioPromedioChanging(System.Nullable<decimal> value);
-    partial void OnCatPrecioPromedioChanged();
-    partial void OnCatCantidadChanging(System.Nullable<int> value);
-    partial void OnCatCantidadChanged();
-    #endregion
-		
-		public CATHAB()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CatHCod", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CatHCod
-		{
-			get
-			{
-				return this._CatHCod;
-			}
-			set
-			{
-				if ((this._CatHCod != value))
-				{
-					this.OnCatHCodChanging(value);
-					this.SendPropertyChanging();
-					this._CatHCod = value;
-					this.SendPropertyChanged("CatHCod");
-					this.OnCatHCodChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CatHDes", DbType="Char(20)")]
-		public string CatHDes
-		{
-			get
-			{
-				return this._CatHDes;
-			}
-			set
-			{
-				if ((this._CatHDes != value))
-				{
-					this.OnCatHDesChanging(value);
-					this.SendPropertyChanging();
-					this._CatHDes = value;
-					this.SendPropertyChanged("CatHDes");
-					this.OnCatHDesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CatImportes", DbType="Money")]
-		public System.Nullable<decimal> CatImportes
-		{
-			get
-			{
-				return this._CatImportes;
-			}
-			set
-			{
-				if ((this._CatImportes != value))
-				{
-					this.OnCatImportesChanging(value);
-					this.SendPropertyChanging();
-					this._CatImportes = value;
-					this.SendPropertyChanged("CatImportes");
-					this.OnCatImportesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CatPrecioPromedio", DbType="Money")]
-		public System.Nullable<decimal> CatPrecioPromedio
-		{
-			get
-			{
-				return this._CatPrecioPromedio;
-			}
-			set
-			{
-				if ((this._CatPrecioPromedio != value))
-				{
-					this.OnCatPrecioPromedioChanging(value);
-					this.SendPropertyChanging();
-					this._CatPrecioPromedio = value;
-					this.SendPropertyChanged("CatPrecioPromedio");
-					this.OnCatPrecioPromedioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CatCantidad", DbType="Int")]
-		public System.Nullable<int> CatCantidad
-		{
-			get
-			{
-				return this._CatCantidad;
-			}
-			set
-			{
-				if ((this._CatCantidad != value))
-				{
-					this.OnCatCantidadChanging(value);
-					this.SendPropertyChanging();
-					this._CatCantidad = value;
-					this.SendPropertyChanged("CatCantidad");
-					this.OnCatCantidadChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ALMANA")]
-	public partial class ALMANA : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private short _HabNum;
-		
-		private System.DateTime _AlmFec;
-		
-		private System.Nullable<System.DateTime> _AlmHasta;
-		
-		private System.Nullable<char> _AlmEst;
-		
-		private System.Nullable<int> _AlmReserva;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnHabNumChanging(short value);
-    partial void OnHabNumChanged();
-    partial void OnAlmFecChanging(System.DateTime value);
-    partial void OnAlmFecChanged();
-    partial void OnAlmHastaChanging(System.Nullable<System.DateTime> value);
-    partial void OnAlmHastaChanged();
-    partial void OnAlmEstChanging(System.Nullable<char> value);
-    partial void OnAlmEstChanged();
-    partial void OnAlmReservaChanging(System.Nullable<int> value);
-    partial void OnAlmReservaChanged();
-    #endregion
-		
-		public ALMANA()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNum", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short HabNum
-		{
-			get
-			{
-				return this._HabNum;
-			}
-			set
-			{
-				if ((this._HabNum != value))
-				{
-					this.OnHabNumChanging(value);
-					this.SendPropertyChanging();
-					this._HabNum = value;
-					this.SendPropertyChanged("HabNum");
-					this.OnHabNumChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AlmFec", DbType="DateTime NOT NULL", IsPrimaryKey=true)]
-		public System.DateTime AlmFec
-		{
-			get
-			{
-				return this._AlmFec;
-			}
-			set
-			{
-				if ((this._AlmFec != value))
-				{
-					this.OnAlmFecChanging(value);
-					this.SendPropertyChanging();
-					this._AlmFec = value;
-					this.SendPropertyChanged("AlmFec");
-					this.OnAlmFecChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AlmHasta", DbType="DateTime")]
-		public System.Nullable<System.DateTime> AlmHasta
-		{
-			get
-			{
-				return this._AlmHasta;
-			}
-			set
-			{
-				if ((this._AlmHasta != value))
-				{
-					this.OnAlmHastaChanging(value);
-					this.SendPropertyChanging();
-					this._AlmHasta = value;
-					this.SendPropertyChanged("AlmHasta");
-					this.OnAlmHastaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AlmEst", DbType="Char(1)")]
-		public System.Nullable<char> AlmEst
-		{
-			get
-			{
-				return this._AlmEst;
-			}
-			set
-			{
-				if ((this._AlmEst != value))
-				{
-					this.OnAlmEstChanging(value);
-					this.SendPropertyChanging();
-					this._AlmEst = value;
-					this.SendPropertyChanged("AlmEst");
-					this.OnAlmEstChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AlmReserva", DbType="Int")]
-		public System.Nullable<int> AlmReserva
-		{
-			get
-			{
-				return this._AlmReserva;
-			}
-			set
-			{
-				if ((this._AlmReserva != value))
-				{
-					this.OnAlmReservaChanging(value);
-					this.SendPropertyChanging();
-					this._AlmReserva = value;
-					this.SendPropertyChanged("AlmReserva");
-					this.OnAlmReservaChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LIMPIEZAHABITACION")]
-	public partial class LIMPIEZAHABITACION : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LimId;
-		
-		private System.Nullable<short> _HabNum;
-		
-		private System.Nullable<System.DateTime> _LimComienzoFecha;
-		
-		private string _LimComienzoHora;
-		
-		private System.Nullable<System.DateTime> _LimFinFecha;
-		
-		private string _LimFinHora;
-		
-		private string _LimUsuId;
-		
-		private System.Nullable<char> _LimAccion;
-		
-		private System.Nullable<char> _LimControlFrigobar;
-		
-		private string _LimObservacion;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLimIdChanging(int value);
-    partial void OnLimIdChanged();
-    partial void OnHabNumChanging(System.Nullable<short> value);
-    partial void OnHabNumChanged();
-    partial void OnLimComienzoFechaChanging(System.Nullable<System.DateTime> value);
-    partial void OnLimComienzoFechaChanged();
-    partial void OnLimComienzoHoraChanging(string value);
-    partial void OnLimComienzoHoraChanged();
-    partial void OnLimFinFechaChanging(System.Nullable<System.DateTime> value);
-    partial void OnLimFinFechaChanged();
-    partial void OnLimFinHoraChanging(string value);
-    partial void OnLimFinHoraChanged();
-    partial void OnLimUsuIdChanging(string value);
-    partial void OnLimUsuIdChanged();
-    partial void OnLimAccionChanging(System.Nullable<char> value);
-    partial void OnLimAccionChanged();
-    partial void OnLimControlFrigobarChanging(System.Nullable<char> value);
-    partial void OnLimControlFrigobarChanged();
-    partial void OnLimObservacionChanging(string value);
-    partial void OnLimObservacionChanged();
-    #endregion
-		
-		public LIMPIEZAHABITACION()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LimId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int LimId
-		{
-			get
-			{
-				return this._LimId;
-			}
-			set
-			{
-				if ((this._LimId != value))
-				{
-					this.OnLimIdChanging(value);
-					this.SendPropertyChanging();
-					this._LimId = value;
-					this.SendPropertyChanged("LimId");
-					this.OnLimIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNum", DbType="SmallInt")]
-		public System.Nullable<short> HabNum
-		{
-			get
-			{
-				return this._HabNum;
-			}
-			set
-			{
-				if ((this._HabNum != value))
-				{
-					this.OnHabNumChanging(value);
-					this.SendPropertyChanging();
-					this._HabNum = value;
-					this.SendPropertyChanged("HabNum");
-					this.OnHabNumChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LimComienzoFecha", DbType="DateTime")]
-		public System.Nullable<System.DateTime> LimComienzoFecha
-		{
-			get
-			{
-				return this._LimComienzoFecha;
-			}
-			set
-			{
-				if ((this._LimComienzoFecha != value))
-				{
-					this.OnLimComienzoFechaChanging(value);
-					this.SendPropertyChanging();
-					this._LimComienzoFecha = value;
-					this.SendPropertyChanged("LimComienzoFecha");
-					this.OnLimComienzoFechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LimComienzoHora", DbType="Char(8)")]
-		public string LimComienzoHora
-		{
-			get
-			{
-				return this._LimComienzoHora;
-			}
-			set
-			{
-				if ((this._LimComienzoHora != value))
-				{
-					this.OnLimComienzoHoraChanging(value);
-					this.SendPropertyChanging();
-					this._LimComienzoHora = value;
-					this.SendPropertyChanged("LimComienzoHora");
-					this.OnLimComienzoHoraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LimFinFecha", DbType="DateTime")]
-		public System.Nullable<System.DateTime> LimFinFecha
-		{
-			get
-			{
-				return this._LimFinFecha;
-			}
-			set
-			{
-				if ((this._LimFinFecha != value))
-				{
-					this.OnLimFinFechaChanging(value);
-					this.SendPropertyChanging();
-					this._LimFinFecha = value;
-					this.SendPropertyChanged("LimFinFecha");
-					this.OnLimFinFechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LimFinHora", DbType="Char(8)")]
-		public string LimFinHora
-		{
-			get
-			{
-				return this._LimFinHora;
-			}
-			set
-			{
-				if ((this._LimFinHora != value))
-				{
-					this.OnLimFinHoraChanging(value);
-					this.SendPropertyChanging();
-					this._LimFinHora = value;
-					this.SendPropertyChanged("LimFinHora");
-					this.OnLimFinHoraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LimUsuId", DbType="Char(10)")]
-		public string LimUsuId
-		{
-			get
-			{
-				return this._LimUsuId;
-			}
-			set
-			{
-				if ((this._LimUsuId != value))
-				{
-					this.OnLimUsuIdChanging(value);
-					this.SendPropertyChanging();
-					this._LimUsuId = value;
-					this.SendPropertyChanged("LimUsuId");
-					this.OnLimUsuIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LimAccion", DbType="Char(1)")]
-		public System.Nullable<char> LimAccion
-		{
-			get
-			{
-				return this._LimAccion;
-			}
-			set
-			{
-				if ((this._LimAccion != value))
-				{
-					this.OnLimAccionChanging(value);
-					this.SendPropertyChanging();
-					this._LimAccion = value;
-					this.SendPropertyChanged("LimAccion");
-					this.OnLimAccionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LimControlFrigobar", DbType="Char(1)")]
-		public System.Nullable<char> LimControlFrigobar
-		{
-			get
-			{
-				return this._LimControlFrigobar;
-			}
-			set
-			{
-				if ((this._LimControlFrigobar != value))
-				{
-					this.OnLimControlFrigobarChanging(value);
-					this.SendPropertyChanging();
-					this._LimControlFrigobar = value;
-					this.SendPropertyChanged("LimControlFrigobar");
-					this.OnLimControlFrigobarChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LimObservacion", DbType="Char(80)")]
-		public string LimObservacion
-		{
-			get
-			{
-				return this._LimObservacion;
-			}
-			set
-			{
-				if ((this._LimObservacion != value))
-				{
-					this.OnLimObservacionChanging(value);
-					this.SendPropertyChanging();
-					this._LimObservacion = value;
-					this.SendPropertyChanged("LimObservacion");
-					this.OnLimObservacionChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PASAJEROS")]
-	public partial class PASAJEROS : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PaxCod;
-		
-		private string _PaxRazon;
-		
-		private string _PaxDirFac;
-		
-		private System.Nullable<char> _PaxTipo;
-		
-		private string _PaxNom;
-		
-		private string _PaxNom1;
-		
-		private string _PaxApe;
-		
-		private string _PaxApe1;
-		
-		private System.Nullable<System.DateTime> _PaxFecNac;
-		
-		private System.Nullable<short> _PaxSex;
-		
-		private string _PaxNac;
-		
-		private System.Nullable<decimal> _PaxRuc;
-		
-		private string _PaxOcu;
-		
-		private System.Nullable<char> _PaxCiv;
-		
-		private string _PaxDir;
-		
-		private System.Nullable<short> _Paxdescu;
-		
-		private string _PaxDirLoc;
-		
-		private string _PaxDirPais;
-		
-		private string _PaxTel;
-		
-		private string _PaxFax;
-		
-		private string _PaxEmail;
-		
-		private string _PaxCP;
-		
-		private string _PaxObs;
-		
-		private string _PaxTipDoc;
-		
-		private string _PaxNroDoc;
-		
-		private string _PaxEst;
-		
-		private System.Nullable<char> _PaxEstPax;
-		
-		private System.Nullable<System.DateTime> _PaxEveFec;
-		
-		private System.Nullable<short> _CliBanId;
-		
-		private string _CliBanSuc;
-		
-		private System.Nullable<decimal> _CliBanCue;
-		
-		private string _CliBanTit;
-		
-		private System.Nullable<short> _CliBanMonId;
-		
-		private System.Nullable<System.DateTime> _CliFecPag;
-		
-		private System.Nullable<decimal> _CliTopMN;
-		
-		private System.Nullable<decimal> _CliTopME;
-		
-		private System.Nullable<decimal> _CliSalMN;
-		
-		private System.Nullable<decimal> _CliSalME;
-		
-		private System.Nullable<decimal> _CliEntCtaPes;
-		
-		private System.Nullable<decimal> _CliEntCtaDol;
-		
-		private string _DepCod;
-		
-		private string _PaxPlaCier;
-		
-		private string _CliDsc;
-		
-		private string _PaxProced;
-		
-		private System.Nullable<System.DateTime> _PaxIngreso;
-		
-		private System.Nullable<short> _PaxEdades;
-		
-		private System.Nullable<System.DateTime> _PaxUltEstadia;
-		
-		private System.Nullable<int> _ContId;
-		
-		private string _PaxEsquina;
-		
-		private string _PaxCodMan;
-		
-		private System.Nullable<int> _PaxPlaCtaCTra;
-		
-		private System.Nullable<char> _TipoDeDocumentoComprador;
-		
-		private System.Nullable<char> _ResponsabilidadIvaComprador;
-		
-		private System.Nullable<char> _PaxControlTopeCredito;
-		
-		private System.Nullable<char> _PaxCanje;
-		
-		private string _PaxDepFac;
-		
-		private string _PaxCiuFac;
-		
-		private System.Nullable<short> _PaxLisId;
-		
-		private System.Nullable<char> _PaxLey15921;
-		
-		private string _PaxNumApartamento;
-		
-		private System.Nullable<char> _PaxNumBis;
-		
-		private System.Nullable<char> _PaxTipoCasaDelivery;
-		
-		private string _PaxNumeroDePuerta;
-		
-		private string _PaxEsquina2;
-		
-		private System.Nullable<short> _PaxBarId;
-		
-		private System.Nullable<short> _ConVenId;
-		
-		private System.Nullable<int> _Pax0ExportacionId;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPaxCodChanging(int value);
-    partial void OnPaxCodChanged();
-    partial void OnPaxRazonChanging(string value);
-    partial void OnPaxRazonChanged();
-    partial void OnPaxDirFacChanging(string value);
-    partial void OnPaxDirFacChanged();
-    partial void OnPaxTipoChanging(System.Nullable<char> value);
-    partial void OnPaxTipoChanged();
-    partial void OnPaxNomChanging(string value);
-    partial void OnPaxNomChanged();
-    partial void OnPaxNom1Changing(string value);
-    partial void OnPaxNom1Changed();
-    partial void OnPaxApeChanging(string value);
-    partial void OnPaxApeChanged();
-    partial void OnPaxApe1Changing(string value);
-    partial void OnPaxApe1Changed();
-    partial void OnPaxFecNacChanging(System.Nullable<System.DateTime> value);
-    partial void OnPaxFecNacChanged();
-    partial void OnPaxSexChanging(System.Nullable<short> value);
-    partial void OnPaxSexChanged();
-    partial void OnPaxNacChanging(string value);
-    partial void OnPaxNacChanged();
-    partial void OnPaxRucChanging(System.Nullable<decimal> value);
-    partial void OnPaxRucChanged();
-    partial void OnPaxOcuChanging(string value);
-    partial void OnPaxOcuChanged();
-    partial void OnPaxCivChanging(System.Nullable<char> value);
-    partial void OnPaxCivChanged();
-    partial void OnPaxDirChanging(string value);
-    partial void OnPaxDirChanged();
-    partial void OnPaxdescuChanging(System.Nullable<short> value);
-    partial void OnPaxdescuChanged();
-    partial void OnPaxDirLocChanging(string value);
-    partial void OnPaxDirLocChanged();
-    partial void OnPaxDirPaisChanging(string value);
-    partial void OnPaxDirPaisChanged();
-    partial void OnPaxTelChanging(string value);
-    partial void OnPaxTelChanged();
-    partial void OnPaxFaxChanging(string value);
-    partial void OnPaxFaxChanged();
-    partial void OnPaxEmailChanging(string value);
-    partial void OnPaxEmailChanged();
-    partial void OnPaxCPChanging(string value);
-    partial void OnPaxCPChanged();
-    partial void OnPaxObsChanging(string value);
-    partial void OnPaxObsChanged();
-    partial void OnPaxTipDocChanging(string value);
-    partial void OnPaxTipDocChanged();
-    partial void OnPaxNroDocChanging(string value);
-    partial void OnPaxNroDocChanged();
-    partial void OnPaxEstChanging(string value);
-    partial void OnPaxEstChanged();
-    partial void OnPaxEstPaxChanging(System.Nullable<char> value);
-    partial void OnPaxEstPaxChanged();
-    partial void OnPaxEveFecChanging(System.Nullable<System.DateTime> value);
-    partial void OnPaxEveFecChanged();
-    partial void OnCliBanIdChanging(System.Nullable<short> value);
-    partial void OnCliBanIdChanged();
-    partial void OnCliBanSucChanging(string value);
-    partial void OnCliBanSucChanged();
-    partial void OnCliBanCueChanging(System.Nullable<decimal> value);
-    partial void OnCliBanCueChanged();
-    partial void OnCliBanTitChanging(string value);
-    partial void OnCliBanTitChanged();
-    partial void OnCliBanMonIdChanging(System.Nullable<short> value);
-    partial void OnCliBanMonIdChanged();
-    partial void OnCliFecPagChanging(System.Nullable<System.DateTime> value);
-    partial void OnCliFecPagChanged();
-    partial void OnCliTopMNChanging(System.Nullable<decimal> value);
-    partial void OnCliTopMNChanged();
-    partial void OnCliTopMEChanging(System.Nullable<decimal> value);
-    partial void OnCliTopMEChanged();
-    partial void OnCliSalMNChanging(System.Nullable<decimal> value);
-    partial void OnCliSalMNChanged();
-    partial void OnCliSalMEChanging(System.Nullable<decimal> value);
-    partial void OnCliSalMEChanged();
-    partial void OnCliEntCtaPesChanging(System.Nullable<decimal> value);
-    partial void OnCliEntCtaPesChanged();
-    partial void OnCliEntCtaDolChanging(System.Nullable<decimal> value);
-    partial void OnCliEntCtaDolChanged();
-    partial void OnDepCodChanging(string value);
-    partial void OnDepCodChanged();
-    partial void OnPaxPlaCierChanging(string value);
-    partial void OnPaxPlaCierChanged();
-    partial void OnCliDscChanging(string value);
-    partial void OnCliDscChanged();
-    partial void OnPaxProcedChanging(string value);
-    partial void OnPaxProcedChanged();
-    partial void OnPaxIngresoChanging(System.Nullable<System.DateTime> value);
-    partial void OnPaxIngresoChanged();
-    partial void OnPaxEdadesChanging(System.Nullable<short> value);
-    partial void OnPaxEdadesChanged();
-    partial void OnPaxUltEstadiaChanging(System.Nullable<System.DateTime> value);
-    partial void OnPaxUltEstadiaChanged();
-    partial void OnContIdChanging(System.Nullable<int> value);
-    partial void OnContIdChanged();
-    partial void OnPaxEsquinaChanging(string value);
-    partial void OnPaxEsquinaChanged();
-    partial void OnPaxCodManChanging(string value);
-    partial void OnPaxCodManChanged();
-    partial void OnPaxPlaCtaCTraChanging(System.Nullable<int> value);
-    partial void OnPaxPlaCtaCTraChanged();
-    partial void OnTipoDeDocumentoCompradorChanging(System.Nullable<char> value);
-    partial void OnTipoDeDocumentoCompradorChanged();
-    partial void OnResponsabilidadIvaCompradorChanging(System.Nullable<char> value);
-    partial void OnResponsabilidadIvaCompradorChanged();
-    partial void OnPaxControlTopeCreditoChanging(System.Nullable<char> value);
-    partial void OnPaxControlTopeCreditoChanged();
-    partial void OnPaxCanjeChanging(System.Nullable<char> value);
-    partial void OnPaxCanjeChanged();
-    partial void OnPaxDepFacChanging(string value);
-    partial void OnPaxDepFacChanged();
-    partial void OnPaxCiuFacChanging(string value);
-    partial void OnPaxCiuFacChanged();
-    partial void OnPaxLisIdChanging(System.Nullable<short> value);
-    partial void OnPaxLisIdChanged();
-    partial void OnPaxLey15921Changing(System.Nullable<char> value);
-    partial void OnPaxLey15921Changed();
-    partial void OnPaxNumApartamentoChanging(string value);
-    partial void OnPaxNumApartamentoChanged();
-    partial void OnPaxNumBisChanging(System.Nullable<char> value);
-    partial void OnPaxNumBisChanged();
-    partial void OnPaxTipoCasaDeliveryChanging(System.Nullable<char> value);
-    partial void OnPaxTipoCasaDeliveryChanged();
-    partial void OnPaxNumeroDePuertaChanging(string value);
-    partial void OnPaxNumeroDePuertaChanged();
-    partial void OnPaxEsquina2Changing(string value);
-    partial void OnPaxEsquina2Changed();
-    partial void OnPaxBarIdChanging(System.Nullable<short> value);
-    partial void OnPaxBarIdChanged();
-    partial void OnConVenIdChanging(System.Nullable<short> value);
-    partial void OnConVenIdChanged();
-    partial void OnPax0ExportacionIdChanging(System.Nullable<int> value);
-    partial void OnPax0ExportacionIdChanged();
-    #endregion
-		
-		public PASAJEROS()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCod", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PaxCod
-		{
-			get
-			{
-				return this._PaxCod;
-			}
-			set
-			{
-				if ((this._PaxCod != value))
-				{
-					this.OnPaxCodChanging(value);
-					this.SendPropertyChanging();
-					this._PaxCod = value;
-					this.SendPropertyChanged("PaxCod");
-					this.OnPaxCodChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxRazon", DbType="Char(40)")]
-		public string PaxRazon
-		{
-			get
-			{
-				return this._PaxRazon;
-			}
-			set
-			{
-				if ((this._PaxRazon != value))
-				{
-					this.OnPaxRazonChanging(value);
-					this.SendPropertyChanging();
-					this._PaxRazon = value;
-					this.SendPropertyChanged("PaxRazon");
-					this.OnPaxRazonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxDirFac", DbType="Char(40)")]
-		public string PaxDirFac
-		{
-			get
-			{
-				return this._PaxDirFac;
-			}
-			set
-			{
-				if ((this._PaxDirFac != value))
-				{
-					this.OnPaxDirFacChanging(value);
-					this.SendPropertyChanging();
-					this._PaxDirFac = value;
-					this.SendPropertyChanged("PaxDirFac");
-					this.OnPaxDirFacChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxTipo", DbType="Char(1)")]
-		public System.Nullable<char> PaxTipo
-		{
-			get
-			{
-				return this._PaxTipo;
-			}
-			set
-			{
-				if ((this._PaxTipo != value))
-				{
-					this.OnPaxTipoChanging(value);
-					this.SendPropertyChanging();
-					this._PaxTipo = value;
-					this.SendPropertyChanged("PaxTipo");
-					this.OnPaxTipoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNom", DbType="Char(15)")]
-		public string PaxNom
-		{
-			get
-			{
-				return this._PaxNom;
-			}
-			set
-			{
-				if ((this._PaxNom != value))
-				{
-					this.OnPaxNomChanging(value);
-					this.SendPropertyChanging();
-					this._PaxNom = value;
-					this.SendPropertyChanged("PaxNom");
-					this.OnPaxNomChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNom1", DbType="Char(15)")]
-		public string PaxNom1
-		{
-			get
-			{
-				return this._PaxNom1;
-			}
-			set
-			{
-				if ((this._PaxNom1 != value))
-				{
-					this.OnPaxNom1Changing(value);
-					this.SendPropertyChanging();
-					this._PaxNom1 = value;
-					this.SendPropertyChanged("PaxNom1");
-					this.OnPaxNom1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxApe", DbType="Char(15)")]
-		public string PaxApe
-		{
-			get
-			{
-				return this._PaxApe;
-			}
-			set
-			{
-				if ((this._PaxApe != value))
-				{
-					this.OnPaxApeChanging(value);
-					this.SendPropertyChanging();
-					this._PaxApe = value;
-					this.SendPropertyChanged("PaxApe");
-					this.OnPaxApeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxApe1", DbType="Char(15)")]
-		public string PaxApe1
-		{
-			get
-			{
-				return this._PaxApe1;
-			}
-			set
-			{
-				if ((this._PaxApe1 != value))
-				{
-					this.OnPaxApe1Changing(value);
-					this.SendPropertyChanging();
-					this._PaxApe1 = value;
-					this.SendPropertyChanged("PaxApe1");
-					this.OnPaxApe1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxFecNac", DbType="DateTime")]
-		public System.Nullable<System.DateTime> PaxFecNac
-		{
-			get
-			{
-				return this._PaxFecNac;
-			}
-			set
-			{
-				if ((this._PaxFecNac != value))
-				{
-					this.OnPaxFecNacChanging(value);
-					this.SendPropertyChanging();
-					this._PaxFecNac = value;
-					this.SendPropertyChanged("PaxFecNac");
-					this.OnPaxFecNacChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxSex", DbType="SmallInt")]
-		public System.Nullable<short> PaxSex
-		{
-			get
-			{
-				return this._PaxSex;
-			}
-			set
-			{
-				if ((this._PaxSex != value))
-				{
-					this.OnPaxSexChanging(value);
-					this.SendPropertyChanging();
-					this._PaxSex = value;
-					this.SendPropertyChanged("PaxSex");
-					this.OnPaxSexChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNac", DbType="Char(3)")]
-		public string PaxNac
-		{
-			get
-			{
-				return this._PaxNac;
-			}
-			set
-			{
-				if ((this._PaxNac != value))
-				{
-					this.OnPaxNacChanging(value);
-					this.SendPropertyChanging();
-					this._PaxNac = value;
-					this.SendPropertyChanged("PaxNac");
-					this.OnPaxNacChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxRuc", DbType="Decimal(15,0)")]
-		public System.Nullable<decimal> PaxRuc
-		{
-			get
-			{
-				return this._PaxRuc;
-			}
-			set
-			{
-				if ((this._PaxRuc != value))
-				{
-					this.OnPaxRucChanging(value);
-					this.SendPropertyChanging();
-					this._PaxRuc = value;
-					this.SendPropertyChanged("PaxRuc");
-					this.OnPaxRucChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxOcu", DbType="Char(3)")]
-		public string PaxOcu
-		{
-			get
-			{
-				return this._PaxOcu;
-			}
-			set
-			{
-				if ((this._PaxOcu != value))
-				{
-					this.OnPaxOcuChanging(value);
-					this.SendPropertyChanging();
-					this._PaxOcu = value;
-					this.SendPropertyChanged("PaxOcu");
-					this.OnPaxOcuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCiv", DbType="Char(1)")]
-		public System.Nullable<char> PaxCiv
-		{
-			get
-			{
-				return this._PaxCiv;
-			}
-			set
-			{
-				if ((this._PaxCiv != value))
-				{
-					this.OnPaxCivChanging(value);
-					this.SendPropertyChanging();
-					this._PaxCiv = value;
-					this.SendPropertyChanged("PaxCiv");
-					this.OnPaxCivChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxDir", DbType="Char(40)")]
-		public string PaxDir
-		{
-			get
-			{
-				return this._PaxDir;
-			}
-			set
-			{
-				if ((this._PaxDir != value))
-				{
-					this.OnPaxDirChanging(value);
-					this.SendPropertyChanging();
-					this._PaxDir = value;
-					this.SendPropertyChanged("PaxDir");
-					this.OnPaxDirChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paxdescu", DbType="SmallInt")]
-		public System.Nullable<short> Paxdescu
-		{
-			get
-			{
-				return this._Paxdescu;
-			}
-			set
-			{
-				if ((this._Paxdescu != value))
-				{
-					this.OnPaxdescuChanging(value);
-					this.SendPropertyChanging();
-					this._Paxdescu = value;
-					this.SendPropertyChanged("Paxdescu");
-					this.OnPaxdescuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxDirLoc", DbType="Char(20)")]
-		public string PaxDirLoc
-		{
-			get
-			{
-				return this._PaxDirLoc;
-			}
-			set
-			{
-				if ((this._PaxDirLoc != value))
-				{
-					this.OnPaxDirLocChanging(value);
-					this.SendPropertyChanging();
-					this._PaxDirLoc = value;
-					this.SendPropertyChanged("PaxDirLoc");
-					this.OnPaxDirLocChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxDirPais", DbType="Char(20)")]
-		public string PaxDirPais
-		{
-			get
-			{
-				return this._PaxDirPais;
-			}
-			set
-			{
-				if ((this._PaxDirPais != value))
-				{
-					this.OnPaxDirPaisChanging(value);
-					this.SendPropertyChanging();
-					this._PaxDirPais = value;
-					this.SendPropertyChanged("PaxDirPais");
-					this.OnPaxDirPaisChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxTel", DbType="Char(20)")]
-		public string PaxTel
-		{
-			get
-			{
-				return this._PaxTel;
-			}
-			set
-			{
-				if ((this._PaxTel != value))
-				{
-					this.OnPaxTelChanging(value);
-					this.SendPropertyChanging();
-					this._PaxTel = value;
-					this.SendPropertyChanged("PaxTel");
-					this.OnPaxTelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxFax", DbType="Char(20)")]
-		public string PaxFax
-		{
-			get
-			{
-				return this._PaxFax;
-			}
-			set
-			{
-				if ((this._PaxFax != value))
-				{
-					this.OnPaxFaxChanging(value);
-					this.SendPropertyChanging();
-					this._PaxFax = value;
-					this.SendPropertyChanged("PaxFax");
-					this.OnPaxFaxChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEmail", DbType="Char(40)")]
-		public string PaxEmail
-		{
-			get
-			{
-				return this._PaxEmail;
-			}
-			set
-			{
-				if ((this._PaxEmail != value))
-				{
-					this.OnPaxEmailChanging(value);
-					this.SendPropertyChanging();
-					this._PaxEmail = value;
-					this.SendPropertyChanged("PaxEmail");
-					this.OnPaxEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCP", DbType="Char(10)")]
-		public string PaxCP
-		{
-			get
-			{
-				return this._PaxCP;
-			}
-			set
-			{
-				if ((this._PaxCP != value))
-				{
-					this.OnPaxCPChanging(value);
-					this.SendPropertyChanging();
-					this._PaxCP = value;
-					this.SendPropertyChanged("PaxCP");
-					this.OnPaxCPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxObs", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string PaxObs
-		{
-			get
-			{
-				return this._PaxObs;
-			}
-			set
-			{
-				if ((this._PaxObs != value))
-				{
-					this.OnPaxObsChanging(value);
-					this.SendPropertyChanging();
-					this._PaxObs = value;
-					this.SendPropertyChanged("PaxObs");
-					this.OnPaxObsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxTipDoc", DbType="Char(2)")]
-		public string PaxTipDoc
-		{
-			get
-			{
-				return this._PaxTipDoc;
-			}
-			set
-			{
-				if ((this._PaxTipDoc != value))
-				{
-					this.OnPaxTipDocChanging(value);
-					this.SendPropertyChanging();
-					this._PaxTipDoc = value;
-					this.SendPropertyChanged("PaxTipDoc");
-					this.OnPaxTipDocChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNroDoc", DbType="Char(15)")]
-		public string PaxNroDoc
-		{
-			get
-			{
-				return this._PaxNroDoc;
-			}
-			set
-			{
-				if ((this._PaxNroDoc != value))
-				{
-					this.OnPaxNroDocChanging(value);
-					this.SendPropertyChanging();
-					this._PaxNroDoc = value;
-					this.SendPropertyChanged("PaxNroDoc");
-					this.OnPaxNroDocChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEst", DbType="Char(3)")]
-		public string PaxEst
-		{
-			get
-			{
-				return this._PaxEst;
-			}
-			set
-			{
-				if ((this._PaxEst != value))
-				{
-					this.OnPaxEstChanging(value);
-					this.SendPropertyChanging();
-					this._PaxEst = value;
-					this.SendPropertyChanged("PaxEst");
-					this.OnPaxEstChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEstPax", DbType="Char(1)")]
-		public System.Nullable<char> PaxEstPax
-		{
-			get
-			{
-				return this._PaxEstPax;
-			}
-			set
-			{
-				if ((this._PaxEstPax != value))
-				{
-					this.OnPaxEstPaxChanging(value);
-					this.SendPropertyChanging();
-					this._PaxEstPax = value;
-					this.SendPropertyChanged("PaxEstPax");
-					this.OnPaxEstPaxChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEveFec", DbType="DateTime")]
-		public System.Nullable<System.DateTime> PaxEveFec
-		{
-			get
-			{
-				return this._PaxEveFec;
-			}
-			set
-			{
-				if ((this._PaxEveFec != value))
-				{
-					this.OnPaxEveFecChanging(value);
-					this.SendPropertyChanging();
-					this._PaxEveFec = value;
-					this.SendPropertyChanged("PaxEveFec");
-					this.OnPaxEveFecChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliBanId", DbType="SmallInt")]
-		public System.Nullable<short> CliBanId
-		{
-			get
-			{
-				return this._CliBanId;
-			}
-			set
-			{
-				if ((this._CliBanId != value))
-				{
-					this.OnCliBanIdChanging(value);
-					this.SendPropertyChanging();
-					this._CliBanId = value;
-					this.SendPropertyChanged("CliBanId");
-					this.OnCliBanIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliBanSuc", DbType="Char(40)")]
-		public string CliBanSuc
-		{
-			get
-			{
-				return this._CliBanSuc;
-			}
-			set
-			{
-				if ((this._CliBanSuc != value))
-				{
-					this.OnCliBanSucChanging(value);
-					this.SendPropertyChanging();
-					this._CliBanSuc = value;
-					this.SendPropertyChanged("CliBanSuc");
-					this.OnCliBanSucChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliBanCue", DbType="Decimal(15,0)")]
-		public System.Nullable<decimal> CliBanCue
-		{
-			get
-			{
-				return this._CliBanCue;
-			}
-			set
-			{
-				if ((this._CliBanCue != value))
-				{
-					this.OnCliBanCueChanging(value);
-					this.SendPropertyChanging();
-					this._CliBanCue = value;
-					this.SendPropertyChanged("CliBanCue");
-					this.OnCliBanCueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliBanTit", DbType="Char(40)")]
-		public string CliBanTit
-		{
-			get
-			{
-				return this._CliBanTit;
-			}
-			set
-			{
-				if ((this._CliBanTit != value))
-				{
-					this.OnCliBanTitChanging(value);
-					this.SendPropertyChanging();
-					this._CliBanTit = value;
-					this.SendPropertyChanged("CliBanTit");
-					this.OnCliBanTitChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliBanMonId", DbType="SmallInt")]
-		public System.Nullable<short> CliBanMonId
-		{
-			get
-			{
-				return this._CliBanMonId;
-			}
-			set
-			{
-				if ((this._CliBanMonId != value))
-				{
-					this.OnCliBanMonIdChanging(value);
-					this.SendPropertyChanging();
-					this._CliBanMonId = value;
-					this.SendPropertyChanged("CliBanMonId");
-					this.OnCliBanMonIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliFecPag", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CliFecPag
-		{
-			get
-			{
-				return this._CliFecPag;
-			}
-			set
-			{
-				if ((this._CliFecPag != value))
-				{
-					this.OnCliFecPagChanging(value);
-					this.SendPropertyChanging();
-					this._CliFecPag = value;
-					this.SendPropertyChanged("CliFecPag");
-					this.OnCliFecPagChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliTopMN", DbType="Money")]
-		public System.Nullable<decimal> CliTopMN
-		{
-			get
-			{
-				return this._CliTopMN;
-			}
-			set
-			{
-				if ((this._CliTopMN != value))
-				{
-					this.OnCliTopMNChanging(value);
-					this.SendPropertyChanging();
-					this._CliTopMN = value;
-					this.SendPropertyChanged("CliTopMN");
-					this.OnCliTopMNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliTopME", DbType="Money")]
-		public System.Nullable<decimal> CliTopME
-		{
-			get
-			{
-				return this._CliTopME;
-			}
-			set
-			{
-				if ((this._CliTopME != value))
-				{
-					this.OnCliTopMEChanging(value);
-					this.SendPropertyChanging();
-					this._CliTopME = value;
-					this.SendPropertyChanged("CliTopME");
-					this.OnCliTopMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliSalMN", DbType="Money")]
-		public System.Nullable<decimal> CliSalMN
-		{
-			get
-			{
-				return this._CliSalMN;
-			}
-			set
-			{
-				if ((this._CliSalMN != value))
-				{
-					this.OnCliSalMNChanging(value);
-					this.SendPropertyChanging();
-					this._CliSalMN = value;
-					this.SendPropertyChanged("CliSalMN");
-					this.OnCliSalMNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliSalME", DbType="Money")]
-		public System.Nullable<decimal> CliSalME
-		{
-			get
-			{
-				return this._CliSalME;
-			}
-			set
-			{
-				if ((this._CliSalME != value))
-				{
-					this.OnCliSalMEChanging(value);
-					this.SendPropertyChanging();
-					this._CliSalME = value;
-					this.SendPropertyChanged("CliSalME");
-					this.OnCliSalMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliEntCtaPes", DbType="Money")]
-		public System.Nullable<decimal> CliEntCtaPes
-		{
-			get
-			{
-				return this._CliEntCtaPes;
-			}
-			set
-			{
-				if ((this._CliEntCtaPes != value))
-				{
-					this.OnCliEntCtaPesChanging(value);
-					this.SendPropertyChanging();
-					this._CliEntCtaPes = value;
-					this.SendPropertyChanged("CliEntCtaPes");
-					this.OnCliEntCtaPesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliEntCtaDol", DbType="Money")]
-		public System.Nullable<decimal> CliEntCtaDol
-		{
-			get
-			{
-				return this._CliEntCtaDol;
-			}
-			set
-			{
-				if ((this._CliEntCtaDol != value))
-				{
-					this.OnCliEntCtaDolChanging(value);
-					this.SendPropertyChanging();
-					this._CliEntCtaDol = value;
-					this.SendPropertyChanged("CliEntCtaDol");
-					this.OnCliEntCtaDolChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepCod", DbType="Char(3)")]
-		public string DepCod
-		{
-			get
-			{
-				return this._DepCod;
-			}
-			set
-			{
-				if ((this._DepCod != value))
-				{
-					this.OnDepCodChanging(value);
-					this.SendPropertyChanging();
-					this._DepCod = value;
-					this.SendPropertyChanged("DepCod");
-					this.OnDepCodChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxPlaCier", DbType="Char(15)")]
-		public string PaxPlaCier
-		{
-			get
-			{
-				return this._PaxPlaCier;
-			}
-			set
-			{
-				if ((this._PaxPlaCier != value))
-				{
-					this.OnPaxPlaCierChanging(value);
-					this.SendPropertyChanging();
-					this._PaxPlaCier = value;
-					this.SendPropertyChanged("PaxPlaCier");
-					this.OnPaxPlaCierChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliDsc", DbType="Char(40)")]
-		public string CliDsc
-		{
-			get
-			{
-				return this._CliDsc;
-			}
-			set
-			{
-				if ((this._CliDsc != value))
-				{
-					this.OnCliDscChanging(value);
-					this.SendPropertyChanging();
-					this._CliDsc = value;
-					this.SendPropertyChanged("CliDsc");
-					this.OnCliDscChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxProced", DbType="Char(15)")]
-		public string PaxProced
-		{
-			get
-			{
-				return this._PaxProced;
-			}
-			set
-			{
-				if ((this._PaxProced != value))
-				{
-					this.OnPaxProcedChanging(value);
-					this.SendPropertyChanging();
-					this._PaxProced = value;
-					this.SendPropertyChanged("PaxProced");
-					this.OnPaxProcedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxIngreso", DbType="DateTime")]
-		public System.Nullable<System.DateTime> PaxIngreso
-		{
-			get
-			{
-				return this._PaxIngreso;
-			}
-			set
-			{
-				if ((this._PaxIngreso != value))
-				{
-					this.OnPaxIngresoChanging(value);
-					this.SendPropertyChanging();
-					this._PaxIngreso = value;
-					this.SendPropertyChanged("PaxIngreso");
-					this.OnPaxIngresoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEdades", DbType="SmallInt")]
-		public System.Nullable<short> PaxEdades
-		{
-			get
-			{
-				return this._PaxEdades;
-			}
-			set
-			{
-				if ((this._PaxEdades != value))
-				{
-					this.OnPaxEdadesChanging(value);
-					this.SendPropertyChanging();
-					this._PaxEdades = value;
-					this.SendPropertyChanged("PaxEdades");
-					this.OnPaxEdadesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxUltEstadia", DbType="DateTime")]
-		public System.Nullable<System.DateTime> PaxUltEstadia
-		{
-			get
-			{
-				return this._PaxUltEstadia;
-			}
-			set
-			{
-				if ((this._PaxUltEstadia != value))
-				{
-					this.OnPaxUltEstadiaChanging(value);
-					this.SendPropertyChanging();
-					this._PaxUltEstadia = value;
-					this.SendPropertyChanged("PaxUltEstadia");
-					this.OnPaxUltEstadiaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContId", DbType="Int")]
-		public System.Nullable<int> ContId
-		{
-			get
-			{
-				return this._ContId;
-			}
-			set
-			{
-				if ((this._ContId != value))
-				{
-					this.OnContIdChanging(value);
-					this.SendPropertyChanging();
-					this._ContId = value;
-					this.SendPropertyChanged("ContId");
-					this.OnContIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEsquina", DbType="Char(40)")]
-		public string PaxEsquina
-		{
-			get
-			{
-				return this._PaxEsquina;
-			}
-			set
-			{
-				if ((this._PaxEsquina != value))
-				{
-					this.OnPaxEsquinaChanging(value);
-					this.SendPropertyChanging();
-					this._PaxEsquina = value;
-					this.SendPropertyChanged("PaxEsquina");
-					this.OnPaxEsquinaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCodMan", DbType="Char(10)")]
-		public string PaxCodMan
-		{
-			get
-			{
-				return this._PaxCodMan;
-			}
-			set
-			{
-				if ((this._PaxCodMan != value))
-				{
-					this.OnPaxCodManChanging(value);
-					this.SendPropertyChanging();
-					this._PaxCodMan = value;
-					this.SendPropertyChanged("PaxCodMan");
-					this.OnPaxCodManChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxPlaCtaCTra", DbType="Int")]
-		public System.Nullable<int> PaxPlaCtaCTra
-		{
-			get
-			{
-				return this._PaxPlaCtaCTra;
-			}
-			set
-			{
-				if ((this._PaxPlaCtaCTra != value))
-				{
-					this.OnPaxPlaCtaCTraChanging(value);
-					this.SendPropertyChanging();
-					this._PaxPlaCtaCTra = value;
-					this.SendPropertyChanged("PaxPlaCtaCTra");
-					this.OnPaxPlaCtaCTraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoDeDocumentoComprador", DbType="Char(1)")]
-		public System.Nullable<char> TipoDeDocumentoComprador
-		{
-			get
-			{
-				return this._TipoDeDocumentoComprador;
-			}
-			set
-			{
-				if ((this._TipoDeDocumentoComprador != value))
-				{
-					this.OnTipoDeDocumentoCompradorChanging(value);
-					this.SendPropertyChanging();
-					this._TipoDeDocumentoComprador = value;
-					this.SendPropertyChanged("TipoDeDocumentoComprador");
-					this.OnTipoDeDocumentoCompradorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResponsabilidadIvaComprador", DbType="Char(1)")]
-		public System.Nullable<char> ResponsabilidadIvaComprador
-		{
-			get
-			{
-				return this._ResponsabilidadIvaComprador;
-			}
-			set
-			{
-				if ((this._ResponsabilidadIvaComprador != value))
-				{
-					this.OnResponsabilidadIvaCompradorChanging(value);
-					this.SendPropertyChanging();
-					this._ResponsabilidadIvaComprador = value;
-					this.SendPropertyChanged("ResponsabilidadIvaComprador");
-					this.OnResponsabilidadIvaCompradorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxControlTopeCredito", DbType="Char(1)")]
-		public System.Nullable<char> PaxControlTopeCredito
-		{
-			get
-			{
-				return this._PaxControlTopeCredito;
-			}
-			set
-			{
-				if ((this._PaxControlTopeCredito != value))
-				{
-					this.OnPaxControlTopeCreditoChanging(value);
-					this.SendPropertyChanging();
-					this._PaxControlTopeCredito = value;
-					this.SendPropertyChanged("PaxControlTopeCredito");
-					this.OnPaxControlTopeCreditoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCanje", DbType="Char(1)")]
-		public System.Nullable<char> PaxCanje
-		{
-			get
-			{
-				return this._PaxCanje;
-			}
-			set
-			{
-				if ((this._PaxCanje != value))
-				{
-					this.OnPaxCanjeChanging(value);
-					this.SendPropertyChanging();
-					this._PaxCanje = value;
-					this.SendPropertyChanged("PaxCanje");
-					this.OnPaxCanjeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxDepFac", DbType="Char(30)")]
-		public string PaxDepFac
-		{
-			get
-			{
-				return this._PaxDepFac;
-			}
-			set
-			{
-				if ((this._PaxDepFac != value))
-				{
-					this.OnPaxDepFacChanging(value);
-					this.SendPropertyChanging();
-					this._PaxDepFac = value;
-					this.SendPropertyChanged("PaxDepFac");
-					this.OnPaxDepFacChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCiuFac", DbType="Char(30)")]
-		public string PaxCiuFac
-		{
-			get
-			{
-				return this._PaxCiuFac;
-			}
-			set
-			{
-				if ((this._PaxCiuFac != value))
-				{
-					this.OnPaxCiuFacChanging(value);
-					this.SendPropertyChanging();
-					this._PaxCiuFac = value;
-					this.SendPropertyChanged("PaxCiuFac");
-					this.OnPaxCiuFacChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxLisId", DbType="SmallInt")]
-		public System.Nullable<short> PaxLisId
-		{
-			get
-			{
-				return this._PaxLisId;
-			}
-			set
-			{
-				if ((this._PaxLisId != value))
-				{
-					this.OnPaxLisIdChanging(value);
-					this.SendPropertyChanging();
-					this._PaxLisId = value;
-					this.SendPropertyChanged("PaxLisId");
-					this.OnPaxLisIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxLey15921", DbType="Char(1)")]
-		public System.Nullable<char> PaxLey15921
-		{
-			get
-			{
-				return this._PaxLey15921;
-			}
-			set
-			{
-				if ((this._PaxLey15921 != value))
-				{
-					this.OnPaxLey15921Changing(value);
-					this.SendPropertyChanging();
-					this._PaxLey15921 = value;
-					this.SendPropertyChanged("PaxLey15921");
-					this.OnPaxLey15921Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNumApartamento", DbType="Char(10)")]
-		public string PaxNumApartamento
-		{
-			get
-			{
-				return this._PaxNumApartamento;
-			}
-			set
-			{
-				if ((this._PaxNumApartamento != value))
-				{
-					this.OnPaxNumApartamentoChanging(value);
-					this.SendPropertyChanging();
-					this._PaxNumApartamento = value;
-					this.SendPropertyChanged("PaxNumApartamento");
-					this.OnPaxNumApartamentoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNumBis", DbType="Char(1)")]
-		public System.Nullable<char> PaxNumBis
-		{
-			get
-			{
-				return this._PaxNumBis;
-			}
-			set
-			{
-				if ((this._PaxNumBis != value))
-				{
-					this.OnPaxNumBisChanging(value);
-					this.SendPropertyChanging();
-					this._PaxNumBis = value;
-					this.SendPropertyChanged("PaxNumBis");
-					this.OnPaxNumBisChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxTipoCasaDelivery", DbType="Char(1)")]
-		public System.Nullable<char> PaxTipoCasaDelivery
-		{
-			get
-			{
-				return this._PaxTipoCasaDelivery;
-			}
-			set
-			{
-				if ((this._PaxTipoCasaDelivery != value))
-				{
-					this.OnPaxTipoCasaDeliveryChanging(value);
-					this.SendPropertyChanging();
-					this._PaxTipoCasaDelivery = value;
-					this.SendPropertyChanged("PaxTipoCasaDelivery");
-					this.OnPaxTipoCasaDeliveryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNumeroDePuerta", DbType="Char(10)")]
-		public string PaxNumeroDePuerta
-		{
-			get
-			{
-				return this._PaxNumeroDePuerta;
-			}
-			set
-			{
-				if ((this._PaxNumeroDePuerta != value))
-				{
-					this.OnPaxNumeroDePuertaChanging(value);
-					this.SendPropertyChanging();
-					this._PaxNumeroDePuerta = value;
-					this.SendPropertyChanged("PaxNumeroDePuerta");
-					this.OnPaxNumeroDePuertaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEsquina2", DbType="Char(40)")]
-		public string PaxEsquina2
-		{
-			get
-			{
-				return this._PaxEsquina2;
-			}
-			set
-			{
-				if ((this._PaxEsquina2 != value))
-				{
-					this.OnPaxEsquina2Changing(value);
-					this.SendPropertyChanging();
-					this._PaxEsquina2 = value;
-					this.SendPropertyChanged("PaxEsquina2");
-					this.OnPaxEsquina2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxBarId", DbType="SmallInt")]
-		public System.Nullable<short> PaxBarId
-		{
-			get
-			{
-				return this._PaxBarId;
-			}
-			set
-			{
-				if ((this._PaxBarId != value))
-				{
-					this.OnPaxBarIdChanging(value);
-					this.SendPropertyChanging();
-					this._PaxBarId = value;
-					this.SendPropertyChanged("PaxBarId");
-					this.OnPaxBarIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConVenId", DbType="SmallInt")]
-		public System.Nullable<short> ConVenId
-		{
-			get
-			{
-				return this._ConVenId;
-			}
-			set
-			{
-				if ((this._ConVenId != value))
-				{
-					this.OnConVenIdChanging(value);
-					this.SendPropertyChanging();
-					this._ConVenId = value;
-					this.SendPropertyChanged("ConVenId");
-					this.OnConVenIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pax0ExportacionId", DbType="Int")]
-		public System.Nullable<int> Pax0ExportacionId
-		{
-			get
-			{
-				return this._Pax0ExportacionId;
-			}
-			set
-			{
-				if ((this._Pax0ExportacionId != value))
-				{
-					this.OnPax0ExportacionIdChanging(value);
-					this.SendPropertyChanging();
-					this._Pax0ExportacionId = value;
-					this.SendPropertyChanged("Pax0ExportacionId");
-					this.OnPax0ExportacionIdChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<HABITACION>();
 			}
 		}
 	}
@@ -5114,451 +2030,1627 @@ namespace One.iGS.API.Driver
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RESERVAHISTORIA")]
-	public partial class RESERVAHISTORIA : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PASAJEROS")]
+	public partial class PASAJEROS : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ResNro;
+		private int _PaxCod;
 		
-		private int _ResHisId;
+		private string _PaxRazon;
 		
-		private System.Nullable<short> _ResHisHabNumDesde;
+		private string _PaxDirFac;
 		
-		private System.Nullable<short> _ResHisHabNumHasta;
+		private System.Nullable<char> _PaxTipo;
 		
-		private string _ResHisTarIdDesde;
+		private string _PaxNom;
 		
-		private string _ResHisTarIdHasta;
+		private string _PaxNom1;
 		
-		private System.Nullable<short> _ResHisTarIdMonIdDesde;
+		private string _PaxApe;
 		
-		private System.Nullable<short> _ResHisTarIdMonIdHasta;
+		private string _PaxApe1;
 		
-		private System.Nullable<decimal> _ResHisTarImporteDesde;
+		private System.Nullable<System.DateTime> _PaxFecNac;
 		
-		private System.Nullable<decimal> _ResHisTarImporteHasta;
+		private System.Nullable<short> _PaxSex;
 		
-		private string _ResHisObservacion;
+		private string _PaxNac;
 		
-		private System.Nullable<char> _ResHisHisTipo;
+		private System.Nullable<decimal> _PaxRuc;
 		
-		private System.Nullable<char> _ResHisCambio;
+		private string _PaxOcu;
 		
-		private System.Nullable<System.DateTime> _ResHisFecha;
+		private System.Nullable<char> _PaxCiv;
 		
-		private string _ResHisHora;
+		private string _PaxDir;
 		
-		private string _ResHisUsuId;
+		private System.Nullable<short> _Paxdescu;
 		
-		private string _ResHisPc;
+		private string _PaxDirLoc;
 		
-		private System.Nullable<short> _ResHisEstId;
+		private string _PaxDirPais;
+		
+		private string _PaxTel;
+		
+		private string _PaxFax;
+		
+		private string _PaxEmail;
+		
+		private string _PaxCP;
+		
+		private string _PaxObs;
+		
+		private string _PaxTipDoc;
+		
+		private string _PaxNroDoc;
+		
+		private string _PaxEst;
+		
+		private System.Nullable<char> _PaxEstPax;
+		
+		private System.Nullable<System.DateTime> _PaxEveFec;
+		
+		private System.Nullable<short> _CliBanId;
+		
+		private string _CliBanSuc;
+		
+		private System.Nullable<decimal> _CliBanCue;
+		
+		private string _CliBanTit;
+		
+		private System.Nullable<short> _CliBanMonId;
+		
+		private System.Nullable<System.DateTime> _CliFecPag;
+		
+		private System.Nullable<decimal> _CliTopMN;
+		
+		private System.Nullable<decimal> _CliTopME;
+		
+		private System.Nullable<decimal> _CliSalMN;
+		
+		private System.Nullable<decimal> _CliSalME;
+		
+		private System.Nullable<decimal> _CliEntCtaPes;
+		
+		private System.Nullable<decimal> _CliEntCtaDol;
+		
+		private string _DepCod;
+		
+		private string _PaxPlaCier;
+		
+		private string _CliDsc;
+		
+		private string _PaxProced;
+		
+		private System.Nullable<System.DateTime> _PaxIngreso;
+		
+		private System.Nullable<short> _PaxEdades;
+		
+		private System.Nullable<System.DateTime> _PaxUltEstadia;
+		
+		private System.Nullable<int> _ContId;
+		
+		private string _PaxEsquina;
+		
+		private string _PaxCodMan;
+		
+		private System.Nullable<int> _PaxPlaCtaCTra;
+		
+		private System.Nullable<char> _TipoDeDocumentoComprador;
+		
+		private System.Nullable<char> _ResponsabilidadIvaComprador;
+		
+		private System.Nullable<char> _PaxControlTopeCredito;
+		
+		private System.Nullable<char> _PaxCanje;
+		
+		private string _PaxDepFac;
+		
+		private string _PaxCiuFac;
+		
+		private System.Nullable<short> _PaxLisId;
+		
+		private System.Nullable<char> _PaxLey15921;
+		
+		private string _PaxNumApartamento;
+		
+		private System.Nullable<char> _PaxNumBis;
+		
+		private System.Nullable<char> _PaxTipoCasaDelivery;
+		
+		private string _PaxNumeroDePuerta;
+		
+		private string _PaxEsquina2;
+		
+		private System.Nullable<short> _PaxBarId;
+		
+		private System.Nullable<short> _ConVenId;
+		
+		private System.Nullable<int> _Pax0ExportacionId;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnResNroChanging(int value);
-    partial void OnResNroChanged();
-    partial void OnResHisIdChanging(int value);
-    partial void OnResHisIdChanged();
-    partial void OnResHisHabNumDesdeChanging(System.Nullable<short> value);
-    partial void OnResHisHabNumDesdeChanged();
-    partial void OnResHisHabNumHastaChanging(System.Nullable<short> value);
-    partial void OnResHisHabNumHastaChanged();
-    partial void OnResHisTarIdDesdeChanging(string value);
-    partial void OnResHisTarIdDesdeChanged();
-    partial void OnResHisTarIdHastaChanging(string value);
-    partial void OnResHisTarIdHastaChanged();
-    partial void OnResHisTarIdMonIdDesdeChanging(System.Nullable<short> value);
-    partial void OnResHisTarIdMonIdDesdeChanged();
-    partial void OnResHisTarIdMonIdHastaChanging(System.Nullable<short> value);
-    partial void OnResHisTarIdMonIdHastaChanged();
-    partial void OnResHisTarImporteDesdeChanging(System.Nullable<decimal> value);
-    partial void OnResHisTarImporteDesdeChanged();
-    partial void OnResHisTarImporteHastaChanging(System.Nullable<decimal> value);
-    partial void OnResHisTarImporteHastaChanged();
-    partial void OnResHisObservacionChanging(string value);
-    partial void OnResHisObservacionChanged();
-    partial void OnResHisHisTipoChanging(System.Nullable<char> value);
-    partial void OnResHisHisTipoChanged();
-    partial void OnResHisCambioChanging(System.Nullable<char> value);
-    partial void OnResHisCambioChanged();
-    partial void OnResHisFechaChanging(System.Nullable<System.DateTime> value);
-    partial void OnResHisFechaChanged();
-    partial void OnResHisHoraChanging(string value);
-    partial void OnResHisHoraChanged();
-    partial void OnResHisUsuIdChanging(string value);
-    partial void OnResHisUsuIdChanged();
-    partial void OnResHisPcChanging(string value);
-    partial void OnResHisPcChanged();
-    partial void OnResHisEstIdChanging(System.Nullable<short> value);
-    partial void OnResHisEstIdChanged();
+    partial void OnPaxCodChanging(int value);
+    partial void OnPaxCodChanged();
+    partial void OnPaxRazonChanging(string value);
+    partial void OnPaxRazonChanged();
+    partial void OnPaxDirFacChanging(string value);
+    partial void OnPaxDirFacChanged();
+    partial void OnPaxTipoChanging(System.Nullable<char> value);
+    partial void OnPaxTipoChanged();
+    partial void OnPaxNomChanging(string value);
+    partial void OnPaxNomChanged();
+    partial void OnPaxNom1Changing(string value);
+    partial void OnPaxNom1Changed();
+    partial void OnPaxApeChanging(string value);
+    partial void OnPaxApeChanged();
+    partial void OnPaxApe1Changing(string value);
+    partial void OnPaxApe1Changed();
+    partial void OnPaxFecNacChanging(System.Nullable<System.DateTime> value);
+    partial void OnPaxFecNacChanged();
+    partial void OnPaxSexChanging(System.Nullable<short> value);
+    partial void OnPaxSexChanged();
+    partial void OnPaxNacChanging(string value);
+    partial void OnPaxNacChanged();
+    partial void OnPaxRucChanging(System.Nullable<decimal> value);
+    partial void OnPaxRucChanged();
+    partial void OnPaxOcuChanging(string value);
+    partial void OnPaxOcuChanged();
+    partial void OnPaxCivChanging(System.Nullable<char> value);
+    partial void OnPaxCivChanged();
+    partial void OnPaxDirChanging(string value);
+    partial void OnPaxDirChanged();
+    partial void OnPaxdescuChanging(System.Nullable<short> value);
+    partial void OnPaxdescuChanged();
+    partial void OnPaxDirLocChanging(string value);
+    partial void OnPaxDirLocChanged();
+    partial void OnPaxDirPaisChanging(string value);
+    partial void OnPaxDirPaisChanged();
+    partial void OnPaxTelChanging(string value);
+    partial void OnPaxTelChanged();
+    partial void OnPaxFaxChanging(string value);
+    partial void OnPaxFaxChanged();
+    partial void OnPaxEmailChanging(string value);
+    partial void OnPaxEmailChanged();
+    partial void OnPaxCPChanging(string value);
+    partial void OnPaxCPChanged();
+    partial void OnPaxObsChanging(string value);
+    partial void OnPaxObsChanged();
+    partial void OnPaxTipDocChanging(string value);
+    partial void OnPaxTipDocChanged();
+    partial void OnPaxNroDocChanging(string value);
+    partial void OnPaxNroDocChanged();
+    partial void OnPaxEstChanging(string value);
+    partial void OnPaxEstChanged();
+    partial void OnPaxEstPaxChanging(System.Nullable<char> value);
+    partial void OnPaxEstPaxChanged();
+    partial void OnPaxEveFecChanging(System.Nullable<System.DateTime> value);
+    partial void OnPaxEveFecChanged();
+    partial void OnCliBanIdChanging(System.Nullable<short> value);
+    partial void OnCliBanIdChanged();
+    partial void OnCliBanSucChanging(string value);
+    partial void OnCliBanSucChanged();
+    partial void OnCliBanCueChanging(System.Nullable<decimal> value);
+    partial void OnCliBanCueChanged();
+    partial void OnCliBanTitChanging(string value);
+    partial void OnCliBanTitChanged();
+    partial void OnCliBanMonIdChanging(System.Nullable<short> value);
+    partial void OnCliBanMonIdChanged();
+    partial void OnCliFecPagChanging(System.Nullable<System.DateTime> value);
+    partial void OnCliFecPagChanged();
+    partial void OnCliTopMNChanging(System.Nullable<decimal> value);
+    partial void OnCliTopMNChanged();
+    partial void OnCliTopMEChanging(System.Nullable<decimal> value);
+    partial void OnCliTopMEChanged();
+    partial void OnCliSalMNChanging(System.Nullable<decimal> value);
+    partial void OnCliSalMNChanged();
+    partial void OnCliSalMEChanging(System.Nullable<decimal> value);
+    partial void OnCliSalMEChanged();
+    partial void OnCliEntCtaPesChanging(System.Nullable<decimal> value);
+    partial void OnCliEntCtaPesChanged();
+    partial void OnCliEntCtaDolChanging(System.Nullable<decimal> value);
+    partial void OnCliEntCtaDolChanged();
+    partial void OnDepCodChanging(string value);
+    partial void OnDepCodChanged();
+    partial void OnPaxPlaCierChanging(string value);
+    partial void OnPaxPlaCierChanged();
+    partial void OnCliDscChanging(string value);
+    partial void OnCliDscChanged();
+    partial void OnPaxProcedChanging(string value);
+    partial void OnPaxProcedChanged();
+    partial void OnPaxIngresoChanging(System.Nullable<System.DateTime> value);
+    partial void OnPaxIngresoChanged();
+    partial void OnPaxEdadesChanging(System.Nullable<short> value);
+    partial void OnPaxEdadesChanged();
+    partial void OnPaxUltEstadiaChanging(System.Nullable<System.DateTime> value);
+    partial void OnPaxUltEstadiaChanged();
+    partial void OnContIdChanging(System.Nullable<int> value);
+    partial void OnContIdChanged();
+    partial void OnPaxEsquinaChanging(string value);
+    partial void OnPaxEsquinaChanged();
+    partial void OnPaxCodManChanging(string value);
+    partial void OnPaxCodManChanged();
+    partial void OnPaxPlaCtaCTraChanging(System.Nullable<int> value);
+    partial void OnPaxPlaCtaCTraChanged();
+    partial void OnTipoDeDocumentoCompradorChanging(System.Nullable<char> value);
+    partial void OnTipoDeDocumentoCompradorChanged();
+    partial void OnResponsabilidadIvaCompradorChanging(System.Nullable<char> value);
+    partial void OnResponsabilidadIvaCompradorChanged();
+    partial void OnPaxControlTopeCreditoChanging(System.Nullable<char> value);
+    partial void OnPaxControlTopeCreditoChanged();
+    partial void OnPaxCanjeChanging(System.Nullable<char> value);
+    partial void OnPaxCanjeChanged();
+    partial void OnPaxDepFacChanging(string value);
+    partial void OnPaxDepFacChanged();
+    partial void OnPaxCiuFacChanging(string value);
+    partial void OnPaxCiuFacChanged();
+    partial void OnPaxLisIdChanging(System.Nullable<short> value);
+    partial void OnPaxLisIdChanged();
+    partial void OnPaxLey15921Changing(System.Nullable<char> value);
+    partial void OnPaxLey15921Changed();
+    partial void OnPaxNumApartamentoChanging(string value);
+    partial void OnPaxNumApartamentoChanged();
+    partial void OnPaxNumBisChanging(System.Nullable<char> value);
+    partial void OnPaxNumBisChanged();
+    partial void OnPaxTipoCasaDeliveryChanging(System.Nullable<char> value);
+    partial void OnPaxTipoCasaDeliveryChanged();
+    partial void OnPaxNumeroDePuertaChanging(string value);
+    partial void OnPaxNumeroDePuertaChanged();
+    partial void OnPaxEsquina2Changing(string value);
+    partial void OnPaxEsquina2Changed();
+    partial void OnPaxBarIdChanging(System.Nullable<short> value);
+    partial void OnPaxBarIdChanged();
+    partial void OnConVenIdChanging(System.Nullable<short> value);
+    partial void OnConVenIdChanged();
+    partial void OnPax0ExportacionIdChanging(System.Nullable<int> value);
+    partial void OnPax0ExportacionIdChanged();
     #endregion
 		
-		public RESERVAHISTORIA()
+		public PASAJEROS()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResNro", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ResNro
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCod", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int PaxCod
 		{
 			get
 			{
-				return this._ResNro;
+				return this._PaxCod;
 			}
 			set
 			{
-				if ((this._ResNro != value))
+				if ((this._PaxCod != value))
 				{
-					this.OnResNroChanging(value);
+					this.OnPaxCodChanging(value);
 					this.SendPropertyChanging();
-					this._ResNro = value;
-					this.SendPropertyChanged("ResNro");
-					this.OnResNroChanged();
+					this._PaxCod = value;
+					this.SendPropertyChanged("PaxCod");
+					this.OnPaxCodChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ResHisId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxRazon", DbType="Char(40)")]
+		public string PaxRazon
 		{
 			get
 			{
-				return this._ResHisId;
+				return this._PaxRazon;
 			}
 			set
 			{
-				if ((this._ResHisId != value))
+				if ((this._PaxRazon != value))
 				{
-					this.OnResHisIdChanging(value);
+					this.OnPaxRazonChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisId = value;
-					this.SendPropertyChanged("ResHisId");
-					this.OnResHisIdChanged();
+					this._PaxRazon = value;
+					this.SendPropertyChanged("PaxRazon");
+					this.OnPaxRazonChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisHabNumDesde", DbType="SmallInt")]
-		public System.Nullable<short> ResHisHabNumDesde
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxDirFac", DbType="Char(40)")]
+		public string PaxDirFac
 		{
 			get
 			{
-				return this._ResHisHabNumDesde;
+				return this._PaxDirFac;
 			}
 			set
 			{
-				if ((this._ResHisHabNumDesde != value))
+				if ((this._PaxDirFac != value))
 				{
-					this.OnResHisHabNumDesdeChanging(value);
+					this.OnPaxDirFacChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisHabNumDesde = value;
-					this.SendPropertyChanged("ResHisHabNumDesde");
-					this.OnResHisHabNumDesdeChanged();
+					this._PaxDirFac = value;
+					this.SendPropertyChanged("PaxDirFac");
+					this.OnPaxDirFacChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisHabNumHasta", DbType="SmallInt")]
-		public System.Nullable<short> ResHisHabNumHasta
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxTipo", DbType="Char(1)")]
+		public System.Nullable<char> PaxTipo
 		{
 			get
 			{
-				return this._ResHisHabNumHasta;
+				return this._PaxTipo;
 			}
 			set
 			{
-				if ((this._ResHisHabNumHasta != value))
+				if ((this._PaxTipo != value))
 				{
-					this.OnResHisHabNumHastaChanging(value);
+					this.OnPaxTipoChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisHabNumHasta = value;
-					this.SendPropertyChanged("ResHisHabNumHasta");
-					this.OnResHisHabNumHastaChanged();
+					this._PaxTipo = value;
+					this.SendPropertyChanged("PaxTipo");
+					this.OnPaxTipoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisTarIdDesde", DbType="Char(5)")]
-		public string ResHisTarIdDesde
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNom", DbType="Char(15)")]
+		public string PaxNom
 		{
 			get
 			{
-				return this._ResHisTarIdDesde;
+				return this._PaxNom;
 			}
 			set
 			{
-				if ((this._ResHisTarIdDesde != value))
+				if ((this._PaxNom != value))
 				{
-					this.OnResHisTarIdDesdeChanging(value);
+					this.OnPaxNomChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisTarIdDesde = value;
-					this.SendPropertyChanged("ResHisTarIdDesde");
-					this.OnResHisTarIdDesdeChanged();
+					this._PaxNom = value;
+					this.SendPropertyChanged("PaxNom");
+					this.OnPaxNomChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisTarIdHasta", DbType="Char(5)")]
-		public string ResHisTarIdHasta
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNom1", DbType="Char(15)")]
+		public string PaxNom1
 		{
 			get
 			{
-				return this._ResHisTarIdHasta;
+				return this._PaxNom1;
 			}
 			set
 			{
-				if ((this._ResHisTarIdHasta != value))
+				if ((this._PaxNom1 != value))
 				{
-					this.OnResHisTarIdHastaChanging(value);
+					this.OnPaxNom1Changing(value);
 					this.SendPropertyChanging();
-					this._ResHisTarIdHasta = value;
-					this.SendPropertyChanged("ResHisTarIdHasta");
-					this.OnResHisTarIdHastaChanged();
+					this._PaxNom1 = value;
+					this.SendPropertyChanged("PaxNom1");
+					this.OnPaxNom1Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisTarIdMonIdDesde", DbType="SmallInt")]
-		public System.Nullable<short> ResHisTarIdMonIdDesde
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxApe", DbType="Char(15)")]
+		public string PaxApe
 		{
 			get
 			{
-				return this._ResHisTarIdMonIdDesde;
+				return this._PaxApe;
 			}
 			set
 			{
-				if ((this._ResHisTarIdMonIdDesde != value))
+				if ((this._PaxApe != value))
 				{
-					this.OnResHisTarIdMonIdDesdeChanging(value);
+					this.OnPaxApeChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisTarIdMonIdDesde = value;
-					this.SendPropertyChanged("ResHisTarIdMonIdDesde");
-					this.OnResHisTarIdMonIdDesdeChanged();
+					this._PaxApe = value;
+					this.SendPropertyChanged("PaxApe");
+					this.OnPaxApeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisTarIdMonIdHasta", DbType="SmallInt")]
-		public System.Nullable<short> ResHisTarIdMonIdHasta
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxApe1", DbType="Char(15)")]
+		public string PaxApe1
 		{
 			get
 			{
-				return this._ResHisTarIdMonIdHasta;
+				return this._PaxApe1;
 			}
 			set
 			{
-				if ((this._ResHisTarIdMonIdHasta != value))
+				if ((this._PaxApe1 != value))
 				{
-					this.OnResHisTarIdMonIdHastaChanging(value);
+					this.OnPaxApe1Changing(value);
 					this.SendPropertyChanging();
-					this._ResHisTarIdMonIdHasta = value;
-					this.SendPropertyChanged("ResHisTarIdMonIdHasta");
-					this.OnResHisTarIdMonIdHastaChanged();
+					this._PaxApe1 = value;
+					this.SendPropertyChanged("PaxApe1");
+					this.OnPaxApe1Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisTarImporteDesde", DbType="Money")]
-		public System.Nullable<decimal> ResHisTarImporteDesde
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxFecNac", DbType="DateTime")]
+		public System.Nullable<System.DateTime> PaxFecNac
 		{
 			get
 			{
-				return this._ResHisTarImporteDesde;
+				return this._PaxFecNac;
 			}
 			set
 			{
-				if ((this._ResHisTarImporteDesde != value))
+				if ((this._PaxFecNac != value))
 				{
-					this.OnResHisTarImporteDesdeChanging(value);
+					this.OnPaxFecNacChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisTarImporteDesde = value;
-					this.SendPropertyChanged("ResHisTarImporteDesde");
-					this.OnResHisTarImporteDesdeChanged();
+					this._PaxFecNac = value;
+					this.SendPropertyChanged("PaxFecNac");
+					this.OnPaxFecNacChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisTarImporteHasta", DbType="Money")]
-		public System.Nullable<decimal> ResHisTarImporteHasta
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxSex", DbType="SmallInt")]
+		public System.Nullable<short> PaxSex
 		{
 			get
 			{
-				return this._ResHisTarImporteHasta;
+				return this._PaxSex;
 			}
 			set
 			{
-				if ((this._ResHisTarImporteHasta != value))
+				if ((this._PaxSex != value))
 				{
-					this.OnResHisTarImporteHastaChanging(value);
+					this.OnPaxSexChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisTarImporteHasta = value;
-					this.SendPropertyChanged("ResHisTarImporteHasta");
-					this.OnResHisTarImporteHastaChanged();
+					this._PaxSex = value;
+					this.SendPropertyChanged("PaxSex");
+					this.OnPaxSexChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisObservacion", DbType="Char(80)")]
-		public string ResHisObservacion
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNac", DbType="Char(3)")]
+		public string PaxNac
 		{
 			get
 			{
-				return this._ResHisObservacion;
+				return this._PaxNac;
 			}
 			set
 			{
-				if ((this._ResHisObservacion != value))
+				if ((this._PaxNac != value))
 				{
-					this.OnResHisObservacionChanging(value);
+					this.OnPaxNacChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisObservacion = value;
-					this.SendPropertyChanged("ResHisObservacion");
-					this.OnResHisObservacionChanged();
+					this._PaxNac = value;
+					this.SendPropertyChanged("PaxNac");
+					this.OnPaxNacChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisHisTipo", DbType="Char(1)")]
-		public System.Nullable<char> ResHisHisTipo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxRuc", DbType="Decimal(15,0)")]
+		public System.Nullable<decimal> PaxRuc
 		{
 			get
 			{
-				return this._ResHisHisTipo;
+				return this._PaxRuc;
 			}
 			set
 			{
-				if ((this._ResHisHisTipo != value))
+				if ((this._PaxRuc != value))
 				{
-					this.OnResHisHisTipoChanging(value);
+					this.OnPaxRucChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisHisTipo = value;
-					this.SendPropertyChanged("ResHisHisTipo");
-					this.OnResHisHisTipoChanged();
+					this._PaxRuc = value;
+					this.SendPropertyChanged("PaxRuc");
+					this.OnPaxRucChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisCambio", DbType="Char(1)")]
-		public System.Nullable<char> ResHisCambio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxOcu", DbType="Char(3)")]
+		public string PaxOcu
 		{
 			get
 			{
-				return this._ResHisCambio;
+				return this._PaxOcu;
 			}
 			set
 			{
-				if ((this._ResHisCambio != value))
+				if ((this._PaxOcu != value))
 				{
-					this.OnResHisCambioChanging(value);
+					this.OnPaxOcuChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisCambio = value;
-					this.SendPropertyChanged("ResHisCambio");
-					this.OnResHisCambioChanged();
+					this._PaxOcu = value;
+					this.SendPropertyChanged("PaxOcu");
+					this.OnPaxOcuChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisFecha", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ResHisFecha
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCiv", DbType="Char(1)")]
+		public System.Nullable<char> PaxCiv
 		{
 			get
 			{
-				return this._ResHisFecha;
+				return this._PaxCiv;
 			}
 			set
 			{
-				if ((this._ResHisFecha != value))
+				if ((this._PaxCiv != value))
 				{
-					this.OnResHisFechaChanging(value);
+					this.OnPaxCivChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisFecha = value;
-					this.SendPropertyChanged("ResHisFecha");
-					this.OnResHisFechaChanged();
+					this._PaxCiv = value;
+					this.SendPropertyChanged("PaxCiv");
+					this.OnPaxCivChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisHora", DbType="Char(8)")]
-		public string ResHisHora
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxDir", DbType="Char(40)")]
+		public string PaxDir
 		{
 			get
 			{
-				return this._ResHisHora;
+				return this._PaxDir;
 			}
 			set
 			{
-				if ((this._ResHisHora != value))
+				if ((this._PaxDir != value))
 				{
-					this.OnResHisHoraChanging(value);
+					this.OnPaxDirChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisHora = value;
-					this.SendPropertyChanged("ResHisHora");
-					this.OnResHisHoraChanged();
+					this._PaxDir = value;
+					this.SendPropertyChanged("PaxDir");
+					this.OnPaxDirChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisUsuId", DbType="Char(10)")]
-		public string ResHisUsuId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paxdescu", DbType="SmallInt")]
+		public System.Nullable<short> Paxdescu
 		{
 			get
 			{
-				return this._ResHisUsuId;
+				return this._Paxdescu;
 			}
 			set
 			{
-				if ((this._ResHisUsuId != value))
+				if ((this._Paxdescu != value))
 				{
-					this.OnResHisUsuIdChanging(value);
+					this.OnPaxdescuChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisUsuId = value;
-					this.SendPropertyChanged("ResHisUsuId");
-					this.OnResHisUsuIdChanged();
+					this._Paxdescu = value;
+					this.SendPropertyChanged("Paxdescu");
+					this.OnPaxdescuChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisPc", DbType="Char(15)")]
-		public string ResHisPc
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxDirLoc", DbType="Char(20)")]
+		public string PaxDirLoc
 		{
 			get
 			{
-				return this._ResHisPc;
+				return this._PaxDirLoc;
 			}
 			set
 			{
-				if ((this._ResHisPc != value))
+				if ((this._PaxDirLoc != value))
 				{
-					this.OnResHisPcChanging(value);
+					this.OnPaxDirLocChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisPc = value;
-					this.SendPropertyChanged("ResHisPc");
-					this.OnResHisPcChanged();
+					this._PaxDirLoc = value;
+					this.SendPropertyChanged("PaxDirLoc");
+					this.OnPaxDirLocChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHisEstId", DbType="SmallInt")]
-		public System.Nullable<short> ResHisEstId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxDirPais", DbType="Char(20)")]
+		public string PaxDirPais
 		{
 			get
 			{
-				return this._ResHisEstId;
+				return this._PaxDirPais;
 			}
 			set
 			{
-				if ((this._ResHisEstId != value))
+				if ((this._PaxDirPais != value))
 				{
-					this.OnResHisEstIdChanging(value);
+					this.OnPaxDirPaisChanging(value);
 					this.SendPropertyChanging();
-					this._ResHisEstId = value;
-					this.SendPropertyChanged("ResHisEstId");
-					this.OnResHisEstIdChanged();
+					this._PaxDirPais = value;
+					this.SendPropertyChanged("PaxDirPais");
+					this.OnPaxDirPaisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxTel", DbType="Char(20)")]
+		public string PaxTel
+		{
+			get
+			{
+				return this._PaxTel;
+			}
+			set
+			{
+				if ((this._PaxTel != value))
+				{
+					this.OnPaxTelChanging(value);
+					this.SendPropertyChanging();
+					this._PaxTel = value;
+					this.SendPropertyChanged("PaxTel");
+					this.OnPaxTelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxFax", DbType="Char(20)")]
+		public string PaxFax
+		{
+			get
+			{
+				return this._PaxFax;
+			}
+			set
+			{
+				if ((this._PaxFax != value))
+				{
+					this.OnPaxFaxChanging(value);
+					this.SendPropertyChanging();
+					this._PaxFax = value;
+					this.SendPropertyChanged("PaxFax");
+					this.OnPaxFaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEmail", DbType="Char(40)")]
+		public string PaxEmail
+		{
+			get
+			{
+				return this._PaxEmail;
+			}
+			set
+			{
+				if ((this._PaxEmail != value))
+				{
+					this.OnPaxEmailChanging(value);
+					this.SendPropertyChanging();
+					this._PaxEmail = value;
+					this.SendPropertyChanged("PaxEmail");
+					this.OnPaxEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCP", DbType="Char(10)")]
+		public string PaxCP
+		{
+			get
+			{
+				return this._PaxCP;
+			}
+			set
+			{
+				if ((this._PaxCP != value))
+				{
+					this.OnPaxCPChanging(value);
+					this.SendPropertyChanging();
+					this._PaxCP = value;
+					this.SendPropertyChanged("PaxCP");
+					this.OnPaxCPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxObs", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string PaxObs
+		{
+			get
+			{
+				return this._PaxObs;
+			}
+			set
+			{
+				if ((this._PaxObs != value))
+				{
+					this.OnPaxObsChanging(value);
+					this.SendPropertyChanging();
+					this._PaxObs = value;
+					this.SendPropertyChanged("PaxObs");
+					this.OnPaxObsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxTipDoc", DbType="Char(2)")]
+		public string PaxTipDoc
+		{
+			get
+			{
+				return this._PaxTipDoc;
+			}
+			set
+			{
+				if ((this._PaxTipDoc != value))
+				{
+					this.OnPaxTipDocChanging(value);
+					this.SendPropertyChanging();
+					this._PaxTipDoc = value;
+					this.SendPropertyChanged("PaxTipDoc");
+					this.OnPaxTipDocChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNroDoc", DbType="Char(15)")]
+		public string PaxNroDoc
+		{
+			get
+			{
+				return this._PaxNroDoc;
+			}
+			set
+			{
+				if ((this._PaxNroDoc != value))
+				{
+					this.OnPaxNroDocChanging(value);
+					this.SendPropertyChanging();
+					this._PaxNroDoc = value;
+					this.SendPropertyChanged("PaxNroDoc");
+					this.OnPaxNroDocChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEst", DbType="Char(3)")]
+		public string PaxEst
+		{
+			get
+			{
+				return this._PaxEst;
+			}
+			set
+			{
+				if ((this._PaxEst != value))
+				{
+					this.OnPaxEstChanging(value);
+					this.SendPropertyChanging();
+					this._PaxEst = value;
+					this.SendPropertyChanged("PaxEst");
+					this.OnPaxEstChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEstPax", DbType="Char(1)")]
+		public System.Nullable<char> PaxEstPax
+		{
+			get
+			{
+				return this._PaxEstPax;
+			}
+			set
+			{
+				if ((this._PaxEstPax != value))
+				{
+					this.OnPaxEstPaxChanging(value);
+					this.SendPropertyChanging();
+					this._PaxEstPax = value;
+					this.SendPropertyChanged("PaxEstPax");
+					this.OnPaxEstPaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEveFec", DbType="DateTime")]
+		public System.Nullable<System.DateTime> PaxEveFec
+		{
+			get
+			{
+				return this._PaxEveFec;
+			}
+			set
+			{
+				if ((this._PaxEveFec != value))
+				{
+					this.OnPaxEveFecChanging(value);
+					this.SendPropertyChanging();
+					this._PaxEveFec = value;
+					this.SendPropertyChanged("PaxEveFec");
+					this.OnPaxEveFecChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliBanId", DbType="SmallInt")]
+		public System.Nullable<short> CliBanId
+		{
+			get
+			{
+				return this._CliBanId;
+			}
+			set
+			{
+				if ((this._CliBanId != value))
+				{
+					this.OnCliBanIdChanging(value);
+					this.SendPropertyChanging();
+					this._CliBanId = value;
+					this.SendPropertyChanged("CliBanId");
+					this.OnCliBanIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliBanSuc", DbType="Char(40)")]
+		public string CliBanSuc
+		{
+			get
+			{
+				return this._CliBanSuc;
+			}
+			set
+			{
+				if ((this._CliBanSuc != value))
+				{
+					this.OnCliBanSucChanging(value);
+					this.SendPropertyChanging();
+					this._CliBanSuc = value;
+					this.SendPropertyChanged("CliBanSuc");
+					this.OnCliBanSucChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliBanCue", DbType="Decimal(15,0)")]
+		public System.Nullable<decimal> CliBanCue
+		{
+			get
+			{
+				return this._CliBanCue;
+			}
+			set
+			{
+				if ((this._CliBanCue != value))
+				{
+					this.OnCliBanCueChanging(value);
+					this.SendPropertyChanging();
+					this._CliBanCue = value;
+					this.SendPropertyChanged("CliBanCue");
+					this.OnCliBanCueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliBanTit", DbType="Char(40)")]
+		public string CliBanTit
+		{
+			get
+			{
+				return this._CliBanTit;
+			}
+			set
+			{
+				if ((this._CliBanTit != value))
+				{
+					this.OnCliBanTitChanging(value);
+					this.SendPropertyChanging();
+					this._CliBanTit = value;
+					this.SendPropertyChanged("CliBanTit");
+					this.OnCliBanTitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliBanMonId", DbType="SmallInt")]
+		public System.Nullable<short> CliBanMonId
+		{
+			get
+			{
+				return this._CliBanMonId;
+			}
+			set
+			{
+				if ((this._CliBanMonId != value))
+				{
+					this.OnCliBanMonIdChanging(value);
+					this.SendPropertyChanging();
+					this._CliBanMonId = value;
+					this.SendPropertyChanged("CliBanMonId");
+					this.OnCliBanMonIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliFecPag", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CliFecPag
+		{
+			get
+			{
+				return this._CliFecPag;
+			}
+			set
+			{
+				if ((this._CliFecPag != value))
+				{
+					this.OnCliFecPagChanging(value);
+					this.SendPropertyChanging();
+					this._CliFecPag = value;
+					this.SendPropertyChanged("CliFecPag");
+					this.OnCliFecPagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliTopMN", DbType="Money")]
+		public System.Nullable<decimal> CliTopMN
+		{
+			get
+			{
+				return this._CliTopMN;
+			}
+			set
+			{
+				if ((this._CliTopMN != value))
+				{
+					this.OnCliTopMNChanging(value);
+					this.SendPropertyChanging();
+					this._CliTopMN = value;
+					this.SendPropertyChanged("CliTopMN");
+					this.OnCliTopMNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliTopME", DbType="Money")]
+		public System.Nullable<decimal> CliTopME
+		{
+			get
+			{
+				return this._CliTopME;
+			}
+			set
+			{
+				if ((this._CliTopME != value))
+				{
+					this.OnCliTopMEChanging(value);
+					this.SendPropertyChanging();
+					this._CliTopME = value;
+					this.SendPropertyChanged("CliTopME");
+					this.OnCliTopMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliSalMN", DbType="Money")]
+		public System.Nullable<decimal> CliSalMN
+		{
+			get
+			{
+				return this._CliSalMN;
+			}
+			set
+			{
+				if ((this._CliSalMN != value))
+				{
+					this.OnCliSalMNChanging(value);
+					this.SendPropertyChanging();
+					this._CliSalMN = value;
+					this.SendPropertyChanged("CliSalMN");
+					this.OnCliSalMNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliSalME", DbType="Money")]
+		public System.Nullable<decimal> CliSalME
+		{
+			get
+			{
+				return this._CliSalME;
+			}
+			set
+			{
+				if ((this._CliSalME != value))
+				{
+					this.OnCliSalMEChanging(value);
+					this.SendPropertyChanging();
+					this._CliSalME = value;
+					this.SendPropertyChanged("CliSalME");
+					this.OnCliSalMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliEntCtaPes", DbType="Money")]
+		public System.Nullable<decimal> CliEntCtaPes
+		{
+			get
+			{
+				return this._CliEntCtaPes;
+			}
+			set
+			{
+				if ((this._CliEntCtaPes != value))
+				{
+					this.OnCliEntCtaPesChanging(value);
+					this.SendPropertyChanging();
+					this._CliEntCtaPes = value;
+					this.SendPropertyChanged("CliEntCtaPes");
+					this.OnCliEntCtaPesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliEntCtaDol", DbType="Money")]
+		public System.Nullable<decimal> CliEntCtaDol
+		{
+			get
+			{
+				return this._CliEntCtaDol;
+			}
+			set
+			{
+				if ((this._CliEntCtaDol != value))
+				{
+					this.OnCliEntCtaDolChanging(value);
+					this.SendPropertyChanging();
+					this._CliEntCtaDol = value;
+					this.SendPropertyChanged("CliEntCtaDol");
+					this.OnCliEntCtaDolChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepCod", DbType="Char(3)")]
+		public string DepCod
+		{
+			get
+			{
+				return this._DepCod;
+			}
+			set
+			{
+				if ((this._DepCod != value))
+				{
+					this.OnDepCodChanging(value);
+					this.SendPropertyChanging();
+					this._DepCod = value;
+					this.SendPropertyChanged("DepCod");
+					this.OnDepCodChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxPlaCier", DbType="Char(15)")]
+		public string PaxPlaCier
+		{
+			get
+			{
+				return this._PaxPlaCier;
+			}
+			set
+			{
+				if ((this._PaxPlaCier != value))
+				{
+					this.OnPaxPlaCierChanging(value);
+					this.SendPropertyChanging();
+					this._PaxPlaCier = value;
+					this.SendPropertyChanged("PaxPlaCier");
+					this.OnPaxPlaCierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CliDsc", DbType="Char(40)")]
+		public string CliDsc
+		{
+			get
+			{
+				return this._CliDsc;
+			}
+			set
+			{
+				if ((this._CliDsc != value))
+				{
+					this.OnCliDscChanging(value);
+					this.SendPropertyChanging();
+					this._CliDsc = value;
+					this.SendPropertyChanged("CliDsc");
+					this.OnCliDscChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxProced", DbType="Char(15)")]
+		public string PaxProced
+		{
+			get
+			{
+				return this._PaxProced;
+			}
+			set
+			{
+				if ((this._PaxProced != value))
+				{
+					this.OnPaxProcedChanging(value);
+					this.SendPropertyChanging();
+					this._PaxProced = value;
+					this.SendPropertyChanged("PaxProced");
+					this.OnPaxProcedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxIngreso", DbType="DateTime")]
+		public System.Nullable<System.DateTime> PaxIngreso
+		{
+			get
+			{
+				return this._PaxIngreso;
+			}
+			set
+			{
+				if ((this._PaxIngreso != value))
+				{
+					this.OnPaxIngresoChanging(value);
+					this.SendPropertyChanging();
+					this._PaxIngreso = value;
+					this.SendPropertyChanged("PaxIngreso");
+					this.OnPaxIngresoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEdades", DbType="SmallInt")]
+		public System.Nullable<short> PaxEdades
+		{
+			get
+			{
+				return this._PaxEdades;
+			}
+			set
+			{
+				if ((this._PaxEdades != value))
+				{
+					this.OnPaxEdadesChanging(value);
+					this.SendPropertyChanging();
+					this._PaxEdades = value;
+					this.SendPropertyChanged("PaxEdades");
+					this.OnPaxEdadesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxUltEstadia", DbType="DateTime")]
+		public System.Nullable<System.DateTime> PaxUltEstadia
+		{
+			get
+			{
+				return this._PaxUltEstadia;
+			}
+			set
+			{
+				if ((this._PaxUltEstadia != value))
+				{
+					this.OnPaxUltEstadiaChanging(value);
+					this.SendPropertyChanging();
+					this._PaxUltEstadia = value;
+					this.SendPropertyChanged("PaxUltEstadia");
+					this.OnPaxUltEstadiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContId", DbType="Int")]
+		public System.Nullable<int> ContId
+		{
+			get
+			{
+				return this._ContId;
+			}
+			set
+			{
+				if ((this._ContId != value))
+				{
+					this.OnContIdChanging(value);
+					this.SendPropertyChanging();
+					this._ContId = value;
+					this.SendPropertyChanged("ContId");
+					this.OnContIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEsquina", DbType="Char(40)")]
+		public string PaxEsquina
+		{
+			get
+			{
+				return this._PaxEsquina;
+			}
+			set
+			{
+				if ((this._PaxEsquina != value))
+				{
+					this.OnPaxEsquinaChanging(value);
+					this.SendPropertyChanging();
+					this._PaxEsquina = value;
+					this.SendPropertyChanged("PaxEsquina");
+					this.OnPaxEsquinaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCodMan", DbType="Char(10)")]
+		public string PaxCodMan
+		{
+			get
+			{
+				return this._PaxCodMan;
+			}
+			set
+			{
+				if ((this._PaxCodMan != value))
+				{
+					this.OnPaxCodManChanging(value);
+					this.SendPropertyChanging();
+					this._PaxCodMan = value;
+					this.SendPropertyChanged("PaxCodMan");
+					this.OnPaxCodManChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxPlaCtaCTra", DbType="Int")]
+		public System.Nullable<int> PaxPlaCtaCTra
+		{
+			get
+			{
+				return this._PaxPlaCtaCTra;
+			}
+			set
+			{
+				if ((this._PaxPlaCtaCTra != value))
+				{
+					this.OnPaxPlaCtaCTraChanging(value);
+					this.SendPropertyChanging();
+					this._PaxPlaCtaCTra = value;
+					this.SendPropertyChanged("PaxPlaCtaCTra");
+					this.OnPaxPlaCtaCTraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoDeDocumentoComprador", DbType="Char(1)")]
+		public System.Nullable<char> TipoDeDocumentoComprador
+		{
+			get
+			{
+				return this._TipoDeDocumentoComprador;
+			}
+			set
+			{
+				if ((this._TipoDeDocumentoComprador != value))
+				{
+					this.OnTipoDeDocumentoCompradorChanging(value);
+					this.SendPropertyChanging();
+					this._TipoDeDocumentoComprador = value;
+					this.SendPropertyChanged("TipoDeDocumentoComprador");
+					this.OnTipoDeDocumentoCompradorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResponsabilidadIvaComprador", DbType="Char(1)")]
+		public System.Nullable<char> ResponsabilidadIvaComprador
+		{
+			get
+			{
+				return this._ResponsabilidadIvaComprador;
+			}
+			set
+			{
+				if ((this._ResponsabilidadIvaComprador != value))
+				{
+					this.OnResponsabilidadIvaCompradorChanging(value);
+					this.SendPropertyChanging();
+					this._ResponsabilidadIvaComprador = value;
+					this.SendPropertyChanged("ResponsabilidadIvaComprador");
+					this.OnResponsabilidadIvaCompradorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxControlTopeCredito", DbType="Char(1)")]
+		public System.Nullable<char> PaxControlTopeCredito
+		{
+			get
+			{
+				return this._PaxControlTopeCredito;
+			}
+			set
+			{
+				if ((this._PaxControlTopeCredito != value))
+				{
+					this.OnPaxControlTopeCreditoChanging(value);
+					this.SendPropertyChanging();
+					this._PaxControlTopeCredito = value;
+					this.SendPropertyChanged("PaxControlTopeCredito");
+					this.OnPaxControlTopeCreditoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCanje", DbType="Char(1)")]
+		public System.Nullable<char> PaxCanje
+		{
+			get
+			{
+				return this._PaxCanje;
+			}
+			set
+			{
+				if ((this._PaxCanje != value))
+				{
+					this.OnPaxCanjeChanging(value);
+					this.SendPropertyChanging();
+					this._PaxCanje = value;
+					this.SendPropertyChanged("PaxCanje");
+					this.OnPaxCanjeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxDepFac", DbType="Char(30)")]
+		public string PaxDepFac
+		{
+			get
+			{
+				return this._PaxDepFac;
+			}
+			set
+			{
+				if ((this._PaxDepFac != value))
+				{
+					this.OnPaxDepFacChanging(value);
+					this.SendPropertyChanging();
+					this._PaxDepFac = value;
+					this.SendPropertyChanged("PaxDepFac");
+					this.OnPaxDepFacChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxCiuFac", DbType="Char(30)")]
+		public string PaxCiuFac
+		{
+			get
+			{
+				return this._PaxCiuFac;
+			}
+			set
+			{
+				if ((this._PaxCiuFac != value))
+				{
+					this.OnPaxCiuFacChanging(value);
+					this.SendPropertyChanging();
+					this._PaxCiuFac = value;
+					this.SendPropertyChanged("PaxCiuFac");
+					this.OnPaxCiuFacChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxLisId", DbType="SmallInt")]
+		public System.Nullable<short> PaxLisId
+		{
+			get
+			{
+				return this._PaxLisId;
+			}
+			set
+			{
+				if ((this._PaxLisId != value))
+				{
+					this.OnPaxLisIdChanging(value);
+					this.SendPropertyChanging();
+					this._PaxLisId = value;
+					this.SendPropertyChanged("PaxLisId");
+					this.OnPaxLisIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxLey15921", DbType="Char(1)")]
+		public System.Nullable<char> PaxLey15921
+		{
+			get
+			{
+				return this._PaxLey15921;
+			}
+			set
+			{
+				if ((this._PaxLey15921 != value))
+				{
+					this.OnPaxLey15921Changing(value);
+					this.SendPropertyChanging();
+					this._PaxLey15921 = value;
+					this.SendPropertyChanged("PaxLey15921");
+					this.OnPaxLey15921Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNumApartamento", DbType="Char(10)")]
+		public string PaxNumApartamento
+		{
+			get
+			{
+				return this._PaxNumApartamento;
+			}
+			set
+			{
+				if ((this._PaxNumApartamento != value))
+				{
+					this.OnPaxNumApartamentoChanging(value);
+					this.SendPropertyChanging();
+					this._PaxNumApartamento = value;
+					this.SendPropertyChanged("PaxNumApartamento");
+					this.OnPaxNumApartamentoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNumBis", DbType="Char(1)")]
+		public System.Nullable<char> PaxNumBis
+		{
+			get
+			{
+				return this._PaxNumBis;
+			}
+			set
+			{
+				if ((this._PaxNumBis != value))
+				{
+					this.OnPaxNumBisChanging(value);
+					this.SendPropertyChanging();
+					this._PaxNumBis = value;
+					this.SendPropertyChanged("PaxNumBis");
+					this.OnPaxNumBisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxTipoCasaDelivery", DbType="Char(1)")]
+		public System.Nullable<char> PaxTipoCasaDelivery
+		{
+			get
+			{
+				return this._PaxTipoCasaDelivery;
+			}
+			set
+			{
+				if ((this._PaxTipoCasaDelivery != value))
+				{
+					this.OnPaxTipoCasaDeliveryChanging(value);
+					this.SendPropertyChanging();
+					this._PaxTipoCasaDelivery = value;
+					this.SendPropertyChanged("PaxTipoCasaDelivery");
+					this.OnPaxTipoCasaDeliveryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxNumeroDePuerta", DbType="Char(10)")]
+		public string PaxNumeroDePuerta
+		{
+			get
+			{
+				return this._PaxNumeroDePuerta;
+			}
+			set
+			{
+				if ((this._PaxNumeroDePuerta != value))
+				{
+					this.OnPaxNumeroDePuertaChanging(value);
+					this.SendPropertyChanging();
+					this._PaxNumeroDePuerta = value;
+					this.SendPropertyChanged("PaxNumeroDePuerta");
+					this.OnPaxNumeroDePuertaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxEsquina2", DbType="Char(40)")]
+		public string PaxEsquina2
+		{
+			get
+			{
+				return this._PaxEsquina2;
+			}
+			set
+			{
+				if ((this._PaxEsquina2 != value))
+				{
+					this.OnPaxEsquina2Changing(value);
+					this.SendPropertyChanging();
+					this._PaxEsquina2 = value;
+					this.SendPropertyChanged("PaxEsquina2");
+					this.OnPaxEsquina2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaxBarId", DbType="SmallInt")]
+		public System.Nullable<short> PaxBarId
+		{
+			get
+			{
+				return this._PaxBarId;
+			}
+			set
+			{
+				if ((this._PaxBarId != value))
+				{
+					this.OnPaxBarIdChanging(value);
+					this.SendPropertyChanging();
+					this._PaxBarId = value;
+					this.SendPropertyChanged("PaxBarId");
+					this.OnPaxBarIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConVenId", DbType="SmallInt")]
+		public System.Nullable<short> ConVenId
+		{
+			get
+			{
+				return this._ConVenId;
+			}
+			set
+			{
+				if ((this._ConVenId != value))
+				{
+					this.OnConVenIdChanging(value);
+					this.SendPropertyChanging();
+					this._ConVenId = value;
+					this.SendPropertyChanged("ConVenId");
+					this.OnConVenIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pax0ExportacionId", DbType="Int")]
+		public System.Nullable<int> Pax0ExportacionId
+		{
+			get
+			{
+				return this._Pax0ExportacionId;
+			}
+			set
+			{
+				if ((this._Pax0ExportacionId != value))
+				{
+					this.OnPax0ExportacionIdChanging(value);
+					this.SendPropertyChanging();
+					this._Pax0ExportacionId = value;
+					this.SendPropertyChanged("Pax0ExportacionId");
+					this.OnPax0ExportacionIdChanged();
 				}
 			}
 		}
@@ -5584,1405 +3676,141 @@ namespace One.iGS.API.Driver
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RESERVAMUCAMA")]
-	public partial class RESERVAMUCAMA : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HABITACION")]
+	public partial class HABITACION : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ResNro;
+		private short _HabNum;
 		
-		private short _ResMucLin;
+		private string _HabNom;
 		
-		private string _ResMucObs;
+		private string _HabTipo;
 		
-		private System.Nullable<System.DateTime> _ResMucFecha;
+		private string _HabObs;
 		
-		private string _ResMucHora;
+		private System.Nullable<short> _HabPiso;
 		
-		private System.Nullable<char> _ResMucTipo;
+		private System.Nullable<short> _HabCamMat;
 		
-		private System.Nullable<System.DateTime> _ResMucFechaIngreso;
+		private System.Nullable<short> _HabCamSin;
 		
-		private string _ResMucHoraIngreso;
+		private string _HabCat;
 		
-		private string _ResMucUsuIngreso;
+		private System.Nullable<int> _HabIntTel;
 		
-		private string _ResMucMinutos;
+		private string _HabTarifa;
 		
-		private string _ResMucHoraStr;
+		private System.Nullable<short> _HabNoDisp;
 		
-		private string _ResMucEjeHora;
+		private string _HabNoDpNombre;
 		
-		private System.Nullable<System.DateTime> _ResMucEjeFecha;
+		private System.Nullable<char> _HabEstado;
 		
-		private string _ResMucEjeUsuId;
+		private System.Nullable<short> _HabLinea;
 		
-		private string _ResMucEjeObs;
+		private System.Nullable<short> _HabSector;
+		
+		private string _HabEnLimpiezaUsuId;
+		
+		private System.Nullable<System.DateTime> _HabEnLimpiezaFecha;
+		
+		private string _HabUltimaLimpiezaHora;
+		
+		private string _HabEnLimpiezaHora;
+		
+		private System.Nullable<System.DateTime> _HabUltimaLimpiezaFecha;
+		
+		private System.Nullable<char> _HabEnLimpezaCtrlFrigobar;
+		
+		private System.Nullable<System.DateTime> _HabBloqueadaDesde;
+		
+		private System.Nullable<System.DateTime> _HabBloqueadaHasta;
+		
+		private string _HabBloqueadaObs;
+		
+		private System.Nullable<System.DateTime> _HabProximaEntrada;
+		
+		private System.Nullable<System.DateTime> _HabProximaSalida;
+		
+		private System.Nullable<int> _HabProximaReserva;
+		
+		private string _HabProximaEntradaHora;
+		
+		private System.Nullable<char> _HabOcupada;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnResNroChanging(int value);
-    partial void OnResNroChanged();
-    partial void OnResMucLinChanging(short value);
-    partial void OnResMucLinChanged();
-    partial void OnResMucObsChanging(string value);
-    partial void OnResMucObsChanged();
-    partial void OnResMucFechaChanging(System.Nullable<System.DateTime> value);
-    partial void OnResMucFechaChanged();
-    partial void OnResMucHoraChanging(string value);
-    partial void OnResMucHoraChanged();
-    partial void OnResMucTipoChanging(System.Nullable<char> value);
-    partial void OnResMucTipoChanged();
-    partial void OnResMucFechaIngresoChanging(System.Nullable<System.DateTime> value);
-    partial void OnResMucFechaIngresoChanged();
-    partial void OnResMucHoraIngresoChanging(string value);
-    partial void OnResMucHoraIngresoChanged();
-    partial void OnResMucUsuIngresoChanging(string value);
-    partial void OnResMucUsuIngresoChanged();
-    partial void OnResMucMinutosChanging(string value);
-    partial void OnResMucMinutosChanged();
-    partial void OnResMucHoraStrChanging(string value);
-    partial void OnResMucHoraStrChanged();
-    partial void OnResMucEjeHoraChanging(string value);
-    partial void OnResMucEjeHoraChanged();
-    partial void OnResMucEjeFechaChanging(System.Nullable<System.DateTime> value);
-    partial void OnResMucEjeFechaChanged();
-    partial void OnResMucEjeUsuIdChanging(string value);
-    partial void OnResMucEjeUsuIdChanged();
-    partial void OnResMucEjeObsChanging(string value);
-    partial void OnResMucEjeObsChanged();
-    #endregion
-		
-		public RESERVAMUCAMA()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResNro", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ResNro
-		{
-			get
-			{
-				return this._ResNro;
-			}
-			set
-			{
-				if ((this._ResNro != value))
-				{
-					this.OnResNroChanging(value);
-					this.SendPropertyChanging();
-					this._ResNro = value;
-					this.SendPropertyChanged("ResNro");
-					this.OnResNroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucLin", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short ResMucLin
-		{
-			get
-			{
-				return this._ResMucLin;
-			}
-			set
-			{
-				if ((this._ResMucLin != value))
-				{
-					this.OnResMucLinChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucLin = value;
-					this.SendPropertyChanged("ResMucLin");
-					this.OnResMucLinChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucObs", DbType="Char(100)")]
-		public string ResMucObs
-		{
-			get
-			{
-				return this._ResMucObs;
-			}
-			set
-			{
-				if ((this._ResMucObs != value))
-				{
-					this.OnResMucObsChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucObs = value;
-					this.SendPropertyChanged("ResMucObs");
-					this.OnResMucObsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucFecha", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ResMucFecha
-		{
-			get
-			{
-				return this._ResMucFecha;
-			}
-			set
-			{
-				if ((this._ResMucFecha != value))
-				{
-					this.OnResMucFechaChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucFecha = value;
-					this.SendPropertyChanged("ResMucFecha");
-					this.OnResMucFechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucHora", DbType="Char(2)")]
-		public string ResMucHora
-		{
-			get
-			{
-				return this._ResMucHora;
-			}
-			set
-			{
-				if ((this._ResMucHora != value))
-				{
-					this.OnResMucHoraChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucHora = value;
-					this.SendPropertyChanged("ResMucHora");
-					this.OnResMucHoraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucTipo", DbType="Char(1)")]
-		public System.Nullable<char> ResMucTipo
-		{
-			get
-			{
-				return this._ResMucTipo;
-			}
-			set
-			{
-				if ((this._ResMucTipo != value))
-				{
-					this.OnResMucTipoChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucTipo = value;
-					this.SendPropertyChanged("ResMucTipo");
-					this.OnResMucTipoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucFechaIngreso", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ResMucFechaIngreso
-		{
-			get
-			{
-				return this._ResMucFechaIngreso;
-			}
-			set
-			{
-				if ((this._ResMucFechaIngreso != value))
-				{
-					this.OnResMucFechaIngresoChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucFechaIngreso = value;
-					this.SendPropertyChanged("ResMucFechaIngreso");
-					this.OnResMucFechaIngresoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucHoraIngreso", DbType="Char(8)")]
-		public string ResMucHoraIngreso
-		{
-			get
-			{
-				return this._ResMucHoraIngreso;
-			}
-			set
-			{
-				if ((this._ResMucHoraIngreso != value))
-				{
-					this.OnResMucHoraIngresoChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucHoraIngreso = value;
-					this.SendPropertyChanged("ResMucHoraIngreso");
-					this.OnResMucHoraIngresoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucUsuIngreso", DbType="Char(10)")]
-		public string ResMucUsuIngreso
-		{
-			get
-			{
-				return this._ResMucUsuIngreso;
-			}
-			set
-			{
-				if ((this._ResMucUsuIngreso != value))
-				{
-					this.OnResMucUsuIngresoChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucUsuIngreso = value;
-					this.SendPropertyChanged("ResMucUsuIngreso");
-					this.OnResMucUsuIngresoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucMinutos", DbType="Char(2)")]
-		public string ResMucMinutos
-		{
-			get
-			{
-				return this._ResMucMinutos;
-			}
-			set
-			{
-				if ((this._ResMucMinutos != value))
-				{
-					this.OnResMucMinutosChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucMinutos = value;
-					this.SendPropertyChanged("ResMucMinutos");
-					this.OnResMucMinutosChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucHoraStr", DbType="Char(8)")]
-		public string ResMucHoraStr
-		{
-			get
-			{
-				return this._ResMucHoraStr;
-			}
-			set
-			{
-				if ((this._ResMucHoraStr != value))
-				{
-					this.OnResMucHoraStrChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucHoraStr = value;
-					this.SendPropertyChanged("ResMucHoraStr");
-					this.OnResMucHoraStrChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucEjeHora", DbType="Char(8)")]
-		public string ResMucEjeHora
-		{
-			get
-			{
-				return this._ResMucEjeHora;
-			}
-			set
-			{
-				if ((this._ResMucEjeHora != value))
-				{
-					this.OnResMucEjeHoraChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucEjeHora = value;
-					this.SendPropertyChanged("ResMucEjeHora");
-					this.OnResMucEjeHoraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucEjeFecha", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ResMucEjeFecha
-		{
-			get
-			{
-				return this._ResMucEjeFecha;
-			}
-			set
-			{
-				if ((this._ResMucEjeFecha != value))
-				{
-					this.OnResMucEjeFechaChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucEjeFecha = value;
-					this.SendPropertyChanged("ResMucEjeFecha");
-					this.OnResMucEjeFechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucEjeUsuId", DbType="Char(10)")]
-		public string ResMucEjeUsuId
-		{
-			get
-			{
-				return this._ResMucEjeUsuId;
-			}
-			set
-			{
-				if ((this._ResMucEjeUsuId != value))
-				{
-					this.OnResMucEjeUsuIdChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucEjeUsuId = value;
-					this.SendPropertyChanged("ResMucEjeUsuId");
-					this.OnResMucEjeUsuIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResMucEjeObs", DbType="Char(80)")]
-		public string ResMucEjeObs
-		{
-			get
-			{
-				return this._ResMucEjeObs;
-			}
-			set
-			{
-				if ((this._ResMucEjeObs != value))
-				{
-					this.OnResMucEjeObsChanging(value);
-					this.SendPropertyChanging();
-					this._ResMucEjeObs = value;
-					this.SendPropertyChanged("ResMucEjeObs");
-					this.OnResMucEjeObsChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RESOBSERVA")]
-	public partial class RESOBSERVA : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ResNro;
-		
-		private short _ResLinObs;
-		
-		private string _ResDatObs;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnResNroChanging(int value);
-    partial void OnResNroChanged();
-    partial void OnResLinObsChanging(short value);
-    partial void OnResLinObsChanged();
-    partial void OnResDatObsChanging(string value);
-    partial void OnResDatObsChanged();
-    #endregion
-		
-		public RESOBSERVA()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResNro", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ResNro
-		{
-			get
-			{
-				return this._ResNro;
-			}
-			set
-			{
-				if ((this._ResNro != value))
-				{
-					this.OnResNroChanging(value);
-					this.SendPropertyChanging();
-					this._ResNro = value;
-					this.SendPropertyChanged("ResNro");
-					this.OnResNroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResLinObs", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short ResLinObs
-		{
-			get
-			{
-				return this._ResLinObs;
-			}
-			set
-			{
-				if ((this._ResLinObs != value))
-				{
-					this.OnResLinObsChanging(value);
-					this.SendPropertyChanging();
-					this._ResLinObs = value;
-					this.SendPropertyChanged("ResLinObs");
-					this.OnResLinObsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResDatObs", DbType="Char(100)")]
-		public string ResDatObs
-		{
-			get
-			{
-				return this._ResDatObs;
-			}
-			set
-			{
-				if ((this._ResDatObs != value))
-				{
-					this.OnResDatObsChanging(value);
-					this.SendPropertyChanging();
-					this._ResDatObs = value;
-					this.SendPropertyChanged("ResDatObs");
-					this.OnResDatObsChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RESSENIA")]
-	public partial class RESSENIA : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ResNro;
-		
-		private short _ResSenLin;
-		
-		private System.Nullable<System.DateTime> _ResSenFecha;
-		
-		private string _ResSenDocum;
-		
-		private System.Nullable<decimal> _ResSenImp;
-		
-		private System.Nullable<short> _ResSenMon;
-		
-		private System.Nullable<int> _ResSenDetCobr;
-		
-		private System.Nullable<char> _ResSenModifico;
-		
-		private System.Nullable<int> _ResSenCierreActual;
-		
-		private System.Nullable<short> _ResSenError;
-		
-		private System.Nullable<int> _ResSenMensual;
-		
-		private System.Nullable<int> _ResSenTesoreria;
-		
-		private System.Nullable<int> _ResSenCierre;
-		
-		private string _ResSenObservacion;
-		
-		private System.Nullable<char> _ResSenPresencial;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnResNroChanging(int value);
-    partial void OnResNroChanged();
-    partial void OnResSenLinChanging(short value);
-    partial void OnResSenLinChanged();
-    partial void OnResSenFechaChanging(System.Nullable<System.DateTime> value);
-    partial void OnResSenFechaChanged();
-    partial void OnResSenDocumChanging(string value);
-    partial void OnResSenDocumChanged();
-    partial void OnResSenImpChanging(System.Nullable<decimal> value);
-    partial void OnResSenImpChanged();
-    partial void OnResSenMonChanging(System.Nullable<short> value);
-    partial void OnResSenMonChanged();
-    partial void OnResSenDetCobrChanging(System.Nullable<int> value);
-    partial void OnResSenDetCobrChanged();
-    partial void OnResSenModificoChanging(System.Nullable<char> value);
-    partial void OnResSenModificoChanged();
-    partial void OnResSenCierreActualChanging(System.Nullable<int> value);
-    partial void OnResSenCierreActualChanged();
-    partial void OnResSenErrorChanging(System.Nullable<short> value);
-    partial void OnResSenErrorChanged();
-    partial void OnResSenMensualChanging(System.Nullable<int> value);
-    partial void OnResSenMensualChanged();
-    partial void OnResSenTesoreriaChanging(System.Nullable<int> value);
-    partial void OnResSenTesoreriaChanged();
-    partial void OnResSenCierreChanging(System.Nullable<int> value);
-    partial void OnResSenCierreChanged();
-    partial void OnResSenObservacionChanging(string value);
-    partial void OnResSenObservacionChanged();
-    partial void OnResSenPresencialChanging(System.Nullable<char> value);
-    partial void OnResSenPresencialChanged();
-    #endregion
-		
-		public RESSENIA()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResNro", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ResNro
-		{
-			get
-			{
-				return this._ResNro;
-			}
-			set
-			{
-				if ((this._ResNro != value))
-				{
-					this.OnResNroChanging(value);
-					this.SendPropertyChanging();
-					this._ResNro = value;
-					this.SendPropertyChanged("ResNro");
-					this.OnResNroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenLin", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short ResSenLin
-		{
-			get
-			{
-				return this._ResSenLin;
-			}
-			set
-			{
-				if ((this._ResSenLin != value))
-				{
-					this.OnResSenLinChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenLin = value;
-					this.SendPropertyChanged("ResSenLin");
-					this.OnResSenLinChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenFecha", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ResSenFecha
-		{
-			get
-			{
-				return this._ResSenFecha;
-			}
-			set
-			{
-				if ((this._ResSenFecha != value))
-				{
-					this.OnResSenFechaChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenFecha = value;
-					this.SendPropertyChanged("ResSenFecha");
-					this.OnResSenFechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenDocum", DbType="Char(10)")]
-		public string ResSenDocum
-		{
-			get
-			{
-				return this._ResSenDocum;
-			}
-			set
-			{
-				if ((this._ResSenDocum != value))
-				{
-					this.OnResSenDocumChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenDocum = value;
-					this.SendPropertyChanged("ResSenDocum");
-					this.OnResSenDocumChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenImp", DbType="Money")]
-		public System.Nullable<decimal> ResSenImp
-		{
-			get
-			{
-				return this._ResSenImp;
-			}
-			set
-			{
-				if ((this._ResSenImp != value))
-				{
-					this.OnResSenImpChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenImp = value;
-					this.SendPropertyChanged("ResSenImp");
-					this.OnResSenImpChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenMon", DbType="SmallInt")]
-		public System.Nullable<short> ResSenMon
-		{
-			get
-			{
-				return this._ResSenMon;
-			}
-			set
-			{
-				if ((this._ResSenMon != value))
-				{
-					this.OnResSenMonChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenMon = value;
-					this.SendPropertyChanged("ResSenMon");
-					this.OnResSenMonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenDetCobr", DbType="Int")]
-		public System.Nullable<int> ResSenDetCobr
-		{
-			get
-			{
-				return this._ResSenDetCobr;
-			}
-			set
-			{
-				if ((this._ResSenDetCobr != value))
-				{
-					this.OnResSenDetCobrChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenDetCobr = value;
-					this.SendPropertyChanged("ResSenDetCobr");
-					this.OnResSenDetCobrChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenModifico", DbType="Char(1)")]
-		public System.Nullable<char> ResSenModifico
-		{
-			get
-			{
-				return this._ResSenModifico;
-			}
-			set
-			{
-				if ((this._ResSenModifico != value))
-				{
-					this.OnResSenModificoChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenModifico = value;
-					this.SendPropertyChanged("ResSenModifico");
-					this.OnResSenModificoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenCierreActual", DbType="Int")]
-		public System.Nullable<int> ResSenCierreActual
-		{
-			get
-			{
-				return this._ResSenCierreActual;
-			}
-			set
-			{
-				if ((this._ResSenCierreActual != value))
-				{
-					this.OnResSenCierreActualChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenCierreActual = value;
-					this.SendPropertyChanged("ResSenCierreActual");
-					this.OnResSenCierreActualChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenError", DbType="SmallInt")]
-		public System.Nullable<short> ResSenError
-		{
-			get
-			{
-				return this._ResSenError;
-			}
-			set
-			{
-				if ((this._ResSenError != value))
-				{
-					this.OnResSenErrorChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenError = value;
-					this.SendPropertyChanged("ResSenError");
-					this.OnResSenErrorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenMensual", DbType="Int")]
-		public System.Nullable<int> ResSenMensual
-		{
-			get
-			{
-				return this._ResSenMensual;
-			}
-			set
-			{
-				if ((this._ResSenMensual != value))
-				{
-					this.OnResSenMensualChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenMensual = value;
-					this.SendPropertyChanged("ResSenMensual");
-					this.OnResSenMensualChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenTesoreria", DbType="Int")]
-		public System.Nullable<int> ResSenTesoreria
-		{
-			get
-			{
-				return this._ResSenTesoreria;
-			}
-			set
-			{
-				if ((this._ResSenTesoreria != value))
-				{
-					this.OnResSenTesoreriaChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenTesoreria = value;
-					this.SendPropertyChanged("ResSenTesoreria");
-					this.OnResSenTesoreriaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenCierre", DbType="Int")]
-		public System.Nullable<int> ResSenCierre
-		{
-			get
-			{
-				return this._ResSenCierre;
-			}
-			set
-			{
-				if ((this._ResSenCierre != value))
-				{
-					this.OnResSenCierreChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenCierre = value;
-					this.SendPropertyChanged("ResSenCierre");
-					this.OnResSenCierreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenObservacion", DbType="Char(70)")]
-		public string ResSenObservacion
-		{
-			get
-			{
-				return this._ResSenObservacion;
-			}
-			set
-			{
-				if ((this._ResSenObservacion != value))
-				{
-					this.OnResSenObservacionChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenObservacion = value;
-					this.SendPropertyChanged("ResSenObservacion");
-					this.OnResSenObservacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResSenPresencial", DbType="Char(1)")]
-		public System.Nullable<char> ResSenPresencial
-		{
-			get
-			{
-				return this._ResSenPresencial;
-			}
-			set
-			{
-				if ((this._ResSenPresencial != value))
-				{
-					this.OnResSenPresencialChanging(value);
-					this.SendPropertyChanging();
-					this._ResSenPresencial = value;
-					this.SendPropertyChanged("ResSenPresencial");
-					this.OnResSenPresencialChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RESOCUP")]
-	public partial class RESOCUP : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ResNro;
-		
-		private short _ResTarLin;
-		
-		private System.Nullable<int> _ResTarArt;
-		
-		private System.Nullable<short> _ResTarCobra;
-		
-		private string _ResTarDet;
-		
-		private System.Nullable<decimal> _ResTarDiaSImp;
-		
-		private System.Nullable<decimal> _ResTarDiaCImp;
-		
-		private System.Nullable<short> _ResTarDias;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnResNroChanging(int value);
-    partial void OnResNroChanged();
-    partial void OnResTarLinChanging(short value);
-    partial void OnResTarLinChanged();
-    partial void OnResTarArtChanging(System.Nullable<int> value);
-    partial void OnResTarArtChanged();
-    partial void OnResTarCobraChanging(System.Nullable<short> value);
-    partial void OnResTarCobraChanged();
-    partial void OnResTarDetChanging(string value);
-    partial void OnResTarDetChanged();
-    partial void OnResTarDiaSImpChanging(System.Nullable<decimal> value);
-    partial void OnResTarDiaSImpChanged();
-    partial void OnResTarDiaCImpChanging(System.Nullable<decimal> value);
-    partial void OnResTarDiaCImpChanged();
-    partial void OnResTarDiasChanging(System.Nullable<short> value);
-    partial void OnResTarDiasChanged();
-    #endregion
-		
-		public RESOCUP()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResNro", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ResNro
-		{
-			get
-			{
-				return this._ResNro;
-			}
-			set
-			{
-				if ((this._ResNro != value))
-				{
-					this.OnResNroChanging(value);
-					this.SendPropertyChanging();
-					this._ResNro = value;
-					this.SendPropertyChanged("ResNro");
-					this.OnResNroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResTarLin", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short ResTarLin
-		{
-			get
-			{
-				return this._ResTarLin;
-			}
-			set
-			{
-				if ((this._ResTarLin != value))
-				{
-					this.OnResTarLinChanging(value);
-					this.SendPropertyChanging();
-					this._ResTarLin = value;
-					this.SendPropertyChanged("ResTarLin");
-					this.OnResTarLinChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResTarArt", DbType="Int")]
-		public System.Nullable<int> ResTarArt
-		{
-			get
-			{
-				return this._ResTarArt;
-			}
-			set
-			{
-				if ((this._ResTarArt != value))
-				{
-					this.OnResTarArtChanging(value);
-					this.SendPropertyChanging();
-					this._ResTarArt = value;
-					this.SendPropertyChanged("ResTarArt");
-					this.OnResTarArtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResTarCobra", DbType="SmallInt")]
-		public System.Nullable<short> ResTarCobra
-		{
-			get
-			{
-				return this._ResTarCobra;
-			}
-			set
-			{
-				if ((this._ResTarCobra != value))
-				{
-					this.OnResTarCobraChanging(value);
-					this.SendPropertyChanging();
-					this._ResTarCobra = value;
-					this.SendPropertyChanged("ResTarCobra");
-					this.OnResTarCobraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResTarDet", DbType="Char(30)")]
-		public string ResTarDet
-		{
-			get
-			{
-				return this._ResTarDet;
-			}
-			set
-			{
-				if ((this._ResTarDet != value))
-				{
-					this.OnResTarDetChanging(value);
-					this.SendPropertyChanging();
-					this._ResTarDet = value;
-					this.SendPropertyChanged("ResTarDet");
-					this.OnResTarDetChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResTarDiaSImp", DbType="Money")]
-		public System.Nullable<decimal> ResTarDiaSImp
-		{
-			get
-			{
-				return this._ResTarDiaSImp;
-			}
-			set
-			{
-				if ((this._ResTarDiaSImp != value))
-				{
-					this.OnResTarDiaSImpChanging(value);
-					this.SendPropertyChanging();
-					this._ResTarDiaSImp = value;
-					this.SendPropertyChanged("ResTarDiaSImp");
-					this.OnResTarDiaSImpChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResTarDiaCImp", DbType="Money")]
-		public System.Nullable<decimal> ResTarDiaCImp
-		{
-			get
-			{
-				return this._ResTarDiaCImp;
-			}
-			set
-			{
-				if ((this._ResTarDiaCImp != value))
-				{
-					this.OnResTarDiaCImpChanging(value);
-					this.SendPropertyChanging();
-					this._ResTarDiaCImp = value;
-					this.SendPropertyChanged("ResTarDiaCImp");
-					this.OnResTarDiaCImpChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResTarDias", DbType="SmallInt")]
-		public System.Nullable<short> ResTarDias
-		{
-			get
-			{
-				return this._ResTarDias;
-			}
-			set
-			{
-				if ((this._ResTarDias != value))
-				{
-					this.OnResTarDiasChanging(value);
-					this.SendPropertyChanging();
-					this._ResTarDias = value;
-					this.SendPropertyChanged("ResTarDias");
-					this.OnResTarDiasChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ROOMING")]
-	public partial class ROOMING : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ResNro;
-		
-		private int _ResRooLin;
-		
-		private System.Nullable<int> _ResPaxCod;
-		
-		private System.Nullable<System.DateTime> _ResDesde;
-		
-		private System.Nullable<System.DateTime> _ResHasta;
-		
-		private string _ResHoraEnt;
-		
-		private string _ResHoraSal;
-		
-		private System.Nullable<char> _ResEst;
-		
-		private string _ResPUsu;
-		
-		private string _ResPMaq;
-		
-		private System.Nullable<short> _HabNum;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnResNroChanging(int value);
-    partial void OnResNroChanged();
-    partial void OnResRooLinChanging(int value);
-    partial void OnResRooLinChanged();
-    partial void OnResPaxCodChanging(System.Nullable<int> value);
-    partial void OnResPaxCodChanged();
-    partial void OnResDesdeChanging(System.Nullable<System.DateTime> value);
-    partial void OnResDesdeChanged();
-    partial void OnResHastaChanging(System.Nullable<System.DateTime> value);
-    partial void OnResHastaChanged();
-    partial void OnResHoraEntChanging(string value);
-    partial void OnResHoraEntChanged();
-    partial void OnResHoraSalChanging(string value);
-    partial void OnResHoraSalChanged();
-    partial void OnResEstChanging(System.Nullable<char> value);
-    partial void OnResEstChanged();
-    partial void OnResPUsuChanging(string value);
-    partial void OnResPUsuChanged();
-    partial void OnResPMaqChanging(string value);
-    partial void OnResPMaqChanged();
-    partial void OnHabNumChanging(System.Nullable<short> value);
+    partial void OnHabNumChanging(short value);
     partial void OnHabNumChanged();
+    partial void OnHabNomChanging(string value);
+    partial void OnHabNomChanged();
+    partial void OnHabTipoChanging(string value);
+    partial void OnHabTipoChanged();
+    partial void OnHabObsChanging(string value);
+    partial void OnHabObsChanged();
+    partial void OnHabPisoChanging(System.Nullable<short> value);
+    partial void OnHabPisoChanged();
+    partial void OnHabCamMatChanging(System.Nullable<short> value);
+    partial void OnHabCamMatChanged();
+    partial void OnHabCamSinChanging(System.Nullable<short> value);
+    partial void OnHabCamSinChanged();
+    partial void OnHabCatChanging(string value);
+    partial void OnHabCatChanged();
+    partial void OnHabIntTelChanging(System.Nullable<int> value);
+    partial void OnHabIntTelChanged();
+    partial void OnHabTarifaChanging(string value);
+    partial void OnHabTarifaChanged();
+    partial void OnHabNoDispChanging(System.Nullable<short> value);
+    partial void OnHabNoDispChanged();
+    partial void OnHabNoDpNombreChanging(string value);
+    partial void OnHabNoDpNombreChanged();
+    partial void OnHabEstadoChanging(System.Nullable<char> value);
+    partial void OnHabEstadoChanged();
+    partial void OnHabLineaChanging(System.Nullable<short> value);
+    partial void OnHabLineaChanged();
+    partial void OnHabSectorChanging(System.Nullable<short> value);
+    partial void OnHabSectorChanged();
+    partial void OnHabEnLimpiezaUsuIdChanging(string value);
+    partial void OnHabEnLimpiezaUsuIdChanged();
+    partial void OnHabEnLimpiezaFechaChanging(System.Nullable<System.DateTime> value);
+    partial void OnHabEnLimpiezaFechaChanged();
+    partial void OnHabUltimaLimpiezaHoraChanging(string value);
+    partial void OnHabUltimaLimpiezaHoraChanged();
+    partial void OnHabEnLimpiezaHoraChanging(string value);
+    partial void OnHabEnLimpiezaHoraChanged();
+    partial void OnHabUltimaLimpiezaFechaChanging(System.Nullable<System.DateTime> value);
+    partial void OnHabUltimaLimpiezaFechaChanged();
+    partial void OnHabEnLimpezaCtrlFrigobarChanging(System.Nullable<char> value);
+    partial void OnHabEnLimpezaCtrlFrigobarChanged();
+    partial void OnHabBloqueadaDesdeChanging(System.Nullable<System.DateTime> value);
+    partial void OnHabBloqueadaDesdeChanged();
+    partial void OnHabBloqueadaHastaChanging(System.Nullable<System.DateTime> value);
+    partial void OnHabBloqueadaHastaChanged();
+    partial void OnHabBloqueadaObsChanging(string value);
+    partial void OnHabBloqueadaObsChanged();
+    partial void OnHabProximaEntradaChanging(System.Nullable<System.DateTime> value);
+    partial void OnHabProximaEntradaChanged();
+    partial void OnHabProximaSalidaChanging(System.Nullable<System.DateTime> value);
+    partial void OnHabProximaSalidaChanged();
+    partial void OnHabProximaReservaChanging(System.Nullable<int> value);
+    partial void OnHabProximaReservaChanged();
+    partial void OnHabProximaEntradaHoraChanging(string value);
+    partial void OnHabProximaEntradaHoraChanged();
+    partial void OnHabOcupadaChanging(System.Nullable<char> value);
+    partial void OnHabOcupadaChanged();
     #endregion
 		
-		public ROOMING()
+		public HABITACION()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResNro", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ResNro
-		{
-			get
-			{
-				return this._ResNro;
-			}
-			set
-			{
-				if ((this._ResNro != value))
-				{
-					this.OnResNroChanging(value);
-					this.SendPropertyChanging();
-					this._ResNro = value;
-					this.SendPropertyChanged("ResNro");
-					this.OnResNroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResRooLin", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ResRooLin
-		{
-			get
-			{
-				return this._ResRooLin;
-			}
-			set
-			{
-				if ((this._ResRooLin != value))
-				{
-					this.OnResRooLinChanging(value);
-					this.SendPropertyChanging();
-					this._ResRooLin = value;
-					this.SendPropertyChanged("ResRooLin");
-					this.OnResRooLinChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResPaxCod", DbType="Int")]
-		public System.Nullable<int> ResPaxCod
-		{
-			get
-			{
-				return this._ResPaxCod;
-			}
-			set
-			{
-				if ((this._ResPaxCod != value))
-				{
-					this.OnResPaxCodChanging(value);
-					this.SendPropertyChanging();
-					this._ResPaxCod = value;
-					this.SendPropertyChanged("ResPaxCod");
-					this.OnResPaxCodChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResDesde", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ResDesde
-		{
-			get
-			{
-				return this._ResDesde;
-			}
-			set
-			{
-				if ((this._ResDesde != value))
-				{
-					this.OnResDesdeChanging(value);
-					this.SendPropertyChanging();
-					this._ResDesde = value;
-					this.SendPropertyChanged("ResDesde");
-					this.OnResDesdeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHasta", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ResHasta
-		{
-			get
-			{
-				return this._ResHasta;
-			}
-			set
-			{
-				if ((this._ResHasta != value))
-				{
-					this.OnResHastaChanging(value);
-					this.SendPropertyChanging();
-					this._ResHasta = value;
-					this.SendPropertyChanged("ResHasta");
-					this.OnResHastaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHoraEnt", DbType="Char(8)")]
-		public string ResHoraEnt
-		{
-			get
-			{
-				return this._ResHoraEnt;
-			}
-			set
-			{
-				if ((this._ResHoraEnt != value))
-				{
-					this.OnResHoraEntChanging(value);
-					this.SendPropertyChanging();
-					this._ResHoraEnt = value;
-					this.SendPropertyChanged("ResHoraEnt");
-					this.OnResHoraEntChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResHoraSal", DbType="Char(8)")]
-		public string ResHoraSal
-		{
-			get
-			{
-				return this._ResHoraSal;
-			}
-			set
-			{
-				if ((this._ResHoraSal != value))
-				{
-					this.OnResHoraSalChanging(value);
-					this.SendPropertyChanging();
-					this._ResHoraSal = value;
-					this.SendPropertyChanged("ResHoraSal");
-					this.OnResHoraSalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResEst", DbType="Char(1)")]
-		public System.Nullable<char> ResEst
-		{
-			get
-			{
-				return this._ResEst;
-			}
-			set
-			{
-				if ((this._ResEst != value))
-				{
-					this.OnResEstChanging(value);
-					this.SendPropertyChanging();
-					this._ResEst = value;
-					this.SendPropertyChanged("ResEst");
-					this.OnResEstChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResPUsu", DbType="Char(10)")]
-		public string ResPUsu
-		{
-			get
-			{
-				return this._ResPUsu;
-			}
-			set
-			{
-				if ((this._ResPUsu != value))
-				{
-					this.OnResPUsuChanging(value);
-					this.SendPropertyChanging();
-					this._ResPUsu = value;
-					this.SendPropertyChanged("ResPUsu");
-					this.OnResPUsuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResPMaq", DbType="Char(10)")]
-		public string ResPMaq
-		{
-			get
-			{
-				return this._ResPMaq;
-			}
-			set
-			{
-				if ((this._ResPMaq != value))
-				{
-					this.OnResPMaqChanging(value);
-					this.SendPropertyChanging();
-					this._ResPMaq = value;
-					this.SendPropertyChanged("ResPMaq");
-					this.OnResPMaqChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNum", DbType="SmallInt")]
-		public System.Nullable<short> HabNum
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNum", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short HabNum
 		{
 			get
 			{
@@ -7001,136 +3829,562 @@ namespace One.iGS.API.Driver
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TIPHAB")]
-	public partial class TIPHAB : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _TiphCod;
-		
-		private string _TiphDes;
-		
-		private System.Nullable<short> _TiphCan;
-		
-		private System.Nullable<decimal> _TiphPre;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTiphCodChanging(string value);
-    partial void OnTiphCodChanged();
-    partial void OnTiphDesChanging(string value);
-    partial void OnTiphDesChanged();
-    partial void OnTiphCanChanging(System.Nullable<short> value);
-    partial void OnTiphCanChanged();
-    partial void OnTiphPreChanging(System.Nullable<decimal> value);
-    partial void OnTiphPreChanged();
-    #endregion
-		
-		public TIPHAB()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TiphCod", DbType="Char(4) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string TiphCod
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNom", DbType="Char(30)")]
+		public string HabNom
 		{
 			get
 			{
-				return this._TiphCod;
+				return this._HabNom;
 			}
 			set
 			{
-				if ((this._TiphCod != value))
+				if ((this._HabNom != value))
 				{
-					this.OnTiphCodChanging(value);
+					this.OnHabNomChanging(value);
 					this.SendPropertyChanging();
-					this._TiphCod = value;
-					this.SendPropertyChanged("TiphCod");
-					this.OnTiphCodChanged();
+					this._HabNom = value;
+					this.SendPropertyChanged("HabNom");
+					this.OnHabNomChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TiphDes", DbType="Char(30)")]
-		public string TiphDes
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabTipo", DbType="Char(4)")]
+		public string HabTipo
 		{
 			get
 			{
-				return this._TiphDes;
+				return this._HabTipo;
 			}
 			set
 			{
-				if ((this._TiphDes != value))
+				if ((this._HabTipo != value))
 				{
-					this.OnTiphDesChanging(value);
+					this.OnHabTipoChanging(value);
 					this.SendPropertyChanging();
-					this._TiphDes = value;
-					this.SendPropertyChanged("TiphDes");
-					this.OnTiphDesChanged();
+					this._HabTipo = value;
+					this.SendPropertyChanged("HabTipo");
+					this.OnHabTipoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TiphCan", DbType="SmallInt")]
-		public System.Nullable<short> TiphCan
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabObs", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string HabObs
 		{
 			get
 			{
-				return this._TiphCan;
+				return this._HabObs;
 			}
 			set
 			{
-				if ((this._TiphCan != value))
+				if ((this._HabObs != value))
 				{
-					this.OnTiphCanChanging(value);
+					this.OnHabObsChanging(value);
 					this.SendPropertyChanging();
-					this._TiphCan = value;
-					this.SendPropertyChanged("TiphCan");
-					this.OnTiphCanChanged();
+					this._HabObs = value;
+					this.SendPropertyChanged("HabObs");
+					this.OnHabObsChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TiphPre", DbType="Money")]
-		public System.Nullable<decimal> TiphPre
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabPiso", DbType="SmallInt")]
+		public System.Nullable<short> HabPiso
 		{
 			get
 			{
-				return this._TiphPre;
+				return this._HabPiso;
 			}
 			set
 			{
-				if ((this._TiphPre != value))
+				if ((this._HabPiso != value))
 				{
-					this.OnTiphPreChanging(value);
+					this.OnHabPisoChanging(value);
 					this.SendPropertyChanging();
-					this._TiphPre = value;
-					this.SendPropertyChanged("TiphPre");
-					this.OnTiphPreChanged();
+					this._HabPiso = value;
+					this.SendPropertyChanged("HabPiso");
+					this.OnHabPisoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabCamMat", DbType="SmallInt")]
+		public System.Nullable<short> HabCamMat
+		{
+			get
+			{
+				return this._HabCamMat;
+			}
+			set
+			{
+				if ((this._HabCamMat != value))
+				{
+					this.OnHabCamMatChanging(value);
+					this.SendPropertyChanging();
+					this._HabCamMat = value;
+					this.SendPropertyChanged("HabCamMat");
+					this.OnHabCamMatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabCamSin", DbType="SmallInt")]
+		public System.Nullable<short> HabCamSin
+		{
+			get
+			{
+				return this._HabCamSin;
+			}
+			set
+			{
+				if ((this._HabCamSin != value))
+				{
+					this.OnHabCamSinChanging(value);
+					this.SendPropertyChanging();
+					this._HabCamSin = value;
+					this.SendPropertyChanged("HabCamSin");
+					this.OnHabCamSinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabCat", DbType="Char(5)")]
+		public string HabCat
+		{
+			get
+			{
+				return this._HabCat;
+			}
+			set
+			{
+				if ((this._HabCat != value))
+				{
+					this.OnHabCatChanging(value);
+					this.SendPropertyChanging();
+					this._HabCat = value;
+					this.SendPropertyChanged("HabCat");
+					this.OnHabCatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabIntTel", DbType="Int")]
+		public System.Nullable<int> HabIntTel
+		{
+			get
+			{
+				return this._HabIntTel;
+			}
+			set
+			{
+				if ((this._HabIntTel != value))
+				{
+					this.OnHabIntTelChanging(value);
+					this.SendPropertyChanging();
+					this._HabIntTel = value;
+					this.SendPropertyChanged("HabIntTel");
+					this.OnHabIntTelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabTarifa", DbType="Char(5)")]
+		public string HabTarifa
+		{
+			get
+			{
+				return this._HabTarifa;
+			}
+			set
+			{
+				if ((this._HabTarifa != value))
+				{
+					this.OnHabTarifaChanging(value);
+					this.SendPropertyChanging();
+					this._HabTarifa = value;
+					this.SendPropertyChanged("HabTarifa");
+					this.OnHabTarifaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNoDisp", DbType="SmallInt")]
+		public System.Nullable<short> HabNoDisp
+		{
+			get
+			{
+				return this._HabNoDisp;
+			}
+			set
+			{
+				if ((this._HabNoDisp != value))
+				{
+					this.OnHabNoDispChanging(value);
+					this.SendPropertyChanging();
+					this._HabNoDisp = value;
+					this.SendPropertyChanged("HabNoDisp");
+					this.OnHabNoDispChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabNoDpNombre", DbType="Char(30)")]
+		public string HabNoDpNombre
+		{
+			get
+			{
+				return this._HabNoDpNombre;
+			}
+			set
+			{
+				if ((this._HabNoDpNombre != value))
+				{
+					this.OnHabNoDpNombreChanging(value);
+					this.SendPropertyChanging();
+					this._HabNoDpNombre = value;
+					this.SendPropertyChanged("HabNoDpNombre");
+					this.OnHabNoDpNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabEstado", DbType="Char(1)")]
+		public System.Nullable<char> HabEstado
+		{
+			get
+			{
+				return this._HabEstado;
+			}
+			set
+			{
+				if ((this._HabEstado != value))
+				{
+					this.OnHabEstadoChanging(value);
+					this.SendPropertyChanging();
+					this._HabEstado = value;
+					this.SendPropertyChanged("HabEstado");
+					this.OnHabEstadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabLinea", DbType="SmallInt")]
+		public System.Nullable<short> HabLinea
+		{
+			get
+			{
+				return this._HabLinea;
+			}
+			set
+			{
+				if ((this._HabLinea != value))
+				{
+					this.OnHabLineaChanging(value);
+					this.SendPropertyChanging();
+					this._HabLinea = value;
+					this.SendPropertyChanged("HabLinea");
+					this.OnHabLineaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabSector", DbType="SmallInt")]
+		public System.Nullable<short> HabSector
+		{
+			get
+			{
+				return this._HabSector;
+			}
+			set
+			{
+				if ((this._HabSector != value))
+				{
+					this.OnHabSectorChanging(value);
+					this.SendPropertyChanging();
+					this._HabSector = value;
+					this.SendPropertyChanged("HabSector");
+					this.OnHabSectorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabEnLimpiezaUsuId", DbType="Char(10)")]
+		public string HabEnLimpiezaUsuId
+		{
+			get
+			{
+				return this._HabEnLimpiezaUsuId;
+			}
+			set
+			{
+				if ((this._HabEnLimpiezaUsuId != value))
+				{
+					this.OnHabEnLimpiezaUsuIdChanging(value);
+					this.SendPropertyChanging();
+					this._HabEnLimpiezaUsuId = value;
+					this.SendPropertyChanged("HabEnLimpiezaUsuId");
+					this.OnHabEnLimpiezaUsuIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabEnLimpiezaFecha", DbType="DateTime")]
+		public System.Nullable<System.DateTime> HabEnLimpiezaFecha
+		{
+			get
+			{
+				return this._HabEnLimpiezaFecha;
+			}
+			set
+			{
+				if ((this._HabEnLimpiezaFecha != value))
+				{
+					this.OnHabEnLimpiezaFechaChanging(value);
+					this.SendPropertyChanging();
+					this._HabEnLimpiezaFecha = value;
+					this.SendPropertyChanged("HabEnLimpiezaFecha");
+					this.OnHabEnLimpiezaFechaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabUltimaLimpiezaHora", DbType="Char(8)")]
+		public string HabUltimaLimpiezaHora
+		{
+			get
+			{
+				return this._HabUltimaLimpiezaHora;
+			}
+			set
+			{
+				if ((this._HabUltimaLimpiezaHora != value))
+				{
+					this.OnHabUltimaLimpiezaHoraChanging(value);
+					this.SendPropertyChanging();
+					this._HabUltimaLimpiezaHora = value;
+					this.SendPropertyChanged("HabUltimaLimpiezaHora");
+					this.OnHabUltimaLimpiezaHoraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabEnLimpiezaHora", DbType="Char(8)")]
+		public string HabEnLimpiezaHora
+		{
+			get
+			{
+				return this._HabEnLimpiezaHora;
+			}
+			set
+			{
+				if ((this._HabEnLimpiezaHora != value))
+				{
+					this.OnHabEnLimpiezaHoraChanging(value);
+					this.SendPropertyChanging();
+					this._HabEnLimpiezaHora = value;
+					this.SendPropertyChanged("HabEnLimpiezaHora");
+					this.OnHabEnLimpiezaHoraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabUltimaLimpiezaFecha", DbType="DateTime")]
+		public System.Nullable<System.DateTime> HabUltimaLimpiezaFecha
+		{
+			get
+			{
+				return this._HabUltimaLimpiezaFecha;
+			}
+			set
+			{
+				if ((this._HabUltimaLimpiezaFecha != value))
+				{
+					this.OnHabUltimaLimpiezaFechaChanging(value);
+					this.SendPropertyChanging();
+					this._HabUltimaLimpiezaFecha = value;
+					this.SendPropertyChanged("HabUltimaLimpiezaFecha");
+					this.OnHabUltimaLimpiezaFechaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabEnLimpezaCtrlFrigobar", DbType="Char(1)")]
+		public System.Nullable<char> HabEnLimpezaCtrlFrigobar
+		{
+			get
+			{
+				return this._HabEnLimpezaCtrlFrigobar;
+			}
+			set
+			{
+				if ((this._HabEnLimpezaCtrlFrigobar != value))
+				{
+					this.OnHabEnLimpezaCtrlFrigobarChanging(value);
+					this.SendPropertyChanging();
+					this._HabEnLimpezaCtrlFrigobar = value;
+					this.SendPropertyChanged("HabEnLimpezaCtrlFrigobar");
+					this.OnHabEnLimpezaCtrlFrigobarChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabBloqueadaDesde", DbType="DateTime")]
+		public System.Nullable<System.DateTime> HabBloqueadaDesde
+		{
+			get
+			{
+				return this._HabBloqueadaDesde;
+			}
+			set
+			{
+				if ((this._HabBloqueadaDesde != value))
+				{
+					this.OnHabBloqueadaDesdeChanging(value);
+					this.SendPropertyChanging();
+					this._HabBloqueadaDesde = value;
+					this.SendPropertyChanged("HabBloqueadaDesde");
+					this.OnHabBloqueadaDesdeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabBloqueadaHasta", DbType="DateTime")]
+		public System.Nullable<System.DateTime> HabBloqueadaHasta
+		{
+			get
+			{
+				return this._HabBloqueadaHasta;
+			}
+			set
+			{
+				if ((this._HabBloqueadaHasta != value))
+				{
+					this.OnHabBloqueadaHastaChanging(value);
+					this.SendPropertyChanging();
+					this._HabBloqueadaHasta = value;
+					this.SendPropertyChanged("HabBloqueadaHasta");
+					this.OnHabBloqueadaHastaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabBloqueadaObs", DbType="Char(80)")]
+		public string HabBloqueadaObs
+		{
+			get
+			{
+				return this._HabBloqueadaObs;
+			}
+			set
+			{
+				if ((this._HabBloqueadaObs != value))
+				{
+					this.OnHabBloqueadaObsChanging(value);
+					this.SendPropertyChanging();
+					this._HabBloqueadaObs = value;
+					this.SendPropertyChanged("HabBloqueadaObs");
+					this.OnHabBloqueadaObsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabProximaEntrada", DbType="DateTime")]
+		public System.Nullable<System.DateTime> HabProximaEntrada
+		{
+			get
+			{
+				return this._HabProximaEntrada;
+			}
+			set
+			{
+				if ((this._HabProximaEntrada != value))
+				{
+					this.OnHabProximaEntradaChanging(value);
+					this.SendPropertyChanging();
+					this._HabProximaEntrada = value;
+					this.SendPropertyChanged("HabProximaEntrada");
+					this.OnHabProximaEntradaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabProximaSalida", DbType="DateTime")]
+		public System.Nullable<System.DateTime> HabProximaSalida
+		{
+			get
+			{
+				return this._HabProximaSalida;
+			}
+			set
+			{
+				if ((this._HabProximaSalida != value))
+				{
+					this.OnHabProximaSalidaChanging(value);
+					this.SendPropertyChanging();
+					this._HabProximaSalida = value;
+					this.SendPropertyChanged("HabProximaSalida");
+					this.OnHabProximaSalidaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabProximaReserva", DbType="Int")]
+		public System.Nullable<int> HabProximaReserva
+		{
+			get
+			{
+				return this._HabProximaReserva;
+			}
+			set
+			{
+				if ((this._HabProximaReserva != value))
+				{
+					this.OnHabProximaReservaChanging(value);
+					this.SendPropertyChanging();
+					this._HabProximaReserva = value;
+					this.SendPropertyChanged("HabProximaReserva");
+					this.OnHabProximaReservaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabProximaEntradaHora", DbType="Char(8)")]
+		public string HabProximaEntradaHora
+		{
+			get
+			{
+				return this._HabProximaEntradaHora;
+			}
+			set
+			{
+				if ((this._HabProximaEntradaHora != value))
+				{
+					this.OnHabProximaEntradaHoraChanging(value);
+					this.SendPropertyChanging();
+					this._HabProximaEntradaHora = value;
+					this.SendPropertyChanged("HabProximaEntradaHora");
+					this.OnHabProximaEntradaHoraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HabOcupada", DbType="Char(1)")]
+		public System.Nullable<char> HabOcupada
+		{
+			get
+			{
+				return this._HabOcupada;
+			}
+			set
+			{
+				if ((this._HabOcupada != value))
+				{
+					this.OnHabOcupadaChanging(value);
+					this.SendPropertyChanging();
+					this._HabOcupada = value;
+					this.SendPropertyChanged("HabOcupada");
+					this.OnHabOcupadaChanged();
 				}
 			}
 		}

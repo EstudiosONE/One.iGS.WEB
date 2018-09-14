@@ -34,6 +34,19 @@ namespace One.iGS.API.Driver.Hotel
                                 HolderSurname = holder.PaxApe.TrimEnd(' '),
                                 Risk = CalculateRisk(reservation.ResFecIng.Value, reservation.ResFecEnt.Value, reservation.ResFecSal.Value, reservation.ResNro)
                             };
+                    //var a = from reservation in context.RESERVA
+                    //        where reservation.ResEsta == "RESINDIV" && reservation.ResConfirm != 'S' && reservation.ResFecEnt >= DateTime.Now.Date
+                    //        orderby reservation.ResFecEnt, reservation.ResHab.Value
+                    //        select new Models.Hotel.Dashboard.PendingReservation()
+                    //        {
+                    //            Id = reservation.ResNro.ToString(),
+                    //            CheckIn = reservation.ResFecEnt.Value,
+                    //            CheckOut = reservation.ResFecSal.Value,
+                    //            Adults = reservation.ResCamMat.Value,
+                    //            Childrens = reservation.ResCamSin.Value,
+                    //            Babies = reservation.ResCamCun.Value,
+                    //            Risk = CalculateRisk(reservation.ResFecIng.Value, reservation.ResFecEnt.Value, reservation.ResFecSal.Value, reservation.ResNro)
+                    //        };
                     return a.ToList();
                 }
                 catch (Exception ex) {

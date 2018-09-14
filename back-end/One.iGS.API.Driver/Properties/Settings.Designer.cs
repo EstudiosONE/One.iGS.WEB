@@ -26,10 +26,20 @@ namespace One.iGS.API.Driver.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-UK934FU;Initial Catalog=Paradise;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-6A8R48U;Initial Catalog=Paradise;Integrated Security=True")]
         public string ParadiseConnectionString {
             get {
                 return ((string)(this["ParadiseConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=Paradise;Integrated Security=True")]
+        public string ParadiseConnectionString1 {
+            get {
+                return ((string)(this["ParadiseConnectionString1"]));
             }
         }
     }
