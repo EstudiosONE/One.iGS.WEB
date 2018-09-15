@@ -3,11 +3,85 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace One.iGS.API.Driver.Hotel
 {
     public static class Dashboard
     {
+        public static List<Models.Hotel.Dashboard.CheckInToday> CheckInToday()
+        {
+            using (ParadiseDataContext context = new ParadiseDataContext())
+            {
+                try
+                {
+                    var a = from reservation in context.RESERVA
+                            join room in context.HABITACION on reservation.ResHab equals room.HabNum
+                            join holder in context.PASAJEROS on reservation.ResPaxTit equals holder.PaxCod
+                            where reservation.ResEsta != "CANCEL." && reservation.ResFecEnt == DateTime.Now.Date
+                            orderby reservation.ResEsta descending, reservation.ResHab.Value
+                            select new Models.Hotel.Dashboard.CheckInToday()
+                            {
+                                Id = reservation.ResNro.ToString(),
+                                CheckIn = reservation.ResFecEnt.Value,
+                                CheckOut = reservation.ResFecSal.Value,
+                                Adults = reservation.ResCamMat.Value,
+                                Childrens = reservation.ResCamSin.Value,
+                                Babies = reservation.ResCamCun.Value,
+                                RoomNumber = room.HabNum,
+                                RoomName = room.HabNom.TrimEnd(' '),
+                                HolderId = holder.PaxCod.ToString(),
+                                HolderName = holder.PaxNom.TrimEnd(' '),
+                                HolderSurname = holder.PaxApe.TrimEnd(' '),
+                                Ocupation = IsOccupied(reservation.ResEsta),
+                                Confirmation = IsConfirmed(reservation.ResConfirm),
+                                EntryTime = EntryTime(reservation.ResFecEnt, reservation.ResFecEntHor)
+                            };
+                    return a.ToList();
+                }
+                catch (Exception ex)
+                {
+                    Log.Helper.Notify(ex);
+                    throw new HttpException(500, ex.Message);
+                }
+            }
+        }
+
+        public static List<Models.Hotel.Dashboard.CheckOutToday> CheckOutToday()
+        {
+            using (ParadiseDataContext context = new ParadiseDataContext())
+            {
+                try
+                {
+                    var a = from reservation in context.RESERVA
+                            join room in context.HABITACION on reservation.ResHab equals room.HabNum
+                            join holder in context.PASAJEROS on reservation.ResPaxTit equals holder.PaxCod
+                            where reservation.ResEsta != "CANCEL." && reservation.ResFecSal == DateTime.Now.Date
+                            orderby reservation.ResHab.Value
+                            select new Models.Hotel.Dashboard.CheckOutToday()
+                            {
+                                Id = reservation.ResNro.ToString(),
+                                CheckIn = reservation.ResFecEnt.Value,
+                                CheckOut = reservation.ResFecSal.Value,
+                                Adults = reservation.ResCamMat.Value,
+                                Childrens = reservation.ResCamSin.Value,
+                                Babies = reservation.ResCamCun.Value,
+                                RoomNumber = room.HabNum,
+                                RoomName = room.HabNom.TrimEnd(' '),
+                                HolderId = holder.PaxCod.ToString(),
+                                HolderName = holder.PaxNom.TrimEnd(' '),
+                                HolderSurname = holder.PaxApe.TrimEnd(' '),
+                            };
+                    return a.ToList();
+                }
+                catch (Exception ex)
+                {
+                    Log.Helper.Notify(ex);
+                    throw new HttpException(500, ex.Message);
+                }
+            }
+        }
+
         public static List<Models.Hotel.Dashboard.PendingReservation> PendingReservation()
         {
             using (ParadiseDataContext context = new ParadiseDataContext())
@@ -17,7 +91,7 @@ namespace One.iGS.API.Driver.Hotel
                     var a = from reservation in context.RESERVA
                             join room in context.HABITACION on reservation.ResHab equals room.HabNum
                             join holder in context.PASAJEROS on reservation.ResPaxTit equals holder.PaxCod
-                            where reservation.ResEsta == "RESINDIV" && reservation.ResConfirm != 'S' && reservation.ResFecEnt >= DateTime.UtcNow.Date
+                            where reservation.ResEsta == "RESINDIV" && reservation.ResConfirm != 'S' && reservation.ResFecEnt >= DateTime.Now.Date
                             orderby reservation.ResFecEnt, reservation.ResHab.Value
                             select new Models.Hotel.Dashboard.PendingReservation()
                             {
@@ -34,27 +108,31 @@ namespace One.iGS.API.Driver.Hotel
                                 HolderSurname = holder.PaxApe.TrimEnd(' '),
                                 Risk = CalculateRisk(reservation.ResFecIng.Value, reservation.ResFecEnt.Value, reservation.ResFecSal.Value, reservation.ResNro)
                             };
-                    //var a = from reservation in context.RESERVA
-                    //        where reservation.ResEsta == "RESINDIV" && reservation.ResConfirm != 'S' && reservation.ResFecEnt >= DateTime.Now.Date
-                    //        orderby reservation.ResFecEnt, reservation.ResHab.Value
-                    //        select new Models.Hotel.Dashboard.PendingReservation()
-                    //        {
-                    //            Id = reservation.ResNro.ToString(),
-                    //            CheckIn = reservation.ResFecEnt.Value,
-                    //            CheckOut = reservation.ResFecSal.Value,
-                    //            Adults = reservation.ResCamMat.Value,
-                    //            Childrens = reservation.ResCamSin.Value,
-                    //            Babies = reservation.ResCamCun.Value,
-                    //            Risk = CalculateRisk(reservation.ResFecIng.Value, reservation.ResFecEnt.Value, reservation.ResFecSal.Value, reservation.ResNro)
-                    //        };
                     return a.ToList();
                 }
-                catch (Exception ex) {
-                    throw new Exception("Error al obtener los datos de reservas pendientes", ex);
+                catch (Exception ex)
+                {
+                    Log.Helper.Notify(ex);
+                    throw new HttpException(500, ex.Message);
                 }
             }
         }
-
+        private static bool IsOccupied(string value)
+        {
+            if (value.TrimEnd(' ') == "OCUPADA") return true;
+            else return false;
+        }
+        private static bool IsConfirmed(char? value)
+        {
+            if (value.HasValue)
+                if (value.Value == 'S') return true;
+                else return false;
+            else return false;
+        }
+        private static DateTime EntryTime(DateTime? CheckIn, string Hour)
+        {
+            return CheckIn.Value.Add(TimeSpan.Parse(Hour));
+        }
         private static short CalculateRisk(DateTime Creation, DateTime CheckIn, DateTime CheckOut, int resnro)
         {
             var stay = (CheckOut - CheckIn).TotalDays;
@@ -77,5 +155,4 @@ namespace One.iGS.API.Driver.Hotel
             }
         }
     }
-
 }

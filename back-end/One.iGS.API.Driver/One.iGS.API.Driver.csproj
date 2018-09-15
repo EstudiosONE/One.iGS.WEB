@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +78,10 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\One.iGS.API.Log\One.iGS.API.Log.csproj">
+      <Project>{6af3d14c-16b3-434f-a6d8-9dd695ac040f}</Project>
+      <Name>One.iGS.API.Log</Name>
+    </ProjectReference>
     <ProjectReference Include="..\One.iGS.API.Models\One.iGS.API.Models.csproj">
       <Project>{c483e575-e114-4a2d-a14d-efd67eff5697}</Project>
       <Name>One.iGS.API.Models</Name>

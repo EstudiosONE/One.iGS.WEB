@@ -51,6 +51,7 @@
     "no-unused-variable": true,
     "no-unreachable": true,
     "no-use-before-declare": true,
+    "object-literal-sort-keys": false,
     "one-line": [true,
       "check-open-brace",
       "check-catch",

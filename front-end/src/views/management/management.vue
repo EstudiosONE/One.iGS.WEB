@@ -7,8 +7,8 @@
             <md-icon>menu</md-icon>
           </md-button>
           <span class="md-title">
-            <span>iGS </span>
-            <span style="font-family: product_sansbold">Suite</span>
+            <span>SGH </span>
+            <span style="font-family: product_sansbold">Management</span>
           </span>
         </div>
         <div class="md-layout-item md-layout md-alignment-center-right md-size-50">
@@ -35,7 +35,7 @@
   </md-app>
 </template>
 
-<script lang="ts">
+<script>
     export default {
         name: 'Flexible',
         data: () => ({

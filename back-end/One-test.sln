@@ -5,9 +5,11 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "One.iGS.API", "One.iGS.API\One.iGS.API.csproj", "{6E3A502A-255B-4329-A08B-899FD202C3FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "One.iGS.API.Models", "One.iGS.API.Models\One.iGS.API.Models.csproj", "{C483E575-E114-4A2D-A14D-EFD67EFF5697}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "One.iGS.API.Models", "One.iGS.API.Models\One.iGS.API.Models.csproj", "{C483E575-E114-4A2D-A14D-EFD67EFF5697}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "One.iGS.API.Driver", "One.iGS.API.Driver\One.iGS.API.Driver.csproj", "{89B5589A-4702-45F6-B4F6-CA793AE36610}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "One.iGS.API.Log", "One.iGS.API.Log\One.iGS.API.Log.csproj", "{6AF3D14C-16B3-434F-A6D8-9DD695AC040F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{89B5589A-4702-45F6-B4F6-CA793AE36610}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89B5589A-4702-45F6-B4F6-CA793AE36610}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89B5589A-4702-45F6-B4F6-CA793AE36610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AF3D14C-16B3-434F-A6D8-9DD695AC040F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AF3D14C-16B3-434F-A6D8-9DD695AC040F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AF3D14C-16B3-434F-A6D8-9DD695AC040F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AF3D14C-16B3-434F-A6D8-9DD695AC040F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
