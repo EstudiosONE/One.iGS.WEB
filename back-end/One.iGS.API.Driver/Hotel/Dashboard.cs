@@ -191,7 +191,14 @@ namespace One.iGS.API.Driver.Hotel
 
         private static DateTime CalculatedTime(DateTime? Date, string Time)
         {
-            return Date.Value.Add(TimeSpan.Parse(Time));
+            try
+            {
+                return Date.Value.Add(TimeSpan.Parse(Time));
+            }
+            catch(Exception)
+            {
+                return Date.Value;
+            }
         }
 
         #endregion
