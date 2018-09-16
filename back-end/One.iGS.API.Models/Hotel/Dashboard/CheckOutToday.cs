@@ -6,6 +6,7 @@ namespace One.iGS.API.Models.Hotel.Dashboard
 {
     public class CheckOutToday : ReservationBase
     {
-        public bool Ocuped { get; set; }
+        public bool Released { get; set; }
+        public DateTime ReleaseTime { get; set; }
     }
 }
