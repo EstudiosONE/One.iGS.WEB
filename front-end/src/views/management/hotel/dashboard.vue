@@ -32,7 +32,7 @@
                 <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-small" @click="To('/management/hotel/reservation/' + item.Id)" :class="{'igs-column-confirmed': item.Ocupation}">
                     <md-table-cell md-label="Habitacion">{{ item.RoomName }}</md-table-cell>
                     <md-table-cell md-label="Titular">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
-                    <md-table-cell md-label="Estado"><md-icon>{{item.Ocupation ? 'check_circle' : 'access_time'}}</md-icon> &nbsp &nbsp {{ item.Ocupation ? 'Ocupada' : 'Pendiente' }},    {{ item.Confirmation ? 'Confirmada' : 'Sin confirmar' }}</md-table-cell>
+                    <md-table-cell md-label="Estado"><md-icon>{{item.Ocupation ? 'check_circle' : 'access_time'}}</md-icon> &nbsp; &nbsp; {{ item.Ocupation ? 'Ocupada' : 'Pendiente' }},    {{ item.Confirmation ? 'Confirmada' : 'Sin confirmar' }}</md-table-cell>
                 </md-table-row>
             </md-table>
             <md-table v-if="$store.state.ViewPort.IsMedium" :mdHeight="240" v-model="this.$store.state.Hotel.Dashboard.CheckInToday" md-sort="Risk" md-sort-order="desc" md-fixed-header class="igs-dashboard-table">
@@ -50,7 +50,7 @@
                     <md-table-cell md-label="Habitacion">{{ item.RoomName }}</md-table-cell>
                     <md-table-cell md-label="Titular">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
                     <md-table-cell md-label="Pasajeros">{{ToNumber(item.Adults, '0')}} Adultos, {{ToNumber(item.Childrens, '0')}} Chicos, {{ToNumber(item.Babies, '0')}} Bebes</md-table-cell>
-                    <md-table-cell md-label="Estado"><md-icon>{{item.Ocupation ? 'check_circle' : 'access_time'}}</md-icon> &nbsp &nbsp {{ item.Ocupation ? 'Ocupada' : 'Pendiente' }},    {{ item.Confirmation ? 'Confirmada' : 'Sin confirmar' }}</md-table-cell>
+                    <md-table-cell md-label="Estado"><md-icon>{{item.Ocupation ? 'check_circle' : 'access_time'}}</md-icon> &nbsp; &nbsp; {{ item.Ocupation ? 'Ocupada' : 'Pendiente' }},    {{ item.Confirmation ? 'Confirmada' : 'Sin confirmar' }}</md-table-cell>
                     <md-table-cell md-label="Ingresa" :class="{'igs-column-delayed': IsDelayed(item)}">{{ item.Ocupation ? 'ya ingresó' : FromNowCheckInToday(item.EntryTime) }}</md-table-cell>
                 </md-table-row>
             </md-table>
@@ -69,7 +69,7 @@
                     <md-table-cell md-label="Habitacion">{{ item.RoomName }}</md-table-cell>
                     <md-table-cell md-label="Titular">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
                     <md-table-cell md-label="Pasajeros">{{ToNumber(item.Adults, '0')}} Adultos, {{ToNumber(item.Childrens, '0')}} Chicos, {{ToNumber(item.Babies, '0')}} Bebes</md-table-cell>
-                    <md-table-cell md-label="Estado"><md-icon>{{item.Ocupation ? 'check_circle' : 'access_time'}}</md-icon> &nbsp &nbsp {{ item.Ocupation ? 'Ocupada' : 'Pendiente' }},    {{ item.Confirmation ? 'Confirmada' : 'Sin confirmar' }}</md-table-cell>
+                    <md-table-cell md-label="Estado"><md-icon>{{item.Ocupation ? 'check_circle' : 'access_time'}}</md-icon> &nbsp; &nbsp; {{ item.Ocupation ? 'Ocupada' : 'Pendiente' }},    {{ item.Confirmation ? 'Confirmada' : 'Sin confirmar' }}</md-table-cell>
                     <md-table-cell md-label="Ingresa" :class="{'igs-column-delayed': IsDelayed(item)}">{{ item.Ocupation ? 'ya ingresó' : FromNowCheckInToday(item.EntryTime) }}</md-table-cell>
                     <md-table-cell md-label="Check Out">{{ ToDateString(item.CheckOut) }}</md-table-cell>
                 </md-table-row>
@@ -89,7 +89,7 @@
                     <md-table-cell md-label="Habitacion">{{ item.RoomName }}</md-table-cell>
                     <md-table-cell md-label="Titular">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
                     <md-table-cell md-label="Pasajeros">{{ToNumber(item.Adults, '0')}} Adultos, {{ToNumber(item.Childrens, '0')}} Chicos, {{ToNumber(item.Babies, '0')}} Bebes</md-table-cell>
-                    <md-table-cell md-label="Estado"><md-icon>{{item.Ocupation ? 'check_circle' : 'access_time'}}</md-icon> &nbsp &nbsp {{ item.Ocupation ? 'Ocupada' : 'Pendiente' }},    {{ item.Confirmation ? 'Confirmada' : 'Sin confirmar' }}</md-table-cell>
+                    <md-table-cell md-label="Estado"><md-icon>{{item.Ocupation ? 'check_circle' : 'access_time'}}</md-icon> &nbsp; &nbsp; {{ item.Ocupation ? 'Ocupada' : 'Pendiente' }},    {{ item.Confirmation ? 'Confirmada' : 'Sin confirmar' }}</md-table-cell>
                     <md-table-cell md-label="Ingresa" :class="{'igs-column-delayed': IsDelayed(item)}">{{ item.Ocupation ? 'ya ingresó' : FromNowCheckInToday(item.EntryTime) }}</md-table-cell>
                     <md-table-cell md-label="Check Out">{{ ToDateString(item.CheckOut) }}</md-table-cell>
                 </md-table-row>
@@ -107,10 +107,10 @@
                 </md-table-toolbar>
                 <md-table-empty-state v-show="!$store.state.Hotel.Dashboard.GetingCheckInToday" class="igs-risk-0" md-label="Sin salidas hoy" md-icon="flight_takeoff" md-description="No contamos con salidas para el día de hoy"/>
 
-                <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-xsmall">
-                    <md-table-cell class="igs-column-risk" :class="RiskClass(item.Risk)"><md-icon>error</md-icon></md-table-cell>
-                    <md-table-cell class="igs-column-holder" md-label="Titular" md-sort-by="PaxName">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Estadía">{{ ToShortDateString(item.CheckIn) }} al {{ ToShortDateString(item.CheckOut) }}</md-table-cell>
+                <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-xsmall" @click="To('/management/hotel/reservation/' + item.Id)" :class="{'igs-column-confirmed': item.Ocupation}">
+                    <md-table-cell md-label="Habitacion">{{ item.RoomName }}</md-table-cell>
+                    <md-table-cell md-label="Titular">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
+                    <md-table-cell md-label="Estado"><md-icon>{{item.Released ? 'check_circle' : 'access_time'}}</md-icon> &nbsp; &nbsp; {{ item.Released ? 'Libre' : 'Ocupada' }}</md-table-cell>
                 </md-table-row>
             </md-table>
             <md-table v-if="$store.state.ViewPort.IsSmall" :mdHeight="240" v-model="this.$store.state.Hotel.Dashboard.CheckOutToday" md-sort="Risk" md-sort-order="desc" md-fixed-header class="igs-dashboard-table">
@@ -124,11 +124,10 @@
                 </md-table-toolbar>
                 <md-table-empty-state v-show="!$store.state.Hotel.Dashboard.GetingCheckInToday" class="igs-risk-0" md-label="Sin salidas hoy" md-icon="flight_takeoff" md-description="No contamos con salidas para el día de hoy"/>
 
-                <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-small">
-                    <md-table-cell class="igs-column-risk" :class="RiskClass(item.Risk)"><md-icon>error</md-icon></md-table-cell>
-                    <md-table-cell class="igs-column-room" md-label="Habitación" md-sort-by="Room">{{item.RoomName}}</md-table-cell>
-                    <md-table-cell class="igs-column-holder" md-label="Titular" md-sort-by="PaxName">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Estadía">{{ ToShortDateString(item.CheckIn) }} al {{ ToShortDateString(item.CheckOut) }}</md-table-cell>
+                <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-small" @click="To('/management/hotel/reservation/' + item.Id)" :class="{'igs-column-confirmed': item.Ocupation}">
+                    <md-table-cell md-label="Habitacion">{{ item.RoomName }}</md-table-cell>
+                    <md-table-cell md-label="Titular">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
+                    <md-table-cell md-label="Estado"><md-icon>{{item.Released ? 'check_circle' : 'access_time'}}</md-icon> &nbsp; &nbsp; {{ item.Released ? 'Libre' : 'Ocupada' }}</md-table-cell>
                 </md-table-row>
             </md-table>
             <md-table v-if="$store.state.ViewPort.IsMedium" :mdHeight="240" v-model="this.$store.state.Hotel.Dashboard.CheckOutToday" md-sort="Risk" md-sort-order="desc" md-fixed-header class="igs-dashboard-table">
@@ -142,12 +141,12 @@
                 </md-table-toolbar>
                 <md-table-empty-state v-show="!$store.state.Hotel.Dashboard.GetingCheckInToday" class="igs-risk-0" md-label="Sin salidas hoy" md-icon="flight_takeoff" md-description="No contamos con salidas para el día de hoy"/>
 
-                <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-medium" @click="To('/management/hotel/reservation/' + item.Id)">
-                    <md-table-cell class="igs-column-risk" :class="RiskClass(item.Risk)"><md-icon>error</md-icon>{{Risk(item.Risk)}}</md-table-cell>
-                    <md-table-cell class="igs-column-room" md-label="Habitación" md-sort-by="Room">{{item.RoomName}}</md-table-cell>
-                    <md-table-cell class="igs-column-holder" md-label="Titular" md-sort-by="PaxName">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Check In">{{ ToShortDateString(item.CheckIn) }}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Check Out">{{ ToShortDateString(item.CheckOut) }}</md-table-cell>
+                <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-medium" @click="To('/management/hotel/reservation/' + item.Id)" :class="{'igs-column-confirmed': item.Ocupation}">
+                    <md-table-cell md-label="Habitacion">{{ item.RoomName }}</md-table-cell>
+                    <md-table-cell md-label="Titular">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
+                    <md-table-cell md-label="Pasajeros">{{ToNumber(item.Adults, '0')}} Adultos, {{ToNumber(item.Childrens, '0')}} Chicos, {{ToNumber(item.Babies, '0')}} Bebes</md-table-cell>
+                    <md-table-cell md-label="Estado"><md-icon>{{item.Released ? 'check_circle' : 'access_time'}}</md-icon> &nbsp; &nbsp; {{ item.Released ? 'Libre' : 'Ocupada' }}</md-table-cell>
+                    <md-table-cell md-label="Sale" :class="{'igs-column-delayed': IsDelayed(item)}">{{ item.Released ? 'ya salió' : FromNowCheckOutToday(item.ReleaseTime) }}</md-table-cell>
                 </md-table-row>
             </md-table>
             <md-table v-if="$store.state.ViewPort.IsLarge" :mdHeight="240" v-model="this.$store.state.Hotel.Dashboard.CheckOutToday" md-sort="Risk" md-sort-order="desc" md-fixed-header class="igs-dashboard-table">
@@ -161,13 +160,12 @@
                 </md-table-toolbar>
                 <md-table-empty-state v-show="!$store.state.Hotel.Dashboard.GetingCheckInToday" class="igs-risk-0" md-label="Sin salidas hoy" md-icon="flight_takeoff" md-description="No contamos con salidas para el día de hoy"/>
 
-                <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-large" @click="To('/management/hotel/reservation/' + item.Id)">
-                    <md-table-cell class="igs-column-risk" :class="RiskClass(item.Risk)"><md-icon>error</md-icon>{{Risk(item.Risk)}}</md-table-cell>
-                    <md-table-cell class="igs-column-room" md-label="Habitación" md-sort-by="Room">{{ToNumber(item.RoomNumber, '000')}} - {{item.RoomName}}</md-table-cell>
-                    <md-table-cell class="igs-column-holder" md-label="Titular" md-sort-by="PaxName">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Check In">{{ ToDateString(item.CheckIn) }}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Check Out">{{ ToDateString(item.CheckOut) }}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Pasajeros">{{ToNumber(item.Adults, '0')}} Adultos, {{ToNumber(item.Childrens, '0')}} Chicos, {{ToNumber(item.Babies, '0')}} Bebes</md-table-cell>
+                <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-large" @click="To('/management/hotel/reservation/' + item.Id)" :class="{'igs-column-confirmed': item.Ocupation}">
+                    <md-table-cell md-label="Habitacion">{{ item.RoomName }}</md-table-cell>
+                    <md-table-cell md-label="Titular">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
+                    <md-table-cell md-label="Pasajeros">{{ToNumber(item.Adults, '0')}} Adultos, {{ToNumber(item.Childrens, '0')}} Chicos, {{ToNumber(item.Babies, '0')}} Bebes</md-table-cell>
+                    <md-table-cell md-label="Estado"><md-icon>{{item.Released ? 'check_circle' : 'access_time'}}</md-icon> &nbsp; &nbsp; {{ item.Released ? 'Libre' : 'Ocupada' }}</md-table-cell>
+                    <md-table-cell md-label="Sale" :class="{'igs-column-delayed': IsDelayed(item)}">{{ item.Released ? 'ya salió' : FromNowCheckOutToday(item.ReleaseTime) }}</md-table-cell>
                 </md-table-row>
             </md-table>
             <md-table v-if="$store.state.ViewPort.IsXlarge" :mdHeight="240" v-model="this.$store.state.Hotel.Dashboard.CheckOutToday" md-sort="Risk" md-sort-order="desc" md-fixed-header class="igs-dashboard-table">
@@ -181,15 +179,12 @@
                 </md-table-toolbar>
                 <md-table-empty-state v-show="!$store.state.Hotel.Dashboard.GetingCheckInToday" class="igs-risk-0" md-label="Sin salidas hoy" md-icon="flight_takeoff" md-description="No contamos con salidas para el día de hoy"/>
 
-                <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-xlarge" @click="To('/management/hotel/reservation/' + item.Id)">
-                    <md-table-cell class="igs-column-risk" :class="RiskClass(item.Risk)"><md-icon>error</md-icon>{{Risk(item.Risk)}}</md-table-cell>
-                    <md-table-cell class="igs-column-room" md-label="Habitación" md-sort-by="Room">{{ToNumber(item.RoomNumber, '000')}} - {{item.RoomName}}</md-table-cell>
-                    <md-table-cell class="igs-column-holder" md-label="Titular" md-sort-by="PaxName">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Check In">{{ ToDateString(item.CheckIn) }}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Check Out">{{ ToDateString(item.CheckOut) }}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Adultos" md-numeric>{{ToNumber(item.Adults, '0')}}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Chicos" md-numeric>{{ToNumber(item.Childrens, '0')}}</md-table-cell>
-                    <md-table-cell class="igs-column-checkin" md-label="Bebes" md-numeric>{{ToNumber(item.Babies, '0')}}</md-table-cell>
+                <md-table-row slot="md-table-row" slot-scope="{ item }" class="igs-xlarge" @click="To('/management/hotel/reservation/' + item.Id)" :class="{'igs-column-confirmed': item.Ocupation}">
+                    <md-table-cell md-label="Habitacion">{{ item.RoomName }}</md-table-cell>
+                    <md-table-cell md-label="Titular">{{ item.HolderSurname }}, {{ item.HolderName }}</md-table-cell>
+                    <md-table-cell md-label="Pasajeros">{{ToNumber(item.Adults, '0')}} Adultos, {{ToNumber(item.Childrens, '0')}} Chicos, {{ToNumber(item.Babies, '0')}} Bebes</md-table-cell>
+                    <md-table-cell md-label="Estado"><md-icon>{{item.Released ? 'check_circle' : 'access_time'}}</md-icon> &nbsp; &nbsp; {{ item.Released ? 'Libre' : 'Ocupada' }}</md-table-cell>
+                    <md-table-cell md-label="Sale" :class="{'igs-column-delayed': IsDelayed(item)}">{{ item.Released ? 'ya salió' : FromNowCheckOutToday(item.ReleaseTime) }}</md-table-cell>
                 </md-table-row>
             </md-table>
         </div>
@@ -297,6 +292,7 @@
 <script>
     import Moment from 'moment'
     import MomentCheckInToday from 'moment'
+    import MomentCheckOutToday from 'moment'
     import Numeral from 'numeral'
     MomentCheckInToday.defineLocale('es-CheckInToday', {
         parentLocale: 'es',
@@ -318,6 +314,26 @@
         }
     })
     MomentCheckInToday.locale('es-CheckInToday')
+    MomentCheckOutToday.defineLocale('es-CheckOutToday', {
+        parentLocale: 'es',
+        relativeTime : {
+                future: "sale en %s",
+                past:   "retraso de %s",
+                s  : 'unos segundos',
+                ss : '%d secundos',
+                m:  "un minuto",
+                mm: "%d minutos",
+                h:  "una hora",
+                hh: "%d horas",
+                d:  "un día",
+                dd: "%d días",
+                M:  "un mes",
+                MM: "%d meses",
+                y:  "un año",
+                yy: "%d años"
+        }
+    })
+    MomentCheckOutToday.locale('es-CheckOutToday')
 
 
     export default {
@@ -355,11 +371,23 @@
             },
             IsDelayed: function(value){
                 let result = false
-                if (!value.Ocupation) {
-                    result = Moment().isAfter(Moment(value.EntryTime));
+
+                if (value.EntryTime) {
+                    if (!value.Ocupation) {
+                        result = Moment().isAfter(Moment(value.EntryTime));
+                    }
+                } else if (value.ReleaseTime) {
+                    if (!value.Released) {
+                        result = Moment().isAfter(Moment(value.ReleaseTime));
+                    }
                 }
+
                 return result
-            }
+            },
+            FromNowCheckOutToday: function(value){
+                return MomentCheckOutToday(value).fromNow()
+            },
+
         },
         computed: {
             viewport: function(){
