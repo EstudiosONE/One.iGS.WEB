@@ -133,9 +133,18 @@ body {
         padding: 0 16px !important;
         min-height: 64px !important;
     }
+    .md-tabs {
+        padding-left: 48px !important;
+    }
 
     .md-title {
         margin-left: 24px !important;
+    }
+
+    .igs-dashboard-table{
+        .md-title {
+            margin-left: 4px !important;
+        }
     }
 }
 </style>
@@ -260,6 +269,10 @@ export default {
         login: function() {
             this.$store.dispatch('Login', {'User': this.loginData.User, 'Pass': this.loginData.Pass})
         }
+    },
+    beforeCreate() {
+        this.$material.locale.days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado']
+        this.$material.locale.months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
     },
     mounted() {
         this.params = this.$route.params;

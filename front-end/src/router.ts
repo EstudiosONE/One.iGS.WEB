@@ -29,6 +29,10 @@ export default new Router({
               path: 'dashboard',
               component: () => import(/* webpackChunkName: "management-hotel-dashboard" */ './views/management/hotel/dashboard.vue'),
             },
+            {
+              path: 'reservations',
+              component: () => import(/* webpackChunkName: "management-hotel-reservations" */ './views/management/hotel/reservations.vue'),
+            },
             { path: '*', component: p404},
           ]
         },

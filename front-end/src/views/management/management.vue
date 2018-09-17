@@ -1,10 +1,10 @@
 <template>
   <md-app md-waterfall md-mode="fixed">
     <md-app-toolbar class="md-primary">
-      <div class="md-layout md-alignment-center-center" style="width: 100%">
+      <div class="md-layout md-alignment-center-center" style="width: 100%; min-height: 48px;">
         <div class="md-layout-item md-layout md-alignment-center-left md-size-50">
           <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
-            <md-icon>menu</md-icon>
+            <md-icon style="color: #000000b3">menu</md-icon>
           </md-button>
           <span class="md-title">
             <span>SGH </span>
@@ -13,9 +13,23 @@
         </div>
         <div class="md-layout-item md-layout md-alignment-center-right md-size-50">
           <md-button class="md-icon-button">
-            <md-icon>person_outline</md-icon>
+            <md-icon style="color: #000000b3">person_outline</md-icon>
           </md-button>
         </div>
+      </div>
+      <div class="md-layout md-alignment-center-left" style="width: 100%; min-height: 48px; padding-bottom: 8px;">
+        <md-button class="md-icon-button" @click="$router.go(-1)">
+            <md-icon style="color: #000000b3">navigate_before</md-icon>
+        </md-button>
+        <md-tabs md-sync-route>
+            <template slot="md-tab" slot-scope="{ tab }">
+                <div class="md-layout md-alignment-center-left">
+                    <md-icon>{{ tab.icon }}</md-icon>
+                    <md-tooltip md-direction="bottom">{{ tab.label }}</md-tooltip>
+                </div>
+            </template>
+            <md-tab v-for="(item, index) in menu.subModules" :key="index" :to="item.to" :md-label="item.label" :md-icon="item.icon"></md-tab>
+        </md-tabs>
       </div>
     </md-app-toolbar>
 
@@ -74,6 +88,34 @@
                         to: '/management/control-panel',
                     },
                 ],
+            subModules: [
+            {
+                label: 'Dashboard',
+                icon: 'dashboard',
+                to: '/management/hotel/dashboard',
+            },
+            {
+                label: 'Reservas',
+                icon: 'move_to_inbox',
+                to: '/management/hotel/reservations',
+            },
+            {
+                label: 'Ocupación',
+                icon: 'transfer_within_a_station',
+                to: '/management/hotel/ocupation',
+            },
+            {
+                label: 'Caja',
+                icon: 'local_atm',
+                to: '/management/hotel/drawer',
+            },
+            {
+                label: 'Informes',
+                icon: 'library_books',
+                to: '/management/hotel/reports',
+            },
+        ],
+
             },
         }),
         mounted() {
@@ -116,3 +158,11 @@
         },
     }
 </script>
+
+<style lang="scss">
+.igs-app{
+    .md-app-scroller{
+        overflow: hidden;
+    }
+}
+</style>
