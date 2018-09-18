@@ -273,6 +273,7 @@ export default {
     beforeCreate() {
         this.$material.locale.days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado']
         this.$material.locale.months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+        this.$material.locale.dateFormat = 'DD/MM/YYYY'
     },
     mounted() {
         this.params = this.$route.params;

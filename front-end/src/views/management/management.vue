@@ -1,8 +1,9 @@
 <template>
+  <div class="phone-viewport">
   <md-app md-waterfall md-mode="fixed">
     <md-app-toolbar class="md-primary">
       <div class="md-layout md-alignment-center-center" style="width: 100%; min-height: 48px;">
-        <div class="md-layout-item md-layout md-alignment-center-left md-size-50">
+        <div class="md-layout-item md-layout md-alignment-center-left md-size-80">
           <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
             <md-icon style="color: #000000b3">menu</md-icon>
           </md-button>
@@ -11,13 +12,13 @@
             <span style="font-family: product_sansbold">Management</span>
           </span>
         </div>
-        <div class="md-layout-item md-layout md-alignment-center-right md-size-50">
+        <div class="md-layout-item md-layout md-alignment-center-right md-size-20">
           <md-button class="md-icon-button">
             <md-icon style="color: #000000b3">person_outline</md-icon>
           </md-button>
         </div>
       </div>
-      <div class="md-layout md-alignment-center-left" style="width: 100%; min-height: 48px; padding-bottom: 8px;">
+      <div class="md-layout md-alignment-center-left" style="width: 100%; min-height: 48px; padding-bottom: 8px;" v-if="!$store.state.ViewPort.IsXsmall">
         <md-button class="md-icon-button" @click="$router.go(-1)">
             <md-icon style="color: #000000b3">navigate_before</md-icon>
         </md-button>
@@ -33,6 +34,7 @@
       </div>
     </md-app-toolbar>
 
+
     <md-app-drawer :md-active.sync="menuVisible" :md-permanent="breakPoint != 'xsmsall'? 'clipped' : null" :md-persistent="breakPoint != 'xsmsall'? 'mini' : null">
        <md-list>
         <md-list-item v-for="(item, index) in menu.modules" :key="index" :to="item.to" @click="menuVisible = false">
@@ -42,11 +44,16 @@
         </md-list-item>
       </md-list>
     </md-app-drawer>
-
     <md-app-content class="igs-app">
       <router-view></router-view>
     </md-app-content>
   </md-app>
+    <md-bottom-bar md-sync-route  v-if="$store.state.ViewPort.IsXsmall">
+        <md-bottom-bar-item v-for="(item, index) in menu.subModules" :key="index" :to="item.to" :md-label="item.label" :md-icon="item.icon">
+        </md-bottom-bar-item>
+    </md-bottom-bar>
+</div>
+
 </template>
 
 <script>
@@ -164,5 +171,28 @@
     .md-app-scroller{
         overflow: hidden;
     }
+    grid-area: 1 / 1 / span 1 / span 1;
+}
+@media (max-width: 599px){
+.md-app{
+    
+        height: calc(100% - 56px) !important;
+    
+}
+.md-app-container{
+    grid-area: 1 / 1 / span 1 / span 1;
+
+}
+.phone-viewport{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 56px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.md-bottom-bar{
+    grid-area: 2 / 1 / span 1 / span 1;
+}
 }
 </style>

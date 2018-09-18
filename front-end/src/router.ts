@@ -10,7 +10,7 @@ export default new Router({
   // base: process.env.BASE_URL,
   routes: [
     { path: '*', component: p404},
-    { path: '/', redirect: '/portal' },
+    { path: '/', redirect: '/management' },
     {
       path: '/portal',
       component: () => import(/* webpackChunkName: "portal" */ './views/portal/portal.vue'),
