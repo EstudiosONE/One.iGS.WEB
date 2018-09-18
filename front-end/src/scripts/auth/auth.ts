@@ -16,7 +16,7 @@ import {
 export function ProcessAuthorization(state: State, jwt: string) {
     if (jwt) {
         const tokendata: Token = JWT(jwt)
-        if (Moment().isBetween(Moment(tokendata.Creation), Moment(tokendata.Expiration))) {
+        if (Moment().isBefore(Moment(tokendata.Expiration))) {
             state.Auth.NeedLogin = false
             state.Auth.Token = tokendata
             state.Auth.TokenBearer = 'Bearer ' + jwt

@@ -95,6 +95,7 @@
                 </md-table-row>
             </md-table>
         </div>
+        
         <div>
             <md-table v-if="$store.state.ViewPort.IsXsmall" :mdHeight="240" v-model="this.$store.state.Hotel.Dashboard.CheckOutToday" md-sort="Risk" md-sort-order="desc" md-fixed-header class="igs-dashboard-table">
                 <md-table-toolbar>
@@ -188,6 +189,7 @@
                 </md-table-row>
             </md-table>
         </div>
+
         <div>
             <md-table v-if="$store.state.ViewPort.IsXsmall" :mdHeight="240" v-model="this.$store.state.Hotel.Dashboard.PendingReservation" md-sort="Risk" md-sort-order="desc" md-fixed-header class="igs-dashboard-table">
                 <md-table-toolbar>
