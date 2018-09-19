@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app">
         <md-dialog :md-active.sync="this.$store.state.Auth.NeedLogin" :md-click-outside-to-close="false">
             <md-dialog-title>Iniciar sesión</md-dialog-title>
             <md-content class="igs-login">
@@ -27,7 +27,10 @@
 <style lang="scss">
 @import './styles/fonts.css';
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
-
+.app{
+    width: 100vw;
+    height: 100vh;
+}
 body {
     font-family: 'product_sansregular';
     color: md-get-palette-color(grey, 800) !important;
