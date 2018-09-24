@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-        <md-dialog :md-active.sync="this.$store.state.Auth.NeedLogin" :md-click-outside-to-close="false">
+        <!-- <md-dialog :md-active.sync="this.$store.state.Auth.NeedLogin" :md-click-outside-to-close="false">
             <md-dialog-title>Iniciar sesión</md-dialog-title>
             <md-content class="igs-login">
             <form>
@@ -19,8 +19,9 @@
             <md-dialog-actions>
                 <md-button class="md-primary" @click.prevent="login">iniciar</md-button>
             </md-dialog-actions>
-        </md-dialog>
-        <router-view v-if="!this.$store.state.Auth.NeedLogin" />
+        </md-dialog> -->
+        <!-- <router-view v-if="!this.$store.state.Auth.NeedLogin" /> -->
+        <router-view/>
     </div>
 </template>
 
@@ -131,25 +132,25 @@ body {
     }
 }
 
-@media (max-width: 960px) {
-    .md-toolbar {
-        padding: 0 16px !important;
-        min-height: 64px !important;
-    }
-    .md-tabs {
-        padding-left: 48px !important;
-    }
+// @media (max-width: 960px) {
+//     .md-toolbar {
+//         padding: 0 16px !important;
+//         min-height: 64px !important;
+//     }
+//     .md-tabs {
+//         padding-left: 48px !important;
+//     }
 
-    .md-title {
-        margin-left: 24px !important;
-    }
+//     .md-title {
+//         margin-left: 24px !important;
+//     }
 
-    .igs-dashboard-table{
-        .md-title {
-            margin-left: 4px !important;
-        }
-    }
-}
+//     .igs-dashboard-table{
+//         .md-title {
+//             margin-left: 4px !important;
+//         }
+//     }
+// }
 </style>
 
 <script>

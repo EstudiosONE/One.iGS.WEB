@@ -201,7 +201,7 @@
       </g>
     </g>
   </svg>
-</template>
+</template scoped>
 <style type="text/css">
 	.st0{fill:#4C4B4C;}
 	.st1{fill:#878589;}

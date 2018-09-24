@@ -14,6 +14,13 @@ export default new Router({
     {
       path: '/portal',
       component: () => import(/* webpackChunkName: "portal" */ './views/portal/portal.vue'),
+      redirect: '/portal/home',
+      children: [
+        {
+          path: '/portal/home',
+          component: () => import(/* webpackChunkName: "portal-home" */ './views/portal/Home.vue')
+        },
+      ]
     },
     {
       path: '/management',
